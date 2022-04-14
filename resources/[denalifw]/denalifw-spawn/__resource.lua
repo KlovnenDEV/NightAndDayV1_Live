@@ -1,0 +1,27 @@
+resource_manifest_version '44febabe-d386-4d18-afbe-5e627f4af937'
+
+client_scripts {
+	'@denalifw-houses/config.lua',
+	'@denalifw-apartments/config.lua',
+	'config.lua',
+	'client.lua',
+}
+
+shared_script "@alfa-scripts/cl_errorlog.lua"
+
+server_scripts {
+	'@oxmysql/lib/MySQL.lua',
+	'@denalifw-houses/config.lua',
+	'@denalifw-apartments/config.lua',
+	'config.lua',
+	'server.lua'
+}
+
+ui_page 'html/index.html'
+
+files {
+	'html/index.html',
+	'html/style.css',
+	'html/script.js',
+	'html/reset.css',
+}
