@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dat10>
+ <Version value="28255625" />
+ <Items>
+  <Item type="Synth" ntOffset="0">
+   <Name>cheetah_sub_idle</Name>
+   <Flags value="0xAAAAAAAA" />
+   <BuffersCount value="7" />
+   <RegistersCount value="14" />
+   <OutputsCount1 value="1" />
+   <OutputsCount2 value="6" />
+   <StateBlocksCount value="12" />
+   <RuntimeCost value="56" />
+   <Bytecode>
+    11 5E 00 01 0C 03 11 5E 01 01 00 03 11 5E 02 01
+    0A 03 21 09 03 01 01 01 00 01 21 27 04 01 02 01
+    02 02 11 48 00 00 03 01 00 00 11 5E 00 01 0F 03
+    31 37 05 01 04 01 03 02 04 02 01 00 11 5E 06 01
+    10 03 31 2F 07 01 05 01 00 01 06 01 21 17 00 00
+    05 02 13 00 00 00 01 00 02 00 00 00 11 48 03 00
+    07 01 02 00 11 4A 03 00 21 08 01 00 06 02 21 08
+    00 00 07 02 21 25 00 00 01 02 21 25 01 00 01 02
+    11 04 03 00 31 37 00 01 04 01 08 02 04 02 03 00
+    11 4C 00 00 12 00 03 00 04 00 03 00 11 5E 06 01
+    07 03 11 4C 01 00 11 4C 02 00 31 2F 04 01 05 01
+    00 02 09 02 21 10 07 01 01 02 00 01 21 09 08 01
+    01 01 06 01 21 07 00 00 03 00 21 07 01 00 04 00
+    21 08 01 00 07 01 11 48 03 00 08 01 04 00 21 08
+    00 00 04 01 21 08 02 00 0A 02 21 08 00 00 0B 02
+    11 4A 03 00 21 0A 02 00 01 00 21 09 00 01 03 01
+    0C 02 11 5E 01 01 08 03 21 09 03 01 08 01 06 02
+    25 3A 04 01 06 01 07 01 09 01 0A 01 00 01 0D 02
+    11 04 03 00 21 0A 02 00 00 00 12 00 03 00 00 00
+    03 00 11 48 01 00 03 01 05 00 21 09 00 01 01 01
+    02 01 61 3F 02 00 04 01 06 01 07 01 09 01 0A 01
+    06 00 31 37 0B 01 01 01 0C 02 04 02 07 00 01 19
+    05 00 21 10 01 01 01 02 0B 01 21 08 02 00 05 01
+    21 07 05 00 03 00 11 4A 01 00 11 5E 02 01 09 03
+    11 5E 04 01 0B 03 11 5E 06 01 01 03 31 37 07 01
+    00 01 0E 02 04 02 08 00 21 0C 00 01 03 01 0F 02
+    21 07 01 00 00 00 21 08 05 00 10 02 12 00 02 00
+    06 00 02 00 31 84 05 01 06 01 02 01 04 01 11 5E
+    09 01 04 03 21 09 0A 01 01 01 07 01 11 5E 01 01
+    03 03 31 84 02 01 0A 01 09 01 05 01 11 5E 03 01
+    02 03 25 3A 04 01 07 01 0B 01 0C 01 0D 01 00 01
+    11 02 31 73 02 00 12 02 13 02 09 00 21 0A 01 00
+    05 00 61 40 01 00 04 01 07 01 0B 01 0C 01 0D 01
+    0A 00 21 08 02 00 14 02 11 5E 00 01 06 03 11 5E
+    05 01 05 03 51 16 09 01 08 01 03 01 01 01 01 02
+    02 01 11 5E 01 01 0D 03 21 08 01 00 09 01 21 0D
+    06 00 02 00 31 84 02 01 06 01 05 01 00 01 11 5E
+    03 01 0E 03 31 37 00 01 03 01 15 02 16 02 0B 00
+    21 08 06 00 01 01 21 08 01 00 02 01 21 08 01 00
+    17 02 21 08 06 00 00 01 21 0A 06 00 01 00 21 34
+    06 00 01 02 FF FF 00 00
+   </Bytecode>
+   <Constants>
+    3
+    0.05
+    0.1
+    0.3065
+    2
+    12
+    10
+    0.4915
+    0.493
+    0.2005
+    5
+    6200.69
+    0.509
+    50
+    0.151
+    1284.936
+    3.830502
+    0.9355
+    0.742
+    0.0405
+    0.024
+    0.982859
+   </Constants>
+   <Variables>
+    <Item>
+     <Name>hash_3DD2C9E3</Name>
+     <Value value="20" />
+    </Item>
+    <Item>
+     <Name>hash_893FF500</Name>
+     <Value value="1" />
+    </Item>
+    <Item>
+     <Name>hash_ABD2A3D6</Name>
+     <Value value="10" />
+    </Item>
+    <Item>
+     <Name>hash_AAED9868</Name>
+     <Value value="55" />
+    </Item>
+    <Item>
+     <Name>hash_4E132C3B</Name>
+     <Value value="0.05" />
+    </Item>
+    <Item>
+     <Name>hash_52E84522</Name>
+     <Value value="1.5" />
+    </Item>
+    <Item>
+     <Name>hash_8115C581</Name>
+     <Value value="2.5" />
+    </Item>
+    <Item>
+     <Name>frequency</Name>
+     <Value value="1" />
+    </Item>
+    <Item>
+     <Name>hash_2ACC025D</Name>
+     <Value value="1" />
+    </Item>
+    <Item>
+     <Name>hash_18B20B91</Name>
+     <Value value="0.4395" />
+    </Item>
+    <Item>
+     <Name>rpm</Name>
+     <Value value="0.3325" />
+    </Item>
+    <Item>
+     <Name>hash_E07986E5</Name>
+     <Value value="0.4395" />
+    </Item>
+    <Item>
+     <Name>hash_24E7B0B4</Name>
+     <Value value="10" />
+    </Item>
+    <Item>
+     <Name>hash_39B29F61</Name>
+     <Value value="1" />
+    </Item>
+    <Item>
+     <Name>throttle</Name>
+     <Value value="1" />
+    </Item>
+    <Item>
+     <Name>hash_D250E3B7</Name>
+     <Value value="50" />
+    </Item>
+    <Item>
+     <Name>hash_15857327</Name>
+     <Value value="50" />
+    </Item>
+   </Variables>
+  </Item>
+  <Item type="Synth" ntOffset="17">
+   <Name>cheetah_turbo</Name>
+   <Flags value="0xAAAAAAAA" />
+   <BuffersCount value="5" />
+   <RegistersCount value="12" />
+   <OutputsCount1 value="1" />
+   <OutputsCount2 value="1" />
+   <StateBlocksCount value="9" />
+   <RuntimeCost value="40" />
+   <Bytecode>
+    11 5E 00 01 00 03 11 5E 01 01 01 03 31 37 02 01
+    00 01 02 02 03 02 00 00 11 5E 03 01 02 03 21 09
+    04 01 03 01 02 01 11 5E 05 01 03 03 21 09 06 01
+    01 01 02 01 21 09 01 01 04 01 04 02 21 09 03 01
+    05 01 02 01 21 09 07 01 06 01 05 02 11 48 00 00
+    01 01 01 00 11 48 01 00 07 01 02 00 01 19 02 00
+    21 09 04 01 03 01 06 02 11 48 03 00 04 01 03 00
+    21 08 02 00 07 02 51 16 01 01 00 01 00 02 08 02
+    00 02 01 02 11 4A 01 00 11 4A 00 00 21 08 01 00
+    09 02 12 00 02 00 04 00 02 00 21 08 00 00 0A 02
+    11 4A 03 00 21 27 00 01 01 01 0B 02 21 0A 01 00
+    00 00 11 5E 01 01 05 03 21 08 03 00 0C 02 11 5E
+    03 01 04 03 31 73 02 00 0D 02 0E 02 04 00 21 10
+    04 01 01 02 00 01 21 0A 01 00 03 00 21 09 00 01
+    03 01 02 01 31 2F 05 01 04 01 0F 02 01 02 21 09
+    06 01 01 01 02 01 11 5E 07 01 07 03 11 5E 08 01
+    06 03 21 08 02 00 10 02 21 09 01 01 00 01 11 02
+    21 09 03 01 06 01 12 02 21 09 04 01 08 01 02 01
+    31 2F 09 01 07 01 13 02 14 02 21 0D 04 00 02 00
+    21 08 01 00 05 01 11 5E 0A 01 08 03 21 09 00 01
+    04 01 15 02 31 2F 02 01 0A 01 13 02 14 02 11 48
+    00 00 01 01 05 00 25 3D 05 01 06 01 07 01 08 01
+    0B 01 03 01 09 01 21 0A 01 00 04 00 11 50 00 00
+    25 38 01 01 03 01 04 01 09 01 0A 01 00 01 02 01
+    61 40 01 00 05 01 06 01 07 01 08 01 0B 01 06 00
+    61 3F 00 00 16 02 00 02 17 02 18 02 19 02 07 00
+    61 3F 01 00 01 01 03 01 04 01 09 01 0A 01 08 00
+    21 08 00 00 1A 02 21 08 01 00 1B 02 21 0A 01 00
+    00 00 21 08 01 00 1C 02 FF FF 00 00
+   </Bytecode>
+   <Constants>
+    0.1785
+    0.37
+    5150
+    5180
+    3900.002
+    0.2445
+    1.25
+    0.196
+    0.1135
+    4
+    0.082
+    3.027997
+    0.958
+    0.1095
+    0.3465
+    250
+    3300
+    0.07
+    10
+    4902.001
+    0.01641643
+    -0.01641643
+    -1.966196
+    0.9671671
+    0.045
+    0.739
+    1.741502
+   </Constants>
+   <Variables>
+    <Item>
+     <Name>frequency</Name>
+     <Value value="2.030499" />
+    </Item>
+    <Item>
+     <Name>f1</Name>
+     <Value value="1" />
+    </Item>
+    <Item>
+     <Name>f2</Name>
+     <Value value="1" />
+    </Item>
+    <Item>
+     <Name>f3</Name>
+     <Value value="1" />
+    </Item>
+    <Item>
+     <Name>hash_890274C4</Name>
+     <Value value="1" />
+    </Item>
+    <Item>
+     <Name>hp_f</Name>
+     <Value value="1" />
+    </Item>
+    <Item>
+     <Name>hash_075F0F63</Name>
+     <Value value="1" />
+    </Item>
+    <Item>
+     <Name>hp_r</Name>
+     <Value value="0.248" />
+    </Item>
+    <Item>
+     <Name>lp_r</Name>
+     <Value value="0.094" />
+    </Item>
+   </Variables>
+  </Item>
+  <Item type="Synth" ntOffset="31">
+   <Name>cheetah_dump_valve_synth</Name>
+   <Flags value="0xAAAAAAAA" />
+   <BuffersCount value="4" />
+   <RegistersCount value="17" />
+   <OutputsCount1 value="1" />
+   <OutputsCount2 value="3" />
+   <StateBlocksCount value="11" />
+   <RuntimeCost value="30" />
+   <Bytecode>
+    31 1A 00 01 00 02 02 02 03 02 00 00 31 1A 01 01
+    00 02 04 02 05 02 01 00 31 1A 02 01 00 02 06 02
+    07 02 02 00 72 59 00 00 03 01 00 02 08 02 02 01
+    01 01 00 02 00 01 01 02 03 00 11 5E 04 01 01 03
+    21 09 01 01 04 01 09 02 11 06 05 01 00 00 11 77
+    00 00 0A 02 01 19 01 00 25 3A 06 01 07 01 08 01
+    09 01 0A 01 01 01 0B 02 11 77 02 00 0C 02 51 16
+    0B 01 05 01 00 02 0D 02 0E 02 0F 02 01 19 03 00
+    21 09 01 01 10 02 0B 01 31 78 01 00 02 00 00 00
+    04 00 61 3F 03 00 06 01 07 01 08 01 09 01 0A 01
+    05 00 65 5C 0C 01 0D 01 0E 01 0F 01 10 01 01 02
+    00 02 08 02 02 01 00 02 00 01 06 00 31 37 00 01
+    0C 01 00 02 11 02 07 00 31 37 02 01 0C 01 00 02
+    12 02 08 00 21 08 01 00 05 01 11 5E 06 01 03 03
+    21 08 03 00 05 01 21 10 07 01 10 02 01 01 11 5E
+    08 01 02 03 21 0C 01 01 0B 01 07 01 21 27 05 01
+    02 01 13 02 31 2F 09 01 00 01 08 01 06 01 21 0A
+    03 00 01 00 31 2F 00 01 05 01 14 02 15 02 21 08
+    03 00 01 01 21 09 02 01 04 01 09 01 35 3E 01 01
+    04 01 06 01 07 01 08 01 02 01 16 02 17 02 31 2F
+    09 01 00 01 18 02 19 02 31 2F 0A 01 05 01 1A 02
+    1B 02 21 08 03 00 1C 02 61 40 03 00 01 01 04 01
+    06 01 07 01 08 01 09 00 35 3E 00 01 02 01 05 01
+    0B 01 0C 01 0A 01 1D 02 09 01 11 5E 01 01 00 03
+    61 40 03 00 00 01 02 01 05 01 0B 01 0C 01 0A 00
+    21 08 03 00 01 01 10 5F 03 01 FF FF
+   </Bytecode>
+   <Constants>
+    0.787
+    0.892
+    0.4215
+    0.6145
+    0.057
+    0.16
+    0.066
+    8000
+    0.1785
+    4052.198
+    0.35796
+    0.151
+    0.663
+    0.159
+    0.37
+    0.5355
+    0.087
+    0.478
+    0.0785
+    0.145
+    1250.938
+    0.95377
+    0.07
+    10
+    89.99999
+    110
+    0.96912
+    8870.557
+   </Constants>
+   <Variables>
+    <Item>
+     <Name>gain</Name>
+     <Value value="1" />
+    </Item>
+    <Item>
+     <Name>frequency</Name>
+     <Value value="1" />
+    </Item>
+    <Item>
+     <Name>hash_71AB19E2</Name>
+     <Value value="7680" />
+    </Item>
+    <Item>
+     <Name>hash_93BAD53D</Name>
+     <Value value="12380" />
+    </Item>
+   </Variables>
+  </Item>
+  <Item type="Synth" ntOffset="56">
+   <Name>cheetah_engine_submix</Name>
+   <Flags value="0xAAAAAAAA" />
+   <BuffersCount value="2" />
+   <RegistersCount value="22" />
+   <OutputsCount1 value="1" />
+   <OutputsCount2 value="1" />
+   <StateBlocksCount value="10" />
+   <RuntimeCost value="27" />
+   <Bytecode>
+    11 5E 00 01 01 03 11 5E 01 01 00 03 21 09 02 01
+    00 01 01 01 31 37 01 01 02 01 01 02 02 02 00 00
+    51 16 02 01 01 01 02 02 01 02 00 02 01 02 31 37
+    01 01 02 01 02 02 03 02 01 00 51 16 03 01 01 01
+    00 02 04 02 00 02 01 02 21 54 04 01 00 01 05 02
+    02 00 11 5E 05 01 0E 03 31 83 06 01 03 01 00 02
+    02 01 11 5E 00 01 03 03 71 58 00 00 00 02 06 02
+    07 02 08 02 00 02 01 02 04 01 03 00 31 2F 03 01
+    05 01 01 02 01 02 31 37 07 01 06 01 09 02 03 02
+    04 00 11 5E 08 01 0D 03 31 2D 00 00 0A 02 00 01
+    21 09 02 01 07 01 0B 02 21 09 04 01 08 01 03 01
+    11 5E 05 01 04 03 11 5E 06 01 06 03 11 5E 09 01
+    07 03 31 2F 00 01 06 01 05 01 09 01 11 06 07 01
+    00 00 21 10 08 01 01 01 02 01 21 09 0A 01 04 01
+    03 01 21 10 01 01 04 01 0A 01 11 5E 02 01 08 03
+    11 5E 05 01 05 03 31 2F 09 01 07 01 0C 02 0D 02
+    31 2F 0B 01 08 01 0E 02 00 01 31 2F 00 01 0B 01
+    0C 02 0D 02 35 7A 04 01 07 01 08 01 0A 01 0C 01
+    0F 02 10 02 09 01 31 2F 0D 01 06 01 05 01 02 01
+    11 5E 0E 01 02 03 11 5E 0F 01 0B 03 11 5E 10 01
+    09 03 01 60 01 00 21 0C 11 01 03 01 01 01 11 5E
+    01 01 0C 03 35 7C 02 01 03 01 05 01 09 01 0B 01
+    0D 01 11 02 00 01 31 2F 12 01 06 01 0F 01 10 01
+    11 5E 13 01 0A 03 51 16 14 01 0E 01 12 02 01 02
+    13 02 14 02 61 3F 01 00 04 01 07 01 08 01 0A 01
+    0C 01 05 00 31 37 15 01 11 01 15 02 16 02 06 00
+    31 2F 00 01 14 01 0C 02 0D 02 21 09 04 01 15 01
+    12 01 61 3F 01 00 02 01 03 01 05 01 09 01 0B 01
+    07 00 31 2F 07 01 06 01 13 01 01 01 31 73 01 00
+    07 01 04 01 08 00 35 3E 01 01 02 01 03 01 05 01
+    06 01 17 02 18 02 00 01 61 40 01 00 01 01 02 01
+    03 01 05 01 06 01 09 00 FF FF 00 00
+   </Bytecode>
+   <Constants>
+    0.5
+    0.102
+    0.6
+    0.3
+    0.0225
+    0.862
+    0.6175
+    15
+    0.09
+    0.75
+    0.07
+    10
+    0.0645
+    800
+    2000.9
+    8000.6
+    0.9
+    0.065
+    0.08
+    0.1
+    0.15
+    80
+    1000.95
+   </Constants>
+   <Variables>
+    <Item>
+     <Name>rpm</Name>
+     <Value value="1" />
+    </Item>
+    <Item>
+     <Name>throttle</Name>
+     <Value value="1" />
+    </Item>
+    <Item>
+     <Name>proximity</Name>
+     <Value value="0" />
+    </Item>
+    <Item>
+     <Name>f1_r</Name>
+     <Value value="0.03" />
+    </Item>
+    <Item>
+     <Name>f2_r</Name>
+     <Value value="0.35" />
+    </Item>
+    <Item>
+     <Name>f2_cut</Name>
+     <Value value="700" />
+    </Item>
+    <Item>
+     <Name>hash_893FF500</Name>
+     <Value value="1" />
+    </Item>
+    <Item>
+     <Name>hash_97F587B4</Name>
+     <Value value="0.35" />
+    </Item>
+    <Item>
+     <Name>hash_FDC17069</Name>
+     <Value value="700" />
+    </Item>
+    <Item>
+     <Name>hash_70B731FB</Name>
+     <Value value="0.7" />
+    </Item>
+    <Item>
+     <Name>md_smp</Name>
+     <Value value="7" />
+    </Item>
+    <Item>
+     <Name>md_fb</Name>
+     <Value value="0" />
+    </Item>
+    <Item>
+     <Name>hash_9F535834</Name>
+     <Value value="7" />
+    </Item>
+    <Item>
+     <Name>hash_EBD5E4C3</Name>
+     <Value value="1" />
+    </Item>
+    <Item>
+     <Name>firstperson</Name>
+     <Value value="0" />
+    </Item>
+   </Variables>
+  </Item>
+  <Item type="Preset" ntOffset="77">
+   <Name>cheetah_engine_submix_preset</Name>
+   <Flags value="0xAAAAAAAA" />
+   <Variables>
+    <Item>
+     <Name>f1_r</Name>
+     <Value1 value="0.05" />
+     <Value2 value="0" />
+    </Item>
+    <Item>
+     <Name>f2_cut</Name>
+     <Value1 value="1000" />
+     <Value2 value="0" />
+    </Item>
+    <Item>
+     <Name>f2_r</Name>
+     <Value1 value="0.04" />
+     <Value2 value="0" />
+    </Item>
+    <Item>
+     <Name>hash_FDC17069</Name>
+     <Value1 value="600" />
+     <Value2 value="0" />
+    </Item>
+    <Item>
+     <Name>hash_97F587B4</Name>
+     <Value1 value="0.06" />
+     <Value2 value="0" />
+    </Item>
+    <Item>
+     <Name>md_fb</Name>
+     <Value1 value="0.3" />
+     <Value2 value="0" />
+    </Item>
+    <Item>
+     <Name>md_smp</Name>
+     <Value1 value="6" />
+     <Value2 value="0" />
+    </Item>
+    <Item>
+     <Name>hash_70B731FB</Name>
+     <Value1 value="0.5" />
+     <Value2 value="0" />
+    </Item>
+    <Item>
+     <Name>hash_9F535834</Name>
+     <Value1 value="6" />
+     <Value2 value="0" />
+    </Item>
+   </Variables>
+  </Item>
+  <Item type="Synth" ntOffset="106">
+   <Name>cheetah_exhaust_transients_and_eq</Name>
+   <Flags value="0xAAAAAAAA" />
+   <BuffersCount value="5" />
+   <RegistersCount value="19" />
+   <OutputsCount1 value="1" />
+   <OutputsCount2 value="2" />
+   <StateBlocksCount value="17" />
+   <RuntimeCost value="55" />
+   <Bytecode>
+    11 5E 00 01 02 03 21 27 01 01 00 01 02 02 31 2F
+    02 01 01 01 03 02 04 02 01 60 00 00 25 3A 01 01
+    03 01 04 01 05 01 06 01 02 01 05 02 13 00 00 00
+    01 00 02 00 00 00 61 40 00 00 01 01 03 01 04 01
+    05 01 06 01 00 00 12 00 00 00 03 00 00 00 11 04
+    00 00 11 5E 01 01 03 03 21 09 03 01 00 01 01 01
+    11 1B 03 00 31 2D 00 00 06 02 01 02 31 36 03 00
+    07 02 00 02 01 00 31 37 04 01 03 01 01 02 08 02
+    02 00 31 37 05 01 00 01 09 02 00 02 03 00 11 1B
+    00 00 31 2F 03 01 01 01 01 02 0A 02 51 16 06 01
+    04 01 0B 02 01 02 00 02 01 02 31 37 07 01 00 01
+    0B 02 00 02 04 00 21 09 08 01 05 01 0C 02 21 0D
+    00 00 03 00 51 16 09 01 00 01 0D 02 0E 02 0F 02
+    01 02 11 5E 0A 01 01 03 21 08 00 00 0A 01 21 27
+    00 01 01 01 10 02 31 37 04 01 06 01 0E 02 11 02
+    05 00 21 09 05 01 03 01 09 01 21 70 0B 01 07 01
+    08 01 31 37 03 01 00 01 01 02 12 02 06 00 51 16
+    07 01 04 01 00 02 13 02 00 02 01 02 31 37 08 01
+    0B 01 12 02 12 02 07 00 11 5E 09 01 0F 03 21 08
+    00 00 05 01 21 09 00 01 09 01 08 01 31 83 05 01
+    07 01 00 02 06 01 21 27 0A 01 03 01 10 02 11 5E
+    0B 01 0E 03 31 36 00 00 14 02 14 02 08 00 11 5E
+    03 01 0D 03 21 09 06 01 0A 01 00 01 21 28 00 00
+    15 02 11 5E 07 01 00 03 31 2F 08 01 0B 01 01 02
+    01 02 11 5E 09 01 0B 03 31 37 0C 01 05 01 16 02
+    17 02 09 00 11 5E 05 01 09 03 21 09 0B 01 03 01
+    08 01 51 16 0D 01 0C 01 0B 02 01 02 09 01 07 01
+    31 2D 00 00 01 02 18 02 21 10 0E 01 0A 01 06 01
+    21 54 03 01 01 01 19 02 0A 00 21 0C 06 01 00 01
+    0E 01 31 2F 09 01 05 01 07 01 0D 01 21 09 0A 01
+    0B 01 08 01 21 07 01 00 00 00 21 09 0F 01 02 01
+    1A 02 21 10 00 01 0B 01 0A 01 71 58 04 00 00 02
+    1B 02 1C 02 1D 02 00 02 01 02 03 01 0B 00 25 39
+    02 01 07 01 0D 01 0E 01 10 01 0F 01 1E 02 21 08
+    01 00 1F 02 21 09 11 01 09 01 06 01 11 5E 12 01
+    06 03 61 3F 01 00 02 01 07 01 0D 01 0E 01 10 01
+    0C 00 21 0C 01 01 08 01 00 01 31 2D 04 00 20 02
+    12 01 21 09 03 01 0C 01 21 02 21 09 06 01 11 01
+    22 02 11 5E 09 01 07 03 11 5E 0A 01 0A 03 31 2F
+    00 01 05 01 0A 01 09 01 11 06 02 01 04 00 31 37
+    07 01 01 01 23 02 24 02 0D 00 21 08 01 00 06 01
+    21 10 08 01 04 01 03 01 11 5E 01 01 04 03 11 5E
+    03 01 05 03 51 16 04 01 08 01 25 02 01 02 26 02
+    00 01 11 5E 06 01 08 03 31 2F 09 01 02 01 27 02
+    16 02 21 08 01 00 07 01 11 5E 0A 01 0C 03 35 7A
+    00 01 02 01 07 01 08 01 0B 01 03 01 28 02 09 01
+    51 16 0C 01 01 01 29 02 01 02 2A 02 2B 02 21 0A
+    02 00 01 00 31 2F 0D 01 05 01 06 01 0A 01 31 2F
+    0E 01 04 01 27 02 16 02 61 3F 02 00 00 01 02 01
+    07 01 08 01 0B 01 0E 00 35 7C 01 01 03 01 04 01
+    05 01 06 01 0D 01 2C 02 0E 01 31 2F 09 01 0C 01
+    27 02 16 02 35 3E 00 01 02 01 07 01 08 01 0A 01
+    2D 02 2E 02 09 01 61 3F 02 00 01 01 03 01 04 01
+    05 01 06 01 0F 00 61 40 02 00 00 01 02 01 07 01
+    08 01 0A 01 10 00 FF FF
+   </Bytecode>
+   <Constants>
+    0.7
+    50
+    300
+    93.99535
+    -1
+    0.006
+    0.8085
+    0.06
+    1.5
+    0.5
+    0.98
+    0.01
+    0.2
+    5
+    3
+    0.15
+    0.1
+    0.6
+    0.0015
+    2
+    10
+    0.123
+    2.3
+    0.502
+    4
+    0.05
+    0.862
+    0.6175
+    0.680695
+    0.7675
+    0.09
+    0.591
+    0.814001
+    0.0995
+    0.106
+    0.75
+    0.0645
+    0.07
+    2000.9
+    0.9
+    0.065
+    0.08
+    8000.6
+    80
+    1000.95
+   </Constants>
+   <Variables>
+    <Item>
+     <Name>trans</Name>
+     <Value value="0.2575" />
+    </Item>
+    <Item>
+     <Name>amount</Name>
+     <Value value="8" />
+    </Item>
+    <Item>
+     <Name>rpm</Name>
+     <Value value="1" />
+    </Item>
+    <Item>
+     <Name>throttle</Name>
+     <Value value="1" />
+    </Item>
+    <Item>
+     <Name>proximity</Name>
+     <Value value="0" />
+    </Item>
+    <Item>
+     <Name>f1_cut</Name>
+     <Value value="150" />
+    </Item>
+    <Item>
+     <Name>f1_r</Name>
+     <Value value="0.03" />
+    </Item>
+    <Item>
+     <Name>hash_97F587B4</Name>
+     <Value value="0.35" />
+    </Item>
+    <Item>
+     <Name>f2_cut</Name>
+     <Value value="700" />
+    </Item>
+    <Item>
+     <Name>hash_893FF500</Name>
+     <Value value="1" />
+    </Item>
+    <Item>
+     <Name>f2_r</Name>
+     <Value value="0.35" />
+    </Item>
+    <Item>
+     <Name>hash_282E311C</Name>
+     <Value value="1" />
+    </Item>
+    <Item>
+     <Name>hash_FDC17069</Name>
+     <Value value="700" />
+    </Item>
+    <Item>
+     <Name>hash_EBD5E4C3</Name>
+     <Value value="1" />
+    </Item>
+    <Item>
+     <Name>firstperson</Name>
+     <Value value="0" />
+    </Item>
+    <Item>
+     <Name>hash_352DE0F9</Name>
+     <Value value="0.2035" />
+    </Item>
+   </Variables>
+  </Item>
+  <Item type="Preset" ntOffset="140">
+   <Name>cheetah_exhaust_transients_and_eq_preset</Name>
+   <Flags value="0xAAAAAAAA" />
+   <Variables>
+    <Item>
+     <Name>f1_cut</Name>
+     <Value1 value="700" />
+     <Value2 value="0" />
+    </Item>
+    <Item>
+     <Name>f1_bw</Name>
+     <Value1 value="0.1" />
+     <Value2 value="0" />
+    </Item>
+    <Item>
+     <Name>f1_r</Name>
+     <Value1 value="0.05" />
+     <Value2 value="0" />
+    </Item>
+    <Item>
+     <Name>hash_F6DA7E60</Name>
+     <Value1 value="0.4" />
+     <Value2 value="0" />
+    </Item>
+    <Item>
+     <Name>f2_cut</Name>
+     <Value1 value="200" />
+     <Value2 value="0" />
+    </Item>
+    <Item>
+     <Name>f2_r</Name>
+     <Value1 value="0.035" />
+     <Value2 value="0" />
+    </Item>
+    <Item>
+     <Name>hash_FDC17069</Name>
+     <Value1 value="250" />
+     <Value2 value="0" />
+    </Item>
+    <Item>
+     <Name>hash_97F587B4</Name>
+     <Value1 value="0.045" />
+     <Value2 value="0" />
+    </Item>
+    <Item>
+     <Name>hash_AD206324</Name>
+     <Value1 value="0.8" />
+     <Value2 value="0" />
+    </Item>
+    <Item>
+     <Name>amount</Name>
+     <Value1 value="3" />
+     <Value2 value="0" />
+    </Item>
+    <Item>
+     <Name>trans</Name>
+     <Value1 value="4" />
+     <Value2 value="0" />
+    </Item>
+    <Item>
+     <Name>hash_282E311C</Name>
+     <Value1 value="4.5" />
+     <Value2 value="0" />
+    </Item>
+    <Item>
+     <Name>hash_352DE0F9</Name>
+     <Value1 value="0.4" />
+     <Value2 value="0" />
+    </Item>
+   </Variables>
+  </Item>
+ </Items>
+</Dat10>

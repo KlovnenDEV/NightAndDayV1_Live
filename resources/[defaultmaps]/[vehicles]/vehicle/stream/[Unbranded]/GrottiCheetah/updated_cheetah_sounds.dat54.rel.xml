@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dat54>
+ <Version value="28255625" />
+ <NameTable>
+  <Item>DLC_UPDATED_CHEETAH\CHEETAH</Item>
+  <Item>DLC_UPDATED_CHEETAH\CHEETAH_NPC</Item>
+ </NameTable>
+ <Items>
+  <Item type="WrapperSound">
+   <Name>cheetah_door_close</Name>
+   <Header>
+    <Flags value="0x00008020" />
+    <Unk05 value="80" />
+    <Category>vehicles_doors</Category>
+   </Header>
+   <AudioHash0>dlc_updated_cheetah_cheetah_luxury_gen_vehicle_door_close</AudioHash0>
+   <FrameStartTime value="0" />
+   <AudioHash1>vehicles_extras_luxury_close</AudioHash1>
+   <FrameTimeInterval value="0" />
+   <Variables />
+   <AudioTracks>
+    <Item>dlc_updated_cheetah_cheetah_luxury_gen_vehicle_door_close</Item>
+    <Item>vehicles_extras_luxury_close</Item>
+   </AudioTracks>
+  </Item>
+  <Item type="WrapperSound">
+   <Name>cheetah_door_open</Name>
+   <Header>
+    <Flags value="0x00008020" />
+    <Unk05 value="80" />
+    <Category>vehicles_doors</Category>
+   </Header>
+   <AudioHash0>cheetah_door_open_rnd</AudioHash0>
+   <FrameStartTime value="0" />
+   <AudioHash1>vehicles_extras_luxury_open</AudioHash1>
+   <FrameTimeInterval value="0" />
+   <Variables />
+   <AudioTracks>
+    <Item>cheetah_door_open_rnd</Item>
+    <Item>vehicles_extras_luxury_open</Item>
+   </AudioTracks>
+  </Item>
+  <Item type="RandomizedSound">
+   <Name>cheetah_door_open_rnd</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <UnkByte value="0" />
+   <UnkBytes />
+   <Items>
+    <Item key="dlc_updated_cheetah_cheetah_luxury_gen_vehicle_door_open_gullwing_1" value="1" />
+    <Item key="dlc_updated_cheetah_cheetah_luxury_gen_vehicle_door_open_gullwing_2" value="1" />
+   </Items>
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_updated_cheetah_cheetah_luxury_gen_vehicle_door_close</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+   <FileName>luxury_gen_vehicle_door_close</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_updated_cheetah_cheetah_luxury_gen_vehicle_door_open_gullwing_1</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+   <FileName>hash_57342B80</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_updated_cheetah_cheetah_luxury_gen_vehicle_door_open_gullwing_2</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+   <FileName>hash_29664FE5</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="GranularSound">
+   <Name>cheetah_engine_accel</Name>
+   <Header>
+    <Flags value="0x00008011" />
+    <Flags2 value="0x9555AAAA" />
+    <Unk04 value="65336" />
+    <Category>vehicles_engines</Category>
+   </Header>
+   <WaveSlotIndex value="0" />
+   <Wave1>
+    <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+    <FileName>engine_accel</FileName>
+   </Wave1>
+   <Wave2>
+    <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+    <FileName>exhaust_accel</FileName>
+   </Wave2>
+   <Wave3>
+    <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+    <FileName>engine_decel</FileName>
+   </Wave3>
+   <Wave4>
+    <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+    <FileName>exhaust_decel</FileName>
+   </Wave4>
+   <Wave5>
+    <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+    <FileName>engine_idle</FileName>
+   </Wave5>
+   <Wave6>
+    <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+    <FileName>exhaust_idle</FileName>
+   </Wave6>
+   <DataItem1>
+    <UnkFlags0 value="0" />
+    <UnkFlags1 value="0" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="0.5" />
+   </DataItem1>
+   <DataItem2>
+    <UnkFlags0 value="1" />
+    <UnkFlags1 value="0" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="0.5" />
+   </DataItem2>
+   <DataItem3>
+    <UnkFlags0 value="0" />
+    <UnkFlags1 value="0" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="1" />
+    <UnkFloat value="1" />
+   </DataItem3>
+   <DataItem4>
+    <UnkFlags0 value="1" />
+    <UnkFlags1 value="0" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="1" />
+    <UnkFloat value="1" />
+   </DataItem4>
+   <DataItem5>
+    <UnkFlags0 value="0" />
+    <UnkFlags1 value="1" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="1" />
+   </DataItem5>
+   <DataItem6>
+    <UnkFlags0 value="1" />
+    <UnkFlags1 value="1" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="1" />
+   </DataItem6>
+   <UnkFloat0 value="0.01" />
+   <UnkFloat1 value="0.05" />
+   <UnkShort0 value="-100" />
+   <UnkShort1 value="-400" />
+   <UnkShort2 value="-100" />
+   <UnkShort3 value="-100" />
+   <UnkShort4 value="-300" />
+   <UnkShort5 value="-400" />
+   <TrackName />
+   <UnkVecData>
+    12, 57
+    11.4, 11.4
+   </UnkVecData>
+  </Item>
+  <Item type="GranularSound">
+   <Name>cheetah_engine_accel_npc</Name>
+   <Header>
+    <Flags value="0x00008011" />
+    <Flags2 value="0x9555AAAA" />
+    <Unk04 value="65336" />
+    <Category>vehicles_engines</Category>
+   </Header>
+   <WaveSlotIndex value="0" />
+   <Wave1>
+    <ContainerName>dlc_updated_cheetah/cheetah_npc</ContainerName>
+    <FileName>engine_accel</FileName>
+   </Wave1>
+   <Wave2>
+    <ContainerName>dlc_updated_cheetah/cheetah_npc</ContainerName>
+    <FileName>exhaust_accel</FileName>
+   </Wave2>
+   <Wave3>
+    <ContainerName>0</ContainerName>
+    <FileName />
+   </Wave3>
+   <Wave4>
+    <ContainerName>0</ContainerName>
+    <FileName />
+   </Wave4>
+   <Wave5>
+    <ContainerName>dlc_updated_cheetah/cheetah_npc</ContainerName>
+    <FileName>engine_idle</FileName>
+   </Wave5>
+   <Wave6>
+    <ContainerName>dlc_updated_cheetah/cheetah_npc</ContainerName>
+    <FileName>exhaust_idle</FileName>
+   </Wave6>
+   <DataItem1>
+    <UnkFlags0 value="0" />
+    <UnkFlags1 value="0" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="0.5" />
+   </DataItem1>
+   <DataItem2>
+    <UnkFlags0 value="1" />
+    <UnkFlags1 value="0" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="0.5" />
+   </DataItem2>
+   <DataItem3>
+    <UnkFlags0 value="0" />
+    <UnkFlags1 value="0" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="1" />
+   </DataItem3>
+   <DataItem4>
+    <UnkFlags0 value="1" />
+    <UnkFlags1 value="0" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="1" />
+   </DataItem4>
+   <DataItem5>
+    <UnkFlags0 value="0" />
+    <UnkFlags1 value="1" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="1" />
+   </DataItem5>
+   <DataItem6>
+    <UnkFlags0 value="1" />
+    <UnkFlags1 value="1" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="1" />
+   </DataItem6>
+   <UnkFloat0 value="0.01" />
+   <UnkFloat1 value="0.05" />
+   <UnkShort0 value="-100" />
+   <UnkShort1 value="-400" />
+   <UnkShort2 value="-100" />
+   <UnkShort3 value="-100" />
+   <UnkShort4 value="-300" />
+   <UnkShort5 value="-400" />
+   <TrackName>cheetah_engine_accel</TrackName>
+   <UnkVecData>
+    12, 57
+    11.4, 11.4
+   </UnkVecData>
+  </Item>
+  <Item type="EnvironmentSound">
+   <Name>cheetah_exhaust_accel</Name>
+   <Header>
+    <Flags value="0x00008000" />
+    <Category>vehicles_engines</Category>
+   </Header>
+   <UnkByte value="1" />
+  </Item>
+  <Item type="ModularSynthSound">
+   <Name>cheetah_synth_veh_idle_sub</Name>
+   <Header>
+    <Flags value="0x00008015" />
+    <Flags2 value="0xAAA8AAAA" />
+    <Unk02 value="63936" />
+    <Unk04 value="1200" />
+    <Category>vehicles_engines_loud</Category>
+   </Header>
+   <OptAmpUnkHash>cheetah_sub_idle</OptAmpUnkHash>
+   <UnkHash />
+   <UnkFloat value="-1" />
+   <UnkInt value="0" />
+   <TrackCount value="0" />
+   <AudioTracks>
+    <Item />
+    <Item />
+    <Item />
+    <Item />
+   </AudioTracks>
+   <UnkItems>
+    <Item>
+     <UnkHash>hash_ABD2A3D6</UnkHash>
+     <ParameterHash />
+     <Value value="11" />
+    </Item>
+    <Item>
+     <UnkHash>hash_AAED9868</UnkHash>
+     <ParameterHash />
+     <Value value="55" />
+    </Item>
+    <Item>
+     <UnkHash>hash_4E132C3B</UnkHash>
+     <ParameterHash />
+     <Value value="1" />
+    </Item>
+    <Item>
+     <UnkHash>hash_18B20B91</UnkHash>
+     <ParameterHash />
+     <Value value="3" />
+    </Item>
+    <Item>
+     <UnkHash>hash_E07986E5</UnkHash>
+     <ParameterHash />
+     <Value value="3.5" />
+    </Item>
+    <Item>
+     <UnkHash>hash_52E84522</UnkHash>
+     <ParameterHash />
+     <Value value="1.5" />
+    </Item>
+    <Item>
+     <UnkHash>hash_8115C581</UnkHash>
+     <ParameterHash />
+     <Value value="2" />
+    </Item>
+    <Item>
+     <UnkHash>hash_24E7B0B4</UnkHash>
+     <ParameterHash />
+     <Value value="12" />
+    </Item>
+    <Item>
+     <UnkHash>hash_D250E3B7</UnkHash>
+     <ParameterHash />
+     <Value value="1" />
+    </Item>
+    <Item>
+     <UnkHash>hash_15857327</UnkHash>
+     <ParameterHash />
+     <Value value="250" />
+    </Item>
+    <Item>
+     <UnkHash>hash_39B29F61</UnkHash>
+     <ParameterHash />
+     <Value value="0.2" />
+    </Item>
+   </UnkItems>
+  </Item>
+  <Item type="ModularSynthSound">
+   <Name>cheetah_synth_veh_turbo</Name>
+   <Header>
+    <Flags value="0x00008005" />
+    <Flags2 value="0xAAA8AAAA" />
+    <Unk02 value="65336" />
+    <Category>vehicles_engines_loud</Category>
+   </Header>
+   <OptAmpUnkHash>cheetah_turbo</OptAmpUnkHash>
+   <UnkHash />
+   <UnkFloat value="-1" />
+   <UnkInt value="0" />
+   <TrackCount value="0" />
+   <AudioTracks>
+    <Item />
+    <Item />
+    <Item />
+    <Item />
+   </AudioTracks>
+   <UnkItems />
+  </Item>
+  <Item type="WrapperSound">
+   <Name>cheetah_dump_valve</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <AudioHash0>cheetah_dump_valve_mt</AudioHash0>
+   <FrameStartTime value="0" />
+   <AudioHash1>dump_valve_wrap</AudioHash1>
+   <FrameTimeInterval value="0" />
+   <Variables />
+   <AudioTracks>
+    <Item>cheetah_dump_valve_mt</Item>
+    <Item>dump_valve_wrap</Item>
+   </AudioTracks>
+  </Item>
+  <Item type="MultitrackSound">
+   <Name>cheetah_dump_valve_mt</Name>
+   <Header>
+    <Flags value="0x00008015" />
+    <Flags2 value="0xAAA0AAAA" />
+    <Unk02 value="64536" />
+    <Unk04 value="100" />
+    <Category>vehicles_extras_loud</Category>
+   </Header>
+   <AudioTracks>
+    <Item>cheetah_dump_valve_rnd</Item>
+    <Item>cheetah_synth_dump_valve</Item>
+    <Item>cheetah_waste_gate_mt</Item>
+   </AudioTracks>
+  </Item>
+  <Item type="RandomizedSound">
+   <Name>cheetah_dump_valve_rnd</Name>
+   <Header>
+    <Flags value="0x00000014" />
+    <Unk02 value="64636" />
+    <Unk04 value="100" />
+   </Header>
+   <UnkByte value="0" />
+   <UnkBytes>FF</UnkBytes>
+   <Items>
+    <Item key="dlc_updated_cheetah_cheetah_vehicles_extras_dump_valve_10a" value="1" />
+    <Item key="dlc_updated_cheetah_cheetah_vehicles_extras_dump_valve_10b" value="1" />
+    <Item key="dlc_updated_cheetah_cheetah_vehicles_extras_dump_valve_10c" value="1" />
+   </Items>
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_updated_cheetah_cheetah_vehicles_extras_dump_valve_10a</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+   <FileName>vehicles_extras_dump_valve_10a</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_updated_cheetah_cheetah_vehicles_extras_dump_valve_10b</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+   <FileName>vehicles_extras_dump_valve_10b</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_updated_cheetah_cheetah_vehicles_extras_dump_valve_10c</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+   <FileName>vehicles_extras_dump_valve_10c</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="ModularSynthSound">
+   <Name>cheetah_synth_dump_valve</Name>
+   <Header>
+    <Flags value="0x00000005" />
+    <Flags2 value="0xAAA8AAAA" />
+    <Unk02 value="65036" />
+   </Header>
+   <OptAmpUnkHash>cheetah_dump_valve_synth</OptAmpUnkHash>
+   <UnkHash />
+   <UnkFloat value="3" />
+   <UnkInt value="0" />
+   <TrackCount value="0" />
+   <AudioTracks>
+    <Item />
+    <Item />
+    <Item />
+    <Item />
+   </AudioTracks>
+   <UnkItems>
+    <Item>
+     <UnkHash>hash_71AB19E2</UnkHash>
+     <ParameterHash />
+     <Value value="7680" />
+    </Item>
+    <Item>
+     <UnkHash>hash_93BAD53D</UnkHash>
+     <ParameterHash />
+     <Value value="12380" />
+    </Item>
+   </UnkItems>
+  </Item>
+  <Item type="MultitrackSound">
+   <Name>cheetah_waste_gate_mt</Name>
+   <Header>
+    <Flags value="0x00000011" />
+    <Flags2 value="0xAAA0AAAA" />
+    <Unk04 value="64936" />
+   </Header>
+   <AudioTracks>
+    <Item>hash_96141051</Item>
+    <Item>hash_D6191301</Item>
+   </AudioTracks>
+  </Item>
+  <Item type="WrapperSound">
+   <Name>cheetah_exhaust_pops</Name>
+   <Header>
+    <Flags value="0x00008000" />
+    <Category>vehicles_extras_loud</Category>
+   </Header>
+   <AudioHash0>cheetah_exhaust_pops_hi_rnd</AudioHash0>
+   <FrameStartTime value="0" />
+   <AudioHash1>upgrade_pops</AudioHash1>
+   <FrameTimeInterval value="0" />
+   <Variables />
+   <AudioTracks>
+    <Item>cheetah_exhaust_pops_hi_rnd</Item>
+    <Item>upgrade_pops</Item>
+   </AudioTracks>
+  </Item>
+  <Item type="RandomizedSound">
+   <Name>cheetah_exhaust_pops_hi_rnd</Name>
+   <Header>
+    <Flags value="0x00000014" />
+    <Unk02 value="300" />
+    <Unk04 value="100" />
+   </Header>
+   <UnkByte value="0" />
+   <UnkBytes>FF FF FF</UnkBytes>
+   <Items>
+    <Item key="dlc_updated_cheetah_cheetah_vehicle_extras_hi_exhaust_pop_05" value="1" />
+    <Item key="dlc_updated_cheetah_cheetah_vehicle_extras_hi_exhaust_pop_04" value="1" />
+    <Item key="dlc_updated_cheetah_cheetah_vehicle_extras_hi_exhaust_pop_03" value="1" />
+    <Item key="dlc_updated_cheetah_cheetah_vehicle_extras_hi_exhaust_pop_02" value="1" />
+    <Item key="dlc_updated_cheetah_cheetah_vehicle_extras_hi_exhaust_pop_01" value="1" />
+   </Items>
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_updated_cheetah_cheetah_vehicle_extras_hi_exhaust_pop_01</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+   <FileName>vehicle_extras_hi_exhaust_pop_01</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_updated_cheetah_cheetah_vehicle_extras_hi_exhaust_pop_02</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+   <FileName>vehicle_extras_hi_exhaust_pop_02</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_updated_cheetah_cheetah_vehicle_extras_hi_exhaust_pop_03</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+   <FileName>vehicle_extras_hi_exhaust_pop_03</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_updated_cheetah_cheetah_vehicle_extras_hi_exhaust_pop_04</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+   <FileName>vehicle_extras_hi_exhaust_pop_04</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_updated_cheetah_cheetah_vehicle_extras_hi_exhaust_pop_05</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+   <FileName>vehicle_extras_hi_exhaust_pop_05</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="WrapperSound">
+   <Name>cheetah_limiter_pops</Name>
+   <Header>
+    <Flags value="0x00000004" />
+    <Unk02 value="65436" />
+   </Header>
+   <AudioHash0>cheetah_limiter_pops_mt</AudioHash0>
+   <FrameStartTime value="0" />
+   <AudioHash1>upgrade_pops</AudioHash1>
+   <FrameTimeInterval value="0" />
+   <Variables />
+   <AudioTracks>
+    <Item>cheetah_limiter_pops_mt</Item>
+    <Item>upgrade_pops</Item>
+   </AudioTracks>
+  </Item>
+  <Item type="MultitrackSound">
+   <Name>cheetah_limiter_pops_mt</Name>
+   <Header>
+    <Flags value="0x00008001" />
+    <Flags2 value="0xAAA0AAAA" />
+    <Category>vehicles_extras_loud</Category>
+   </Header>
+   <AudioTracks>
+    <Item>cheetah_exhaust_pops_hi_rnd</Item>
+    <Item>cheetah_exhaust_pops_rnd</Item>
+   </AudioTracks>
+  </Item>
+  <Item type="RandomizedSound">
+   <Name>cheetah_exhaust_pops_rnd</Name>
+   <Header>
+    <Flags value="0x00000014" />
+    <Unk02 value="64336" />
+    <Unk04 value="65336" />
+   </Header>
+   <UnkByte value="0" />
+   <UnkBytes>FF FF</UnkBytes>
+   <Items>
+    <Item key="dlc_updated_cheetah_cheetah_vehicle_extras_exhaust_crackle_05" value="1" />
+    <Item key="dlc_updated_cheetah_cheetah_vehicle_extras_exhaust_crackle_04" value="1" />
+    <Item key="dlc_updated_cheetah_cheetah_vehicle_extras_exhaust_crackle_03" value="1" />
+    <Item key="dlc_updated_cheetah_cheetah_vehicle_extras_exhaust_crackle_02" value="1" />
+    <Item key="dlc_updated_cheetah_cheetah_vehicle_extras_exhaust_crackle_01" value="1" />
+   </Items>
+  </Item>  
+  <Item type="SimpleSound">
+   <Name>dlc_updated_cheetah_cheetah_vehicle_extras_exhaust_crackle_01</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+   <FileName>vehicle_extras_exhaust_crackle_01</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_updated_cheetah_cheetah_vehicle_extras_exhaust_crackle_02</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+   <FileName>vehicle_extras_exhaust_crackle_02</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_updated_cheetah_cheetah_vehicle_extras_exhaust_crackle_03</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+   <FileName>vehicle_extras_exhaust_crackle_03</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_updated_cheetah_cheetah_vehicle_extras_exhaust_crackle_04</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+   <FileName>vehicle_extras_exhaust_crackle_04</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_updated_cheetah_cheetah_vehicle_extras_exhaust_crackle_05</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+   <FileName>vehicle_extras_exhaust_crackle_05</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>cheetah_start_up</Name>
+   <Header>
+    <Flags value="0x00008014" />
+    <Unk02 value="65336" />
+    <Unk04 value="65436" />
+    <Category>vehicles_extras_loud</Category>
+   </Header>
+   <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+   <FileName>start_up</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>cheetah_shut_down</Name>
+   <Header>
+    <Flags value="0x00008014" />
+    <Unk02 value="65236" />
+    <Unk04 value="65436" />
+    <Category>vehicles_extras_loud</Category>
+   </Header>
+   <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+   <FileName>shut_down</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="WrapperSound">
+   <Name>cheetah_ignition</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <AudioHash0>cheetah_ignition_onstop</AudioHash0>
+   <FrameStartTime value="0" />
+   <AudioHash1>ignition</AudioHash1>
+   <FrameTimeInterval value="0" />
+   <Variables />
+   <AudioTracks>
+    <Item>cheetah_ignition_onstop</Item>
+    <Item>ignition</Item>
+   </AudioTracks>
+  </Item>
+  <Item type="OnStopSound">
+   <Name>cheetah_ignition_onstop</Name>
+   <Header>
+    <Flags value="0x00008004" />
+    <Unk02 value="64736" />
+    <Category>vehicles_extras_loud</Category>
+   </Header>
+   <AudioHash0>cheetah_ignition_start</AudioHash0>
+   <AudioHash1>cheetah_ignition_tail</AudioHash1>
+   <AudioHash2 />
+  </Item>
+  <Item type="ParameterTransformSound">
+   <Name>cheetah_startup_sequence</Name>
+   <Header>
+    <Flags value="0x00000004" />
+    <Unk02 value="65336" />
+   </Header>
+   <AudioHash>cheetah_startup_sequence_delay</AudioHash>
+   <Items>
+    <Item>
+     <ParameterHash>sound.playtime</ParameterHash>
+     <UnkFloat0 value="0" />
+     <UnkFloat1 value="5" />
+     <NestedData>
+      <Item>
+       <UnkFloat0 value="-1" />
+       <UnkInt value="7" />
+       <ParameterHash>fakethrottle</ParameterHash>
+       <UnkFloat1 value="0" />
+       <UnkFloat2 value="1" />
+       <Vectors>
+        0, 0
+        0.03625, 1
+        0.125, 1
+        0.16, 0
+        1, 0
+       </Vectors>
+      </Item>
+      <Item>
+       <UnkFloat0 value="-1" />
+       <UnkInt value="7" />
+       <ParameterHash>fakerevs</ParameterHash>
+       <UnkFloat1 value="0" />
+       <UnkFloat2 value="1" />
+       <Vectors>
+        0, 0.2
+        0.0955, 0.95
+        0.1625, 0.645
+        0.375, 0.3
+       </Vectors>
+      </Item>
+      <Item>
+       <UnkFloat0 value="-1" />
+       <UnkInt value="7" />
+       <ParameterHash>usefakeengine</ParameterHash>
+       <UnkFloat1 value="0" />
+       <UnkFloat2 value="1" />
+       <Vectors>
+        0, 0
+        0.001, 1
+        0.18, 1
+        0.595, 0
+       </Vectors>
+      </Item>
+     </NestedData>
+    </Item>
+   </Items>
+  </Item>
+  <Item type="WrapperSound">
+   <Name>cheetah_startup_sequence_delay</Name>
+   <Header>
+    <Flags value="0x00000100" />
+    <Unk08 value="10000" />
+   </Header>
+   <AudioHash0 />
+   <FrameStartTime value="0" />
+   <AudioHash1 />
+   <FrameTimeInterval value="0" />
+   <Variables />
+   <AudioTracks>
+    <Item />
+    <Item />
+   </AudioTracks>
+  </Item>
+  <Item type="SimpleSound">
+   <Name>cheetah_ignition_start</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+   <FileName>luxury_gen_vehicle_ignition_start</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>cheetah_ignition_tail</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_updated_cheetah/cheetah</ContainerName>
+   <FileName>luxury_gen_vehicle_ignition_tail</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+ </Items>
+</Dat54>
