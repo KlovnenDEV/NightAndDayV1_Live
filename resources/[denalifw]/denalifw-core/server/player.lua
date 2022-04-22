@@ -76,6 +76,7 @@ function DenaliFW.Player.CheckPlayerData(source, PlayerData)
     PlayerData.metadata['fitbit'] = PlayerData.metadata['fitbit'] or {}
     PlayerData.metadata['commandbinds'] = PlayerData.metadata['commandbinds'] or {}
     PlayerData.metadata['bloodtype'] = PlayerData.metadata['bloodtype'] or DenaliFW.Config.Player.Bloodtypes[math.random(1, #DenaliFW.Config.Player.Bloodtypes)]
+    PlayerData.metadata['boostingrep'] = PlayerData.metadata['boostingrep'] or 0
     PlayerData.metadata['dealerrep'] = PlayerData.metadata['dealerrep'] or 0
     PlayerData.metadata['craftingrep'] = PlayerData.metadata['craftingrep'] or 0
     PlayerData.metadata['attachmentcraftingrep'] = PlayerData.metadata['attachmentcraftingrep'] or 0

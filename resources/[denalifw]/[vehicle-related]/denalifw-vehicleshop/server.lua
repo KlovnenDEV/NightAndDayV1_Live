@@ -50,6 +50,30 @@ AddEventHandler('playerDropped', function()
     end
 end)
 
+-- Win car at luckywheel
+RegisterNetEvent('denalifw-vehicleshop:server:luckywheelWin', function(data, carname)
+    local src = source
+    local Player = DenaliFW.Functions.GetPlayer(src)
+	local PlayerData = Player.PlayerData
+	local vehicle = data
+	local showCar = carname
+	
+	
+    local plate = GeneratePlate()
+    MySQL.Async.insert('INSERT INTO player_vehicles (license, citizenid, vehicle, hash, mods, plate, state, garage) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', {
+        PlayerData.license,
+        PlayerData.citizenid,
+        carname,
+        GetHashKey(vehicle),
+        '{}',
+        plate,
+        1,
+		'spanishave'
+    })
+    TriggerClientEvent('denalifw-vehicleshop:client:winLuckyWheelVehicle', src, vehicle, plate)
+    TriggerClientEvent('DenaliFW:Notify', src, 'Congratulations! Your vehicle can be claimed at the valet near the entrance.', 'success')
+end)
+
 -- Functions
 
 local function round(x)

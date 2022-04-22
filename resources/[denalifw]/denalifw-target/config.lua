@@ -145,7 +145,7 @@ Config.TargetModels = {
         distance = 2.0
     },
 	["ATMS"] = {
-        models = {-870868698, -1364697528, 	506770882, -1126237515, 1511880420, 682791951},
+        models = {-870868698, -1364697528, 	506770882, -1126237515, 1511880420, 682791951, 1457658556},
         options = {
             {
                 type = "command",
@@ -289,6 +289,36 @@ Config.TargetModels = {
 	},
 	distance = 2.5,
 },
+["baller"] = {
+	models = {
+		"s_f_m_fembarber",
+	},
+options = {
+	{
+		type = "client",
+		event = "denalifw-shops:marketshop",
+		icon = "fas fa-circle",
+		label = "Get key1",
+	},
+	
+},
+distance = 2.5,
+},
+["key2"] = {
+	models = {
+		"s_f_m_fembarber",
+	},
+options = {
+	{
+		type = "client",
+		event = "denalifw-shops:marketshop",
+		icon = "fas fa-circle",
+		label = "Get key2",
+	},
+	
+},
+distance = 2.5,
+},
 	["roostmotel"] = {
         models = {
             "cs_dreyfuss",
@@ -317,7 +347,7 @@ Config.TargetModels = {
         },
         distance = 2.5,
     },
-	--[["washing"] = {
+	["washing"] = {
         models = {
             "s_m_o_busker_01",
         },
@@ -338,7 +368,7 @@ Config.TargetModels = {
             },
         },
         distance = 2.5,
-    },]]
+    },
 	["lester"] = {
         models = {
             "ig_lestercrest_2",
@@ -469,11 +499,80 @@ Config.TargetModels = {
         },
         distance = 1.5
     },
-
+	["legalHunts"] = {
+        models = {
+            "a_c_boar",
+			"a_c_deer",
+			"a_c_coyote",
+			"a_c_mtlion",
+			"a_c_chop",
+			"a_c_husky",
+			"a_c_retriever",
+			"a_c_westy",
+			"a_c_shepherd",
+			"a_c_poodle",
+			"u_m_y_gunvend_01",
+        },
+        options = {
+            {
+		type = "client",
+                event = "Dox-hunting:skinAnimal",
+                icon = "fas fa-hand-paper",
+                label = "Skin",
+            },
+        },
+        distance = 1.5
+    },
+	
 }
 
 Config.GlobalPedOptions = {
-
+	[1] = { 
+		model = 'ig_hunter',
+		coords = vector4(-678.95, 5839.77, 17.33, 217.38),
+		minusOne = true,
+		freeze = true,
+		invincible = true,
+		blockevents = true,
+		-- animDict = 'amb@world_human_aa_smoke@male@idle_a',
+		-- anim = 'idle_a',
+		scenario = 'WORLD_HUMAN_AA_SMOKE',
+		flag = 1,
+		target = {
+			options = {
+			{
+			 type = "client",
+			 event = "hunting:shop",
+			 icon = 'fas fa-shopping-basket ',
+			 label = 'hunting shop',
+			}
+		},
+		distance = 2.5,
+	  }
+	  },
+	  [2] = { 
+		model = 'csb_chef',
+		coords = vector4(569.1, 2796.52, 42.02, 275.93),
+		minusOne = true,
+		freeze = true,
+		invincible = true,
+		blockevents = true,
+		-- animDict = 'amb@world_human_aa_smoke@male@idle_a',
+		-- anim = 'idle_a',
+		scenario = 'WORLD_HUMAN_AA_SMOKE',
+		flag = 1,
+		target = {
+			options = {
+			{
+			 type = "client",
+			 event = "Dox-hunting:client:sell",
+			 icon = 'fas fa-shopping-basket ',
+			 label = 'sell',
+			}
+		},
+		distance = 2.5,
+		}
+	   },
 }
 
 Config.GlobalVehicleOptions = {
@@ -933,6 +1032,26 @@ blockevents = true,
 	invincible = true,
 	blockevents = true,
 },
+--key1
+{ --casino cashier
+model = 's_f_m_fembarber',
+coords = vector4(442.43, -1886.51, 26.03, 283.44),
+gender = 'female',
+freeze = true,
+invincible = true,
+blockevents = true,
+},
+  
+--key2
+{ 
+model = 's_f_m_fembarber',
+coords = vector4(704.83, -961.0, 29.4, 270.44),
+gender = 'female',
+freeze = true,
+invincible = true,
+blockevents = true,
+},
+  
 
 }
 

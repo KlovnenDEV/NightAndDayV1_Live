@@ -142,6 +142,9 @@ QBShared.Weapons = {
 	[`weapon_heli_crash`]			= {['name'] = 'weapon_heli_crash',			['label'] = 'Heli Crash',				['ammotype'] = nil,						['damagereason'] = 'Helicopter Crash'},
 	[`weapon_fire`]					= {['name'] = 'weapon_fire',				['label'] = 'Fire',						['ammotype'] = nil,						['damagereason'] = 'Torched / Flambeed / Barbecued'},
 
+
+	[`weapon_shoe`] 		 = {['name'] = 'weapon_shoe', 			['label'] = 'weapon_shoe', 			['ammotype'] = 'AMMO_BALL',		['damagereason'] = 'Died'},
+
 	-- Animals
 	[`weapon_animal`]	= {['name'] = 'weapon_animal',	['label'] = 'Animal',	['ammotype'] = nil,	['damagereason'] = 'Mauled'},
     [`weapon_cougar`]	= {['name'] = 'weapon_cougar',	['label'] = 'Cougar',	['ammotype'] = nil,	['damagereason'] = 'Mauled'},

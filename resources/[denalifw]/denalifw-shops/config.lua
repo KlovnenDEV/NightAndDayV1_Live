@@ -616,16 +616,36 @@ Config.Products = {
                 slot = 7,
             },
         },
-    ["casino"] = {
-        [1] = {
-            name = 'casinochips',
-            price = 1,
-            amount = 99999999,
-            info = {},
-            type = 'item',
-            slot = 1,
-        }
-    },
+        ["casino"] = {
+            [1] = {
+                name = 'casinochips',
+                price = 1,
+                amount = 99999999,
+                info = {},
+                type = 'item',
+                slot = 1,
+            }
+        },
+        ["baller"] = {
+            [1] = {
+                name = 'key1',
+                price = 1,
+                amount = 1,
+                info = {},
+                type = 'item',
+                slot = 1,
+            }
+        },
+        ["key2"] = {
+            [1] = {
+                name = 'key2',
+                price = 1,
+                amount = 1,
+                info = {},
+                type = 'item',
+                slot = 1,
+            }
+        },
 }
 
 Config.Locations = {
@@ -690,6 +710,24 @@ Config.Locations = {
         },
         ["products"] = Config.Products["casino"],
         ["showblip"] = true,
+    },
+    ["baller"] = {
+        ["label"] = "Key card casino",
+        ["type"] = "normal",
+        ["coords"] = {
+            [1] = vector3(442.43, -1886.51, 27.03)
+        },
+        ["products"] = Config.Products["baller"],
+        ["showblip"] = false,
+    },
+    ["key2"] = {
+        ["label"] = "Key card casino",
+        ["type"] = "normal",
+        ["coords"] = {
+            [1] = vector3(705.37, -960.85, 30.4)
+        },
+        ["products"] = Config.Products["key2"],
+        ["showblip"] = false,
     },
     ["ltdgasoline"] = {
         ["label"] = "LTD Gasoline",

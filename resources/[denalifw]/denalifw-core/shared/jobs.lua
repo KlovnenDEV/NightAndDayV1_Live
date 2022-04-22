@@ -31,6 +31,21 @@ QBShared.Jobs = {
 			},
 		},
 	},
+	["gotur"] = {
+		label = "Götür",
+		defaultDuty = true,
+		grades = {
+            ['0'] = {
+                name = "Recruit",
+                payment = 0
+            },
+			['1'] = {
+                name = "Chief",
+				isboss = true,
+                payment = 0
+            },
+        },
+	},
 	['tequila'] = {
 		label = 'Tequila',
 		defaultDuty = true,
@@ -418,13 +433,24 @@ QBShared.Jobs = {
             },
         },
 	},
-     ['bus'] = {
+	['bus'] = {
 		label = 'Bus',
 		defaultDuty = true,
 		grades = {
             ['0'] = {
                 name = 'Driver',
                 payment = 0
+            },
+		},
+	},
+	['whitewidow'] = {
+		label = 'whitewidow',
+		defaultDuty = true,
+		grades = {
+            ['0'] = {
+                name = 'Drug Dealer',
+				isboss = true,
+                payment = 150
             },
 		},
 	},

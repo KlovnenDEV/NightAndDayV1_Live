@@ -64,7 +64,7 @@ end
 
 
 function sendToDiscord(name, message, footer)
-    if Config.WebhookLink ~= 'https://discord.com/api/webhooks/963468401756471356/7o4eJ2GVdH6RXarH_CATCm-h3qgMlqIHwWXMID8e7HfrXU_GodyRX_Vnt3qKbnNX3W5J' then
+    if Config.WebhookLink ~= '' then
         local embed = {
                 {
                     ["color"] = 2067276,

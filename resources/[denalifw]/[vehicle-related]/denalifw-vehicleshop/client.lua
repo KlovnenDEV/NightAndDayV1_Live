@@ -147,6 +147,24 @@ local function createTestDriveReturn()
     end)
 end
 
+RegisterNetEvent('denalifw-vehicleshop:client:winCar', function (carname)
+	local vehicle = DenaliFW.Functions.GetClosestVehicle(vector3(935.01, 42.80, 72.43))
+	local showCar = carname
+	TriggerServerEvent('denalifw-vehicleshop:server:luckywheelWin', vehicle, showCar)
+end)
+
+RegisterNetEvent('denalifw-vehicleshop:client:winLuckyWheelVehicle', function(vehicle, plate)
+    DenaliFW.Functions.SpawnVehicle(carmodel, function(veh)
+        TaskWarpPedIntoVehicle(PlayerPedId(), veh, -1)
+        exports['LegacyFuel']:SetFuel(veh, 100)
+        SetVehicleNumberPlateText(veh, plate)
+        SetEntityHeading(veh, Config.LuckyWheel.w)
+        SetEntityAsMissionEntity(veh, true, true)
+        TriggerEvent("vehiclekeys:client:SetOwner", DenaliFW.Functions.GetPlate(veh))
+        TriggerServerEvent("denalifw-vehicletuning:server:SaveVehicleProps", DenaliFW.Functions.GetVehicleProperties(veh))
+    end, Config.LuckyWheel, true)
+end)
+
 local function startTestDriveTimer(testDriveTime)
     local gameTimer = GetGameTimer()
     CreateThread(function()
