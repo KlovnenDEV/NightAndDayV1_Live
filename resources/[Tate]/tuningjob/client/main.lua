@@ -90,7 +90,7 @@ RegisterNetEvent('DenaliFW:Client:OnPlayerLoaded', function()
     DenaliFW.Functions.GetPlayerData(function(PlayerData)
         PlayerJob = PlayerData.job
         if PlayerData.job.onduty then
-            if PlayerData.job.name == "tuning" then
+            if PlayerData.job.name == "mechanic" then
                 TriggerServerEvent("DenaliFW:ToggleDuty")
             end
         end
@@ -128,7 +128,7 @@ CreateThread(function()
     while true do
         local inRange = false
         if LocalPlayer.state.isLoggedIn then
-            if PlayerJob.name == "tuning" then
+            if PlayerJob.name == "mechanic" then
                 local pos = GetEntityCoords(PlayerPedId())
                 local StashDistance = #(pos - Config.Locations["stash"])
                 local OnDutyDistance = #(pos - Config.Locations["duty"])
