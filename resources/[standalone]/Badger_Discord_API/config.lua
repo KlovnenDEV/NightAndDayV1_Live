@@ -2,11 +2,11 @@ Config = {
 	Guild_ID = '883427745877606420',
 	Bot_Token = 'ODUxMDgwNzQyNjExMDU4NzA5.YLzEtQ.s5toFKMcVzw7bjPPh54Sd9MA_Oo',
 	RoleList = {
-		"883427745911144474",--Manigment
-		"957012423435489320",--Snr Admin
-		"888361376274317312",--Admin
-		"883427745911144471",--Staff team
-		"933155347177291807"--QA
+		--"883427745911144474",--Manigment
+	--	"957012423435489320",--Snr Admin
+		--"888361376274317312",--Admin
+		--"883427745911144471",--Staff team
+	--	"933155347177291807"--QA
 	},
 	CacheDiscordRoles = false, -- true to cache player roles, false to make a new Discord Request every time
 	CacheDiscordRolesTime = 60, -- if CacheDiscordRoles is true, how long to cache roles before clearing (in seconds)

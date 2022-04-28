@@ -248,6 +248,10 @@ QBShared.Items = {
 	['snp_ammo'] 				 	 = {['name'] = 'snp_ammo', 			  	  		['label'] = 'Sniper ammo', 				['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'rifle_ammo.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,   ['combinable'] = nil,   ['description'] = 'Ammo for Sniper Rifles'},
 	['paintball-ammo']               = {['name'] = 'paintball-ammo',                ['label'] = 'Paintball Ammo',           ['weight'] = 150,       ['type'] = 'item',      ['image'] = 'np_paintball_ammo.png',       ['unique'] = false,             ['useable'] = true,     ['shouldClose'] = true, ['combinable'] = nil,   ['description'] = 'Paintball ammunition.'},
 	
+	--Lottory
+	["ticket"] 							= {["name"] = "ticket",  	     		["label"] = "ticket",	 		["weight"] = 25, 		["type"] = "item", 		["image"] = "ticket.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,   	["combinable"] = nil,   ["description"] = ""},
+
+
 	--Farm
 	["apple"] 							= {["name"] = "apple",  	     		["label"] = "Apple",	 		["weight"] = 25, 		["type"] = "item", 		["image"] = "apple.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,   	["combinable"] = nil,   ["description"] = ""},
 	["apple_juice"] 					= {["name"] = "apple_juice",  	     	["label"] = "Apple Juice",	 	["weight"] = 100, 		["type"] = "item", 		["image"] = "apple_juice.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,   	["combinable"] = nil,   ["description"] = ""},
@@ -281,6 +285,15 @@ QBShared.Items = {
 	["cow_leather"]						= {["name"] = "cow_leather",  	  		["label"] = "Cow Skin",	  		["weight"] = 50, 		["type"] = "item", 		["image"] = "cow_leather.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,   	["combinable"] = nil,   ["description"] = ""},
 	["kq_outfitbag"] 			 	 = {["name"] = "kq_outfitbag", 				    ["label"] = "Outfit bag",	 		    ["weight"] = 4000, 		["type"] = "item", 		["image"] = "kq_outfitbag.png", 	    ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Holds different outfits"},
 
+	--iTEM bOX
+	["present"] 					 = {["name"] = "present", 			  			["label"] = "present box", 				["weight"] = 10, 		["type"] = "item", 		["image"] = "zxsDgNT.png", 		    ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	["combinable"] = nil,   ["description"] = "Present box for new join player."},
+
+	--oxyrun
+	["bands"] 					 = {["name"] = "bands", 			 	["label"] = "Band Of Notes", 		        ["weight"] = 100, 		["type"] = "item", 		["image"] = "cashstack.png", 				["unique"] = false, 		["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Band of Notes"},
+	["rolls"] 					 = {["name"] = "rolls", 			 	["label"] = "Roll Of Small Notes", 		        ["weight"] = 100, 		["type"] = "item", 		["image"] = "cashroll.png", 				["unique"] = false, 		["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Roll of Small Notes"},
+	['markedbills'] 				 = {['name'] = 'markedbills', 			  	  	['label'] = 'Marked Money', 			['weight'] = 100, 		['type'] = 'item', 		['image'] = 'markedbills.png', 			['unique'] = false, 		['useable'] = false, 	['shouldClose'] = false,   ['combinable'] = nil,   ['description'] = ''},
+	["package"] 					 = {["name"] = "package", 			 	["label"] = "Suspicious Package", 		        ["weight"] = 25000, 		["type"] = "item", 		["image"] = "package.png", 				["unique"] = true, 		["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Package covered in tape and milk stickers.\nMarked for Police Seizure"},
+
 	--Whitewiddow
 	["weed_skunk_cbd"] = {["name"] = "weed_skunk_cbd", ["label"] = "weed_skunk_cbd", ["weight"] = 10, ["type"] = "item", ["image"] = "weed_skunk_cbd.png", ["unique"] = true, ["useable"] = false, ["shouldClose"] = false, ["combinable"] = nil, ["description"] = ""},
 	["weed_og-kush_cbd_crop"] = {["name"] = "weed_og-kush_cbd_crop", ["label"] = "weed_og-kush_cbd_crop", ["weight"] = 10, ["type"] = "item", ["image"] = "weed_og-kush_cbd_crop.png", ["unique"] = true, ["useable"] = false, ["shouldClose"] = false, ["combinable"] = nil, ["description"] = ""},
@@ -294,9 +307,6 @@ QBShared.Items = {
 	["weed_white-widow_cbd_joint"] = {["name"] = "weed_white-widow_cbd_joint", ["label"] = "weed_white-widow_cbd_joint", ["weight"] = 10, ["type"] = "item", ["image"] = "weed_white-widow_cbd_joint.png", ["unique"] = true, ["useable"] = false, ["shouldClose"] = false, ["combinable"] = nil, ["description"] = ""},
 	["weed_ak47_cbd_joint"] = {["name"] = "weed_ak47_cbd_joint", ["label"] = "weed_ak47_cbd_joint", ["weight"] = 10, ["type"] = "item", ["image"] = "weed_ak47_cbd_joint.png", ["unique"] = true, ["useable"] = false, ["shouldClose"] = false, ["combinable"] = nil, ["description"] = ""},
 	["weed_skunk_cbd_crop"] = {["name"] = "weed_skunk_cbd_crop", ["label"] = "weed_skunk_cbd_crop", ["weight"] = 10, ["type"] = "item", ["image"] = "weed_skunk_cbd_crop.png", ["unique"] = true, ["useable"] = false, ["shouldClose"] = false, ["combinable"] = nil, ["description"] = ""},
-	["tv"] = {["name"] = "tv", ["label"] = "TV", ["weight"] = 10, ["type"] = "item", ["image"] = "tv.png", ["unique"] = true, ["useable"] = false, ["shouldClose"] = false, ["combinable"] = nil, ["description"] = ""},
-	["tv"] = {["name"] = "tv", ["label"] = "TV", ["weight"] = 10, ["type"] = "item", ["image"] = "tv.png", ["unique"] = true, ["useable"] = false, ["shouldClose"] = false, ["combinable"] = nil, ["description"] = ""},
-	["tv"] = {["name"] = "tv", ["label"] = "TV", ["weight"] = 10, ["type"] = "item", ["image"] = "tv.png", ["unique"] = true, ["useable"] = false, ["shouldClose"] = false, ["combinable"] = nil, ["description"] = ""},
 
 
 
@@ -306,7 +316,7 @@ QBShared.Items = {
 	["microwave"] = {["name"] = "microwave", ["label"] = "Microwave", ["weight"] = 10, ["type"] = "item", ["image"] = "microwave.png", ["unique"] = true, ["useable"] = false, ["shouldClose"] = false, ["combinable"] = nil, ["description"] = ""},
 	["telescope"] = {["name"] = "telescope", ["label"] = "Telescope", ["weight"] = 10, ["type"] = "item", ["image"] = "telescope.png", ["unique"] = true, ["useable"] = false, ["shouldClose"] = false, ["combinable"] = nil, ["description"] = ""},
 	["lockpick"] = {["name"] = "lockpick", ["label"] = "Lockpick", ["weight"] = 10, ["type"] = "item", ["image"] = "lockpick.png", ["unique"] = false, ["useable"] = false, ["shouldClose"] = false, ["combinable"] = nil, ["description"] = ""},
-	["laptop"] = {["name"] = "laptop", ["label"] = "Laptop", ["weight"] = 10, ["type"] = "item", ["image"] = "laptop.png", ["unique"] = false, ["useable"] = false, ["shouldClose"] = false, ["combinable"] = nil, ["description"] = ""},
+	["laptop"] = {["name"] = "laptop", ["label"] = "Laptop", ["weight"] = 10, ["type"] = "item", ["image"] = "laptop.png", ["unique"] = true, ["useable"] = true, ["shouldClose"] = false, ["combinable"] = nil, ["description"] = ""},
 	["rolex"] = {["name"] = "rolex", ["label"] = "Rolex", ["weight"] = 10, ["type"] = "item", ["image"] = "rolex.png", ["unique"] = false, ["useable"] = false, ["shouldClose"] = false, ["combinable"] = nil, ["description"] = ""},
 	["coffeemaker"] = {["name"] = "coffeemaker", ["label"] = "Coffee Maker", ["weight"] = 10, ["type"] = "item", ["image"] = "coffeemaker.png", ["unique"] = true, ["useable"] = false, ["shouldClose"] = false, ["combinable"] = nil, ["description"] = ""},
 
@@ -320,7 +330,13 @@ QBShared.Items = {
 
 	--vinscrach
 	['vinremover']                  = {['name'] = 'vinremover',                     ['label'] = 'Vin Remover',                 ['weight'] = 1500,         ['type'] = 'item',         ['image'] = 'screwdriverset.png',             ['unique'] = true,     ['useable'] = false,     ['shouldClose'] = true,       ['combinable'] = nil,   ['description'] = 'A gadget that can remove Vins...'},
+	-- Hacking
+	['hacking_device']			  = {['name'] = "hacking_device",					['label'] = "Hacking device",			['weight'] = 500,		['type'] = 'item', 		['image'] = 'hacking_device.png',			['unique'] = true,		['useable']	= true,		['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = "A multi purpose hacking device"},
 
+	-- Fake Plate
+	['fake_plate']					 = {['name'] = 'fake_plate',					['label'] = "Plate Number",				['weight'] = 500,		['type'] = 'item',		['image'] = 'fake_plate.png',			['unique'] = true,		['useable'] = true,		['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = "A fake plate?"},
+	
+	
 	--ems stuff
 	['recoveredbullet'] = {['name'] = 'recoveredbullet',    ['label'] = 'Recovered Bullet', ['weight'] = 200,   ['type'] = 'item',  ['image'] = 'recoveredbullet.png',  ['unique'] = false, ['useable'] = false,    ['shouldClose'] = false,   ['combinable'] = nil,   ['description'] = ''},
 	['tweezers'] = {['name'] = 'tweezers',    ['label'] = 'Tweezers', ['weight'] = 200,   ['type'] = 'item',  ['image'] = 'tweezers.png',  ['unique'] = false, ['useable'] = true,    ['shouldClose'] = true,   ['combinable'] = nil,   ['description'] = ''},

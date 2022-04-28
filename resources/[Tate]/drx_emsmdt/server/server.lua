@@ -2,7 +2,7 @@
 --------        Script made by Deltarix        --------
 --   Copyright 2021 Deltarix. All rights reserved    --
 -------------------------------------------------------
-local DenaliFW = exports['denalifw-core']:GetCoreObject()
+DenaliFW = exports['denalifw-core']:GetCoreObject()
 
 -- Open the menu
 RegisterCommand('ems', function(source)

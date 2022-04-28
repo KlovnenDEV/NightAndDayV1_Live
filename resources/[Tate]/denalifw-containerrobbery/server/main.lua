@@ -61,7 +61,7 @@ DenaliFW.Functions.CreateCallback('denalifw-containerrobbery:server:checkCopCoun
     cb(amount, PlayerTimeOut[srcPlayer.PlayerData.citizenid])
 end)
 
-RegisterServerEvent('denalifw-containerrobbery:server:logToServer')
+--[[RegisterServerEvent('denalifw-containerrobbery:server:logToServer')
 AddEventHandler('denalifw-containerrobbery:server:logToServer', function(message, source)
     TriggerEvent('xz-logs:server:sendLog', {User = source}, 'robbery', 'Container Robbery', message, {}, 'orange', "denalifw-containerrobbery")
-end)
+end)]]

@@ -110,7 +110,7 @@ function ToggleDuty()
 	TriggerServerEvent("police:server:UpdateCurrentCops")
 	TriggerServerEvent("denalifw:ToggleDuty")
 	TriggerServerEvent("police:server:UpdateBlips")
-	TriggerEvent('qb-policealerts:ToggleDuty', onDuty)
+	TriggerEvent('denalifw-policealerts:ToggleDuty', onDuty)
 end
 
 -- Only change if you know what are you doing!
@@ -121,5 +121,5 @@ function SendTextMessage(msg)
 	DrawNotification(0,1)
 
 	--EXAMPLE USED IN VIDEO
-	--exports['mythic_notify']:SendAlert('inform', msg)
+	exports['mythic_notify']:SendAlert('inform', msg)
 end

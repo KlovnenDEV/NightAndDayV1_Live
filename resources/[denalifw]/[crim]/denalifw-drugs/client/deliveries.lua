@@ -373,6 +373,7 @@ function doPoliceAlert()
         streetLabel = streetLabel .. " " .. street2
     end
     TriggerServerEvent('denalifw-drugs:server:callCops', streetLabel, pos)
+    exports['denalifw-dispatch']:DrugSale()
 end
 
 RegisterNetEvent('denalifw-drugs:client:robberyCall', function(msg, streetLabel, coords)

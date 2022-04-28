@@ -173,6 +173,7 @@ AddEventHandler('denalifw-armoredtruckheist:client:911alert', function()
 
 			TriggerServerEvent("denalifw-armoredtruckheist:server:callCops", streetLabel, transCoords)
 
+
 		PlaySoundFrontend(-1, "Mission_Pass_Notify", "DLC_HEISTS_GENERAL_FRONTEND_SOUNDS", 0)
 		PoliceAlert = 1
 	end

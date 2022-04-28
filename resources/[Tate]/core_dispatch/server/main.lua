@@ -1,5 +1,5 @@
 -- Leaked By: Leaking Hub | J. Snow | leakinghub.com
-denalifw = nil
+DenaliFW = nil
 
 Id = 0
 
@@ -8,8 +8,8 @@ Calls = {}
 callSigns = {}
 UnitStatus = {}
 
-local denalifw = exports['denalifw-core']:GetCoreObject()
---TriggerEvent("denalifw:GetObject", function(obj) denalifw = obj end)
+local DenaliFW = exports['denalifw-core']:GetCoreObject()
+--TriggerEvent("DenaliFW:GetObject", function(obj) DenaliFW = obj end)
 
 
 RegisterServerEvent("core_dispatch:playerStatus")
@@ -93,7 +93,7 @@ end)
 RegisterServerEvent("core_dispatch:addMessage")
 AddEventHandler("core_dispatch:addMessage", function(message, location, job, cooldown, sprite, color)
     local src = source
-     local Player = denalifw.Functions.GetPlayer(src)
+     local Player = DenaliFW.Functions.GetPlayer(src)
     local phone = Player.PlayerData.charinfo.phone
 
     Calls[Id] = {
@@ -138,7 +138,7 @@ RegisterServerEvent("core_dispatch:changeCallSign")
 AddEventHandler("core_dispatch:changeCallSign", function(callsign)
         local src = source
         if string.len(callsign) <= 4 then
-       local Player = denalifw.Functions.GetPlayer(src)
+       local Player = DenaliFW.Functions.GetPlayer(src)
         Player.Functions.SetMetaData("callsign", callsign)
         callSigns[src] = callsign
         TriggerClientEvent('core_dispatch:SendTextMessage', src, Config.Text['callsign_changed'])
@@ -158,7 +158,7 @@ end)
 RegisterCommand("callsign", function(source, args, rawCommand)
 
       local src = source
-    local Player = denalifw.Functions.GetPlayer(src)
+    local Player = DenaliFW.Functions.GetPlayer(src)
 
    
     if string.len(args[1]) <= 4 then
@@ -186,20 +186,20 @@ AddEventHandler("core_dispatch:setCallSign", function(callsign)
     callSigns[src] = callsign
 end)
 
-denalifw.Functions.CreateCallback("core_dispatch:getPersonalInfo", function(source, cb)
-    local Player = denalifw.Functions.GetPlayer(source)
+DenaliFW.Functions.CreateCallback("core_dispatch:getPersonalInfo", function(source, cb)
+    local Player = DenaliFW.Functions.GetPlayer(source)
     local firstname = Player.PlayerData.charinfo.firstname
     local lastname = Player.PlayerData.charinfo.lastname
     cb(firstname, lastname)
 
 end)
 
-denalifw.Functions.CreateCallback("core_dispatch:getInfo", function(source, cb)
+DenaliFW.Functions.CreateCallback("core_dispatch:getInfo", function(source, cb)
     local generated = {}
 
     for k, v in pairs(Units) do
-        if denalifw.Functions.GetPlayer(k) then
-            local Player = denalifw.Functions.GetPlayer(k)
+        if DenaliFW.Functions.GetPlayer(k) then
+            local Player = DenaliFW.Functions.GetPlayer(k)
             local firstname = Player.PlayerData.charinfo.firstname
             local lastname = Player.PlayerData.charinfo.lastname
             local job = Player.PlayerData.job.name
@@ -219,12 +219,12 @@ denalifw.Functions.CreateCallback("core_dispatch:getInfo", function(source, cb)
     cb(generated, Calls, UnitStatus, callSigns)
 end)
 
-denalifw.Functions.CreateCallback("core_dispatch:getUnits", function(source, cb)
+DenaliFW.Functions.CreateCallback("core_dispatch:getUnits", function(source, cb)
     local generated = {}
 
     for k, v in pairs(Units) do
-        if denalifw.Functions.GetPlayer(k) then
-            local Player = denalifw.Functions.GetPlayer(k)
+        if DenaliFW.Functions.GetPlayer(k) then
+            local Player = DenaliFW.Functions.GetPlayer(k)
             local firstname = Player.PlayerData.charinfo.firstname
             local lastname = Player.PlayerData.charinfo.lastname
 

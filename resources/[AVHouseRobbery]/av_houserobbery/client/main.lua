@@ -241,6 +241,7 @@ AddEventHandler('av_houserobbery:ruido', function()
 			if ruido > 100 then
 				TriggerEvent('av_houserobbery:notification',Config.Lang['alarm'])
 				TriggerServerEvent('av_houserobbery:policeCall',entradaCoords)
+				exports['denalifw-dispatch']:HouseRobbery()
 				robando = false
 				salir(true)
 			end

@@ -646,6 +646,64 @@ Config.Products = {
                 slot = 1,
             }
         },
+        ["BlackMarket"] = {
+            [1] = {
+                name = 'cutter',
+                price = 1000,
+                amount = 1,
+                info = {},
+                type = 'item',
+                slot = 1,
+            },
+            [2] = {
+                name = 'bag',
+                price = 100,
+                amount = 1,
+                info = {},
+                type = 'item',
+                slot = 1,
+            },
+            [3] = {
+                name = 'gasmask',
+                price = 5000,
+                amount = 1,
+                info = {},
+                type = 'item',
+                slot = 1,
+            },
+            [4] = {
+                name = 'weapon_bzgas',
+                price = 10000,
+                amount = 1,
+                info = {},
+                type = 'item',
+                slot = 1,
+            },
+            [5] = {
+                name = 'thermite',
+                price = 1000,
+                amount = 1,
+                info = {},
+                type = 'item',
+                slot = 1,
+            },
+            [6] = {
+                name = 'pixellaptop',
+                price = 5000,
+                amount = 1,
+                info = {},
+                type = 'item',
+                slot = 1,
+            },
+            [7] = {
+                name = 'vinremover',
+                price = 5000,
+                amount = 1,
+                info = {},
+                type = 'item',
+                slot = 1,
+            },
+        },
 }
 
 Config.Locations = {
@@ -727,6 +785,15 @@ Config.Locations = {
             [1] = vector3(705.37, -960.85, 30.4)
         },
         ["products"] = Config.Products["key2"],
+        ["showblip"] = false,
+    },
+    ["BlackMarket"] = {
+        ["label"] = "BlackMarket",
+        ["type"] = "normal",
+        ["coords"] = {
+            [1] = vector3(-3186.92, 1075.5, 19.84)
+        },
+        ["products"] = Config.Products["BlackMarket"],
         ["showblip"] = false,
     },
     ["ltdgasoline"] = {

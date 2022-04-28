@@ -422,6 +422,7 @@ RegisterNetEvent('denalifw-bankrobbery:client:robberyCall', function(type, key, 
             cameraId = Config.SmallBanks[key]["camId"]
             bank = "Fleeca"
             PlaySound(-1, "Lose_1st", "GTAO_FM_Events_Soundset", 0, 0, 1)
+            exports['denalifw-dispatch']:FleecaBankRobbery()
             TriggerEvent('denalifw-policealerts:client:AddPoliceAlert', {
                 timeOut = 10000,
                 alertTitle = "Fleeca bank robbery attempt",
@@ -456,6 +457,7 @@ RegisterNetEvent('denalifw-bankrobbery:client:robberyCall', function(type, key, 
             PlaySound(-1, "Lose_1st", "GTAO_FM_Events_Soundset", 0, 0, 1)
             Wait(100)
             PlaySoundFrontend( -1, "Beep_Red", "DLC_HEIST_HACKING_SNAKE_SOUNDS", 1 )
+            exports['denalifw-dispatch']:PaletoBankRobbery()
             TriggerEvent('denalifw-policealerts:client:AddPoliceAlert', {
                 timeOut = 10000,
                 alertTitle = "Blain County Savings bank robbery attempt",
@@ -485,6 +487,7 @@ RegisterNetEvent('denalifw-bankrobbery:client:robberyCall', function(type, key, 
             PlaySound(-1, "Lose_1st", "GTAO_FM_Events_Soundset", 0, 0, 1)
             Wait(100)
             PlaySoundFrontend( -1, "Beep_Red", "DLC_HEIST_HACKING_SNAKE_SOUNDS", 1 )
+            exports['denalifw-dispatch']:PacificBankRobbery()
             TriggerEvent('denalifw-policealerts:client:AddPoliceAlert', {
                 timeOut = 10000,
                 alertTitle = "Pacific Standard Bank robbery attempt",

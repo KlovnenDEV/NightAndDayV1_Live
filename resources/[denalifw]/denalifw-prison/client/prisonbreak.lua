@@ -74,6 +74,7 @@ RegisterNetEvent('prison:client:SetLockDown', function(isLockdown)
 end)
 
 RegisterNetEvent('prison:client:PrisonBreakAlert', function()
+    exports['denalifw-dispatch']:PrisonBreak()
     -- TriggerEvent("chatMessage", "ALERT", "error", "Attentie alle eenheden! Poging tot uitbraak in de gevangenis!")
     TriggerEvent('denalifw-policealerts:client:AddPoliceAlert', {
         timeOut = 10000,

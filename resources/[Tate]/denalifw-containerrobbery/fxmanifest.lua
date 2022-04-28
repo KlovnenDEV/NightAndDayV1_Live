@@ -1,9 +1,7 @@
 fx_version 'cerulean'
 game 'gta5'
 
-shared_scripts {
-    '@xz-core/import.lua',
-}
+
 
 client_scripts {
     'client/*.lua'

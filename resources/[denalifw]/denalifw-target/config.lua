@@ -319,6 +319,7 @@ options = {
 },
 distance = 2.5,
 },
+
 	["roostmotel"] = {
         models = {
             "cs_dreyfuss",
@@ -523,6 +524,23 @@ distance = 2.5,
         },
         distance = 1.5
     },
+
+
+	["BlackMarket"] = {
+		models = {
+			"s_f_m_fembarber",
+		},
+	options = {
+		{
+			type = "client",
+			event = "denalifw-shops:marketshop",
+			icon = "fas fa-circle",
+			label = "Blackmarket",
+		},
+		
+	},
+	distance = 2.5,
+	},
 	
 }
 
@@ -573,6 +591,7 @@ Config.GlobalPedOptions = {
 		distance = 2.5,
 		}
 	   },
+	  
 }
 
 Config.GlobalVehicleOptions = {
@@ -591,7 +610,7 @@ Config.GlobalVehicleOptions = {
 			},
 			{
 			type="client",
-			event="cc-fuel:client:siphonfuel",
+			event="LegacyFuel:client:siphonfuel",
 			label = "Siphon Fuel",
 			icon = 'fas fa-gas-pump',
 			item = 'fuelsiphon',
@@ -645,6 +664,8 @@ Config.GlobalPlayerOptions = {
 		},
 		distance = 4.0
 		},
+
+		
 		}
 
 
@@ -1044,13 +1065,23 @@ blockevents = true,
   
 --key2
 { 
-model = 's_f_m_fembarber',
-coords = vector4(704.83, -961.0, 29.4, 270.44),
-gender = 'female',
-freeze = true,
-invincible = true,
-blockevents = true,
-},
+	model = 's_f_m_fembarber',
+	coords = vector4(704.83, -961.0, 29.4, 270.44),
+	gender = 'female',
+	freeze = true,
+	invincible = true,
+	blockevents = true,
+	},
+
+	--BlackMarket
+{ 
+	model = 's_f_m_fembarber',
+	coords = vector4(-3186.92, 1075.5, 19.84, 71.83),
+	gender = 'female',
+	freeze = true,
+	invincible = true,
+	blockevents = true,
+	},
   
 
 }

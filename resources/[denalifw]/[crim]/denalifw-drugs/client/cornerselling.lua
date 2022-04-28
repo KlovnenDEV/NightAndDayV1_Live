@@ -92,6 +92,7 @@ local function callPolice(coords)
     local streetLabel = street1
     if street2 ~= nil then streetLabel = street1..' '..street2 end
     TriggerServerEvent('police:server:PoliceAlertMessage', title, streetLabel, coords)
+    exports['denalifw-dispatch']:DrugSale()
     hasTarget = false
     Wait(5000)
 end

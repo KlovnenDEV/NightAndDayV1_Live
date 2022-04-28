@@ -211,11 +211,11 @@ end)
 RegisterNetEvent('denalifw-vehicleshop:server:buyShowroomVehicle', function(vehicle)
     local src = source
     local vehicle = vehicle.buyVehicle
-    local pData = DenaliFW.Functions.GetPlayer(src)
+    local pData = QBCore.Functions.GetPlayer(src)
     local cid = pData.PlayerData.citizenid
     local cash = pData.PlayerData.money['cash']
     local bank = pData.PlayerData.money['bank']
-    local vehiclePrice = DenaliFW.Shared.Vehicles[vehicle]['price']
+    local vehiclePrice = QBCore.Shared.Vehicles[vehicle]['price']
     local plate = GeneratePlate()
     if cash > vehiclePrice then
         MySQL.Async.insert('INSERT INTO player_vehicles (license, citizenid, vehicle, hash, mods, plate, state) VALUES (?, ?, ?, ?, ?, ?, ?)', {
@@ -230,6 +230,7 @@ RegisterNetEvent('denalifw-vehicleshop:server:buyShowroomVehicle', function(vehi
         TriggerClientEvent('DenaliFW:Notify', src, 'Congratulations on your purchase!', 'success')
         TriggerClientEvent('denalifw-vehicleshop:client:buyShowroomVehicle', src, vehicle, plate)
         pData.Functions.RemoveMoney('cash', vehiclePrice, 'vehicle-bought-in-showroom')
+        exports['nv-carboost']:AddVIN(plate)
     elseif bank > vehiclePrice then
         MySQL.Async.insert('INSERT INTO player_vehicles (license, citizenid, vehicle, hash, mods, plate, state) VALUES (?, ?, ?, ?, ?, ?, ?)', {
             pData.PlayerData.license,
@@ -243,6 +244,7 @@ RegisterNetEvent('denalifw-vehicleshop:server:buyShowroomVehicle', function(vehi
         TriggerClientEvent('DenaliFW:Notify', src, 'Congratulations on your purchase!', 'success')
         TriggerClientEvent('denalifw-vehicleshop:client:buyShowroomVehicle', src, vehicle, plate)
         pData.Functions.RemoveMoney('bank', vehiclePrice, 'vehicle-bought-in-showroom')
+        exports['nv-carboost']:AddVIN(plate)
     else
         TriggerClientEvent('DenaliFW:Notify', src, 'Not enough money', 'error')
     end

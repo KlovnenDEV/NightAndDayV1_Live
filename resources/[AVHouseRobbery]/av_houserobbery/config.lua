@@ -13,11 +13,11 @@ Config.CdTime = 1 -- 1 = 30 minutes, 2 = 60 minutes, 3 = 90 minutes.... Personal
 Config.SpawnSafe = true -- Random chance to spawn a safe.
 Config.SafeRewards = { -- It will pick a random combination from this table. type = 'item' or 'cash'
 	[1] = {
-		{type = 'item', itemName = 'water', itemQty = math.random(1,2)},
+		{type = 'item', itemName = 'water_bottle', itemQty = math.random(1,2)},
 		{type = 'item', itemName = 'bread', itemQty = math.random(1,2)},
 	},
 	[2] = {
-		{type = 'cash', itemName = 'cash', itemQty = math.random(1000,2000)},
+		{type = 'cash', itemName = 'markedbills', itemQty = math.random(1000,2000)},
 	},
 	[3] = {
 		{type = 'item', itemName = 'rolex', itemQty = 1},
@@ -26,18 +26,18 @@ Config.SafeRewards = { -- It will pick a random combination from this table. typ
 
 Config.ItemsReward = { -- It will pick a random combination from this table.
 	[1] = {
-		{type = 'item', itemName = 'water', itemQty = math.random(1,2)},
+		{type = 'item', itemName = 'water_bottle', itemQty = math.random(1,2)},
 		{type = 'item', itemName = 'bread', itemQty = math.random(1,2)},
-		{type = 'item', itemName = 'water', itemQty = math.random(1,2)},
+		{type = 'item', itemName = 'water_bottle', itemQty = math.random(1,2)},
 	},
 	
 	[2] = {
-		{type = 'cash', itemName = 'cash', itemQty = math.random(100,200)},
+		{type = 'cash', itemName = 'markedbills', itemQty = math.random(100,200)},
 	},
 	
 	[3] = {
-		{type = 'cash', itemName = 'cash', itemQty = math.random(100,200)},
-		{type = 'item', itemName = 'water', itemQty = 1},
+		{type = 'cash', itemName = 'markedbills', itemQty = math.random(100,200)},
+		{type = 'item', itemName = 'water_bottle', itemQty = 1},
 	},
 }
 

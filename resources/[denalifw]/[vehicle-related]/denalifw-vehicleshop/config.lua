@@ -37,7 +37,8 @@ Config.Shops = {
             ['compacts'] = 'Compacts',
             ['motorcycles'] = 'Motorcycles',
             ['vans'] = 'Vans',
-            ['cycles'] = 'Bicycles'
+            ['cycles'] = 'Bicycles',
+            ['other'] = 'Imports'
         },
         ['TestDriveTimeLimit'] = 0.5, -- Time in minutes until the vehicle gets deleted
         ['Location'] = vector3(-45.67, -1098.34, 26.42), -- Blip Location
@@ -46,8 +47,8 @@ Config.Shops = {
         ['ShowroomVehicles'] = {
             [1] = {
                 coords = vector4(-45.65, -1093.66, 25.44, 69.5), -- where the vehicle will spawn on display
-                defaultVehicle = 'adder', -- Default display vehicle
-                chosenVehicle = 'adder', -- Same as default but is dynamically changed when swapping vehicles
+                defaultVehicle = 'asbo', -- Default display vehicle
+                chosenVehicle = 'asbo', -- Same as default but is dynamically changed when swapping vehicles
             },
             [2] = {
                 coords = vector4(-48.27, -1101.86, 25.44, 294.5),

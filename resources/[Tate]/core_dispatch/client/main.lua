@@ -1,5 +1,5 @@
-denalifw = nil
-local denalifw = exports['denalifw-core']:GetCoreObject()
+DenaliFW = nil
+local DenaliFW = exports['denalifw-core']:GetCoreObject()
 local currentPlate = ""
 local currentType = 0
 
@@ -24,19 +24,19 @@ local blips = {}
     --end
 --end)
 
-RegisterNetEvent('denalifw:Client:OnPlayerLoaded')
-AddEventHandler('denalifw:Client:OnPlayerLoaded', function()
+RegisterNetEvent('DenaliFW:Client:OnPlayerLoaded')
+AddEventHandler('DenaliFW:Client:OnPlayerLoaded', function()
     isLoggedIn = true
-    job = denalifw.Functions.GetPlayerData().job.name
+    job = DenaliFW.Functions.GetPlayerData().job.name
     if Config.JobOne.job == job or Config.JobTwo.job == job or Config.JobThree.job == job then
-        callsign = denalifw.Functions.GetPlayerData().metadata["callsign"]
+        callsign = DenaliFW.Functions.GetPlayerData().metadata["callsign"]
         if callsign ~= "NO CALLSIGN" then
             TriggerServerEvent('core_dispatch:setCallSign', callsign)
         end
 
         updateJobInfo()
 
-        denalifw.Functions.TriggerCallback("core_dispatch:getPersonalInfo", function(firstname, lastname)
+        DenaliFW.Functions.TriggerCallback("core_dispatch:getPersonalInfo", function(firstname, lastname)
             SendNUIMessage(
                 {
                     type = "Init",
@@ -50,18 +50,18 @@ AddEventHandler('denalifw:Client:OnPlayerLoaded', function()
 end)
 
 
-RegisterNetEvent("denalifw:Client:OnJobUpdate")
-AddEventHandler("denalifw:Client:OnJobUpdate", function(JobInfo)
+RegisterNetEvent("DenaliFW:Client:OnJobUpdate")
+AddEventHandler("DenaliFW:Client:OnJobUpdate", function(JobInfo)
     job = JobInfo.name
     if Config.JobOne.job == job or Config.JobTwo.job == job or Config.JobThree.job == job then
-        callsign = denalifw.Functions.GetPlayerData().metadata["callsign"]
+        callsign = DenaliFW.Functions.GetPlayerData().metadata["callsign"]
         if callsign ~= "NO CALLSIGN" then
             TriggerServerEvent('core_dispatch:setCallSign', callsign)
         end
 
         updateJobInfo()
 
-        denalifw.Functions.TriggerCallback("core_dispatch:getPersonalInfo", function(firstname, lastname)
+        DenaliFW.Functions.TriggerCallback("core_dispatch:getPersonalInfo", function(firstname, lastname)
             SendNUIMessage(
                 {
                     type = "Init",
@@ -126,23 +126,23 @@ Citizen.CreateThread(
 
 AddEventHandler('onResourceStart', function (resourceName)
     if(GetCurrentResourceName() == resourceName) then
-        while denalifw == nil do
+        while DenaliFW == nil do
             Citizen.Wait(200)
         end
         
         isLoggedIn = true
-        job = denalifw.Functions.GetPlayerData().job.name
+        job = DenaliFW.Functions.GetPlayerData().job.name
         currentPlate = ""
         currentType = 0
         if Config.JobOne.job == job or Config.JobTwo.job == job or Config.JobThree.job == job then
-            callsign = denalifw.Functions.GetPlayerData().metadata["callsign"]
+            callsign = DenaliFW.Functions.GetPlayerData().metadata["callsign"]
             if callsign ~= "NO CALLSIGN" then
                 TriggerServerEvent('core_dispatch:setCallSign', callsign)
             end
 
             updateJobInfo()
 
-            denalifw.Functions.TriggerCallback("core_dispatch:getPersonalInfo", function(firstname, lastname)
+            DenaliFW.Functions.TriggerCallback("core_dispatch:getPersonalInfo", function(firstname, lastname)
                 SendNUIMessage(
                     {
                         type = "Init",
@@ -240,7 +240,7 @@ function addBlipForCall(sprite, color, coords, text)
 end
 
 function addBlipsForUnits()
-     denalifw.Functions.TriggerCallback("core_dispatch:getUnits", function(units)
+     DenaliFW.Functions.TriggerCallback("core_dispatch:getUnits", function(units)
         local id = GetPlayerServerId(PlayerId())
 
         for _, z in pairs(blips) do
@@ -291,7 +291,7 @@ end
 function openDispatch()
     if Config.JobOne.job == job or Config.JobTwo.job == job or Config.JobThree.job == job then
         SetNuiFocus(false, false)
-        denalifw.Functions.TriggerCallback("core_dispatch:getInfo", function(units, calls, ustatus, callsigns)
+        DenaliFW.Functions.TriggerCallback("core_dispatch:getInfo", function(units, calls, ustatus, callsigns)
             SetNuiFocus(true, true)
 
             SendNUIMessage(

@@ -3,12 +3,11 @@ local blips = {
     --{title="LSC", colour=38, id=488, x=-305.4, y=-120.66, z=39.01},
     --{title="Bennys", colour=38, id=488, x=-205.98, y=-1333.9, z=34.89},
     --{title="Route-68", colour=38, id=488, x=1187.85, y=2645.35, z=37.36},
-    {title="Denali Imports", colour=38, id=488, x=124.48, y=-3011.43, z=7.04},
+    {title="House robbery", colour=38, id=488, x=1510.11, y=6326.3, z=24.61},
     {title="City Hall", colour=0, id=419, x=-534.33, y=-222.14, z=37.65},
     {title="Court House", colour=0, id=419, x=237.24, y=-406.66, z=47.92},
     {title="Split-Sides Comedy Club", colour=38, id=362, x=-447.07, y=267.64, z= 83.02},
-   -- {title="Pet Adoption", colour=38, id=442, x=-563.76, y=2753.27, z= 41.88},
-
+    {title="Weed Mission", colour=25, id=496, x=114.11, y=-1961.07, z= 21.33},
     --{title="AutoCare", colour=5, id=431, x = 500.03, y = -522.89, z = 24.88},
     --Oxy Runs 563.76,2753.27
     --{title="Drift Track", colour=2, id=38, x=227.45, y=-3133.64, z=5.2},
@@ -34,7 +33,7 @@ Citizen.CreateThread(function()
 
     SetBlipSprite(info.blip, info.id)
     SetBlipDisplay(info.blip, 4)
-    SetBlipScale(info.blip, 0.5)
+    SetBlipScale(info.blip, 0.8)
     SetBlipColour(info.blip, info.colour)
 
     SetBlipAsShortRange(info.blip, true)

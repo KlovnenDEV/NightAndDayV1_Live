@@ -575,7 +575,18 @@ Config.MenuItems = {
                         }
                     }
                 }
-            }, {
+            }, 
+            ["realestate"] = {
+                {
+                    id = 'housemenu',
+                    title = 'List of houses',
+                    icon = 'laptop-house',
+                    type = 'client',
+                    event = 'denalifw-realestate:client:OpenHouseListMenu',
+                    shouldClose = true
+                }
+            },
+            {
                 id = 'clothesmenu',
                 title = 'Clothing',
                 icon = 'tshirt',

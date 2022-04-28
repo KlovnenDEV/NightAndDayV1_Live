@@ -536,6 +536,7 @@ Config.ClothingRooms = {
     [4] = {requiredJob = "ambulance", coords = vector3(338.70, 659.61, 14.71), cameraLocation = vector4(339.27,  661.63,  14.71,  315.5)},    
     [5] = {requiredJob = "ambulance", coords = vector3(-1098.45, 1751.71, 23.35), cameraLocation = vector4(-1097.15, 1750.19,  23.35, 38.70)},    
     [6] = {requiredJob = "police", coords = vector3(-77.59, -129.17, 5.03), cameraLocation = vector4(-80.36,  -130.76,  5.03,  300.44)},
+    [7] = {requiredJob = "realestate", coords = vector3(-447.29, 168.25, 78.82), cameraLocation = vector4(-447.32, 166.44, 78.82,  300.44)},
 }
 
 Config.Outfits = {
@@ -704,6 +705,45 @@ Config.Outfits = {
             },
         }
     },
+    ["realestate"] = {
+        ["male"] = {
+            [1] = {
+                outfitLabel = "Work clothes",
+                outfitData = {
+                    ["pants"]       = { item = 28, texture = 0},  -- Pants
+                    ["arms"]        = { item = 1, texture = 0},  -- Arms
+                    ["t-shirt"]     = { item = 31, texture = 0},  -- T Shirt
+                    ["vest"]        = { item = 0, texture = 0},  -- Body Vest
+                    ["torso2"]      = { item = 294, texture = 0},  -- Jacket
+                    ["shoes"]       = { item = 10, texture = 0},  -- Shoes
+                    ["accessory"]   = { item = 0, texture = 0},  -- Neck Accessory
+                    ["bag"]         = { item = 0, texture = 0},  -- Bag
+                    ["hat"]         = { item = 12, texture = -1},  -- Hat
+                    ["glass"]       = { item = 0, texture = 0},  -- Glasses
+                    ["mask"]        = { item = 0, texture = 0},  -- Mask
+                },
+            },
+        },
+        ["female"] = {
+            [1] = {
+                outfitLabel = "Work clothes",
+                outfitData = {
+                    ["pants"]       = { item = 133, texture = 0},  -- Pants
+                    ["arms"]        = { item = 31, texture = 0},  -- Arms
+                    ["t-shirt"]     = { item = 35, texture = 0},  -- T Shirt
+                    ["vest"]        = { item = 34, texture = 0},  -- Body Vest
+                    ["torso2"]      = { item = 48, texture = 0},  -- Jacket
+                    ["shoes"]       = { item = 52, texture = 0},  -- Shoes
+                    ["accessory"]   = { item = 0, texture = 0},  -- Neck Accessory
+                    ["bag"]         = { item = 0, texture = 0},  -- Bag
+                    ["hat"]         = { item = 0, texture = 0},  -- Hat
+                    ["glass"]       = { item = 0, texture = 0},  -- Glasses
+                    ["mask"]        = { item = 0, texture = 0},  -- Mask
+                },
+            },
+        }
+    },
+   
     ["ambulance"] = {
         ["male"] = {
             [1] = {

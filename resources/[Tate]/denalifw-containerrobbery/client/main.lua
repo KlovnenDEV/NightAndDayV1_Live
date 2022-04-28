@@ -1873,6 +1873,8 @@ AddEventHandler('denalifw-containerrobbery:client:doRobbery', function()
                         DenaliFW.Functions.Notify(Config.FailMessage, 'error')
                         isBusy = false
                     else
+                        exports['denalifw-dispatch']:VanRobbery()
+
                         TriggerServerEvent('dispatch:svNotify', {
                             dispatchCode = "10-42B",
                             firstStreet = GetStreetAndZone(),
