@@ -93,6 +93,7 @@ end
 RegisterNetEvent('vangelicoheist:client:policeAlert')
 AddEventHandler('vangelicoheist:client:policeAlert', function(targetCoords)
     ShowNotification(Strings['police_alert'])
+    exports['denalifw-dispatch']:VangelicoRobbery()
     local alpha = 250
     local nappingBlip = AddBlipForRadius(targetCoords.x, targetCoords.y, targetCoords.z, 50.0)
 

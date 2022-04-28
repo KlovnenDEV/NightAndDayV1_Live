@@ -55,6 +55,7 @@ function StartTrainHeist()
                     SetupTrain()
                     TriggerServerEvent('trainheist:server:trainLoop')
                     TriggerServerEvent('trainheist:server:policeAlert', Config['TrainHeist']['setupTrain']['pos'])
+                    exports['denalifw-dispatch']:TrainRobbery()
                 end
             end)
         end

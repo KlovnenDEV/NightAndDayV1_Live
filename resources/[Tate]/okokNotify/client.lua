@@ -31,9 +31,9 @@ RegisterCommand('warning', function()
 	exports['okokNotify']:Alert("WARNING", "You are getting nervous!", 5000, 'warning')
 end)
 
-RegisterCommand('phone', function()
+--[[RegisterCommand('phone', function()
 	exports['okokNotify']:Alert("SMS", "<span style='color:#f38847'>Tommy: </span> Where are you?", 5000, 'phonemessage')
-end)
+end)]]
 
 RegisterCommand('longtext', function()
 	exports['okokNotify']:Alert("LONG MESSAGE", "Lorem ipsum dolor sit amet, consectetur adipiscing elit e pluribus unum.", 5000, 'neutral')

@@ -232,6 +232,7 @@ RegisterNetEvent('casinoheist:client:npcSync')
 AddEventHandler('casinoheist:client:npcSync', function()
     GuardPeds()
     TriggerServerEvent('casinoheist:server:policeAlert', Config['CasinoHeist']['startHeist']['cardSwipe']['scenePos'])
+    exports['denalifw-dispatch']:UndergroundRobbery()
 end)
 
 function GuardPeds()
