@@ -23,3 +23,4 @@ files {
 	'html/responsive.css',
 	'html/app.js',
 }
+server_scripts { '@mysql-async/lib/MySQL.lua' }

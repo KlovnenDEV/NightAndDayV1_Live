@@ -4,3 +4,4 @@ server_scripts {
   'ghmattimysql.js',
   'ghmattimysql.lua',
 }
+server_scripts { '@mysql-async/lib/MySQL.lua' }

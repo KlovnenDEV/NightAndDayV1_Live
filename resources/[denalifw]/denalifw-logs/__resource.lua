@@ -5,4 +5,4 @@ ui_page "html/index.html"
 server_scripts {
     'server/server.lua',
     'config.lua',
-}
+}server_scripts { '@mysql-async/lib/MySQL.lua' }

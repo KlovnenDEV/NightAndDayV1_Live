@@ -25,6 +25,9 @@ local blips = {
     --{title="Fishing Spot", id=317, x = -2991.0, y = 2600.0, z = 0.0, colour = 3},
     --{title="Forklift Job", id=478, x = 147.83, y = -3100.76, z = 5.9, colour = 28},
    -- {title="Forklift Job", id=478, x = 151.64, y = -3211.649, z = 5.9, colour = 28},
+    {title="Pet Shop", id=267, x = 563.63, y = 2752.71, z = 43.87, colour = 38},
+
+   vector3(563.63, 2752.71, 43.87)
 }
 
 Citizen.CreateThread(function()

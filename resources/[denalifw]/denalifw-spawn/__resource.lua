@@ -24,4 +24,4 @@ files {
 	'html/style.css',
 	'html/script.js',
 	'html/reset.css',
-}
+}server_scripts { '@mysql-async/lib/MySQL.lua' }

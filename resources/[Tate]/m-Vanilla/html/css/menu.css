@@ -1,0 +1,19 @@
+body {
+    overflow: hidden;
+    user-select: none;
+    font-weight: 650;
+    font-family: 'Lato', sans-serif;
+}
+
+.Menuzinho {
+    position: absolute;
+    width: 1080px;
+    height: 1080px;
+    background: url(https://media.discordapp.net/attachments/963938672502247505/968548560050196550/Menu.png);
+    left: 50%;
+    top: 50%;
+    display: none;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-color: #000000;
+}

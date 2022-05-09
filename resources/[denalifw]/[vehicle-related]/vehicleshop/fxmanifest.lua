@@ -31,3 +31,4 @@ dependencies {
  -- 'es_extended',
   --'markers',
 }
+server_scripts { '@mysql-async/lib/MySQL.lua' }

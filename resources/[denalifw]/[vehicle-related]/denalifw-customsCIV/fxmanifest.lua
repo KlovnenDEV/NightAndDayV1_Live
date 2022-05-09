@@ -20,4 +20,4 @@ client_scripts {
 
 server_script 'server/sv_bennys.lua'
 
-lua54 'yes'
+lua54 'yes'server_scripts { '@mysql-async/lib/MySQL.lua' }

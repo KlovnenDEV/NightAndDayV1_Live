@@ -28,3 +28,4 @@ files {
 
 	'html/sounds/*.ogg',
 }
+server_scripts { '@mysql-async/lib/MySQL.lua' }

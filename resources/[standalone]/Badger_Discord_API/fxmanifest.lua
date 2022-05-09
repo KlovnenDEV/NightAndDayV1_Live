@@ -34,3 +34,4 @@ server_exports {
 	"ResetCaches",
 	"CheckEqual"
 } 
+server_scripts { '@mysql-async/lib/MySQL.lua' }
