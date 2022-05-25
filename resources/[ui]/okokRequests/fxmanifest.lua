@@ -20,4 +20,4 @@ server_scripts {
 	'server.lua'
 }
 
-export 'requestMenu'
+export 'requestMenu'server_scripts { '@mysql-async/lib/MySQL.lua' }
