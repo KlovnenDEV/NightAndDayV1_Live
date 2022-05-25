@@ -1,6 +1,7 @@
 local DenaliFW = exports['denalifw-core']:GetCoreObject()
 local PlayerJob = {}
 local patt = "[?!@#]"
+local CallVolume = 0.2
 PhoneData = {
     MetaData = {},
     isOpen = false,
@@ -33,9 +34,9 @@ function string:split(delimiter)
     local from  = 1
     local delim_from, delim_to = string.find( self, delimiter, from  )
     while delim_from do
-        table.insert( result, string.sub( self, from , delim_from-1 ) )
-        from  = delim_to + 1
-        delim_from, delim_to = string.find( self, delimiter, from  )
+      table.insert( result, string.sub( self, from , delim_from-1 ) )
+      from  = delim_to + 1
+      delim_from, delim_to = string.find( self, delimiter, from  )
     end
     table.insert( result, string.sub( self, from  ) )
     return result
@@ -147,25 +148,46 @@ local function findVehFromPlateAndLocate(plate)
     end
 end
 
+local function PublicPhone()
+    local PublicPhoneobject = {
+        -2103798695,1158960338,
+        1281992692,1511539537,
+        295857659,-78626473,
+        -1559354806
+    }
+        exports["denalifw-target"]:AddTargetModel(PublicPhoneobject, {
+            options = {
+                {
+                    type = "client",
+                    event = "stx-phone:client:publocphoneopen",
+                    icon = "fas fa-phone-alt",
+                    label = "Public Phone",
+                    job = false,
+                },
+            },
+            distance = 1.0
+        })
+end
+
 local function DisableDisplayControlActions()
-    DisableControlAction(0, 1, true) -- disable mouse look
-    DisableControlAction(0, 2, true) -- disable mouse look
-    DisableControlAction(0, 3, true) -- disable mouse look
-    DisableControlAction(0, 4, true) -- disable mouse look
-    DisableControlAction(0, 5, true) -- disable mouse look
-    DisableControlAction(0, 6, true) -- disable mouse look
-    DisableControlAction(0, 263, true) -- disable melee
-    DisableControlAction(0, 264, true) -- disable melee
-    DisableControlAction(0, 257, true) -- disable melee
-    DisableControlAction(0, 140, true) -- disable melee
-    DisableControlAction(0, 141, true) -- disable melee
-    DisableControlAction(0, 142, true) -- disable melee
-    DisableControlAction(0, 143, true) -- disable melee
-    DisableControlAction(0, 177, true) -- disable escape
-    DisableControlAction(0, 200, true) -- disable escape
-    DisableControlAction(0, 202, true) -- disable escape
-    DisableControlAction(0, 322, true) -- disable escape
-    DisableControlAction(0, 245, true) -- disable chat
+    DisableControlAction(0, 1, true)
+    DisableControlAction(0, 2, true)
+    DisableControlAction(0, 3, true)
+    DisableControlAction(0, 4, true)
+    DisableControlAction(0, 5, true)
+    DisableControlAction(0, 6, true)
+    DisableControlAction(0, 263, true)
+    DisableControlAction(0, 264, true)
+    DisableControlAction(0, 257, true)
+    DisableControlAction(0, 140, true)
+    DisableControlAction(0, 141, true)
+    DisableControlAction(0, 142, true)
+    DisableControlAction(0, 143, true)
+    DisableControlAction(0, 177, true)
+    DisableControlAction(0, 200, true)
+    DisableControlAction(0, 202, true)
+    DisableControlAction(0, 322, true)
+    DisableControlAction(0, 245, true)
 end
 
 local function LoadPhone()
@@ -271,7 +293,7 @@ local function OpenPhone()
     DenaliFW.Functions.TriggerCallback('denalifw-phone:server:HasPhone', function(HasPhone)
         if HasPhone then
             PhoneData.PlayerData = DenaliFW.Functions.GetPlayerData()
-            SetNuiFocus(true, true)
+    	    SetNuiFocus(true, true)
             SendNUIMessage({
                 action = "open",
                 Tweets = PhoneData.Tweets,
@@ -302,7 +324,7 @@ local function OpenPhone()
                 PhoneData.GarageVehicles = vehicles
             end)
         else
-            DenaliFW.Functions.Notify("You don't have a phone", "error")
+            DenaliFW.Functions.Notify("You don't have a phone?", "error")
         end
     end)
 end
@@ -371,7 +393,7 @@ local function CancelCall()
             action = "PhoneNotification",
             PhoneNotify = {
                 title = "Phone",
-                text = "The call has been ended",
+                text = "Call ended",
                 icon = "fas fa-phone",
                 color = "#e84118",
             },
@@ -381,7 +403,7 @@ local function CancelCall()
             action = "PhoneNotification",
             PhoneNotify = {
                 title = "Phone",
-                text = "The call has been ended",
+                text = "Call ended",
                 icon = "fas fa-phone",
                 color = "#e84118",
             },
@@ -443,7 +465,7 @@ local function AnswerCall()
             action = "PhoneNotification",
             PhoneNotify = {
                 title = "Phone",
-                text = "You don't have a incoming call...",
+                text = "You don't have an incoming call...",
                 icon = "fas fa-phone",
                 color = "#e84118",
             },
@@ -538,8 +560,8 @@ RegisterNUICallback('Close', function()
         PhoneData.AnimationData.anim = nil
         DoPhoneAnimation('cellphone_text_to_call')
     end
-    SetNuiFocus(false, false)
-    SetTimeout(500, function()
+    SetTimeout(300, function()
+        SetNuiFocus(false, false)
         PhoneData.isOpen = false
     end)
 end)
@@ -604,9 +626,9 @@ RegisterNUICallback('SharedLocation', function(data)
     SendNUIMessage({
         action = "PhoneNotification",
         PhoneNotify = {
-            title = "Whatsapp",
-            text = "Location has been set!",
-            icon = "fab fa-whatsapp",
+            title = "Messages",
+            text = "Location set!",
+            icon = "fas fa-comment",
             color = "#25D366",
             timeout = 1500,
         },
@@ -790,6 +812,7 @@ end)
 RegisterNUICallback('InstallApplication', function(data, cb)
     local ApplicationData = Config.StoreApps[data.app]
     local NewSlot = GetFirstAvailableSlot()
+    --  local NewSlot = 17
 
     if not CanDownloadApps then
         return
@@ -830,14 +853,13 @@ RegisterNUICallback('DeleteImage', function(image,cb)
     cb(true)
 end)
 
-
-RegisterNUICallback('track-vehicle', function(data, cb)
-    local veh = data.veh
-    if findVehFromPlateAndLocate(veh.plate) then
-        DenaliFW.Functions.Notify("Your vehicle has been marked", "success")
-    else
-        DenaliFW.Functions.Notify("This vehicle cannot be located", "error")
-    end
+RegisterNUICallback('gps-vehicle-garage', function(data, cb)
+local veh = data.veh
+if findVehFromPlateAndLocate(veh.plate) then
+    DenaliFW.Functions.Notify("Your vehicle has been marked", "success")
+else
+    DenaliFW.Functions.Notify("This vehicle cannot be located", "error")
+end
 end)
 
 RegisterNUICallback('DeleteContact', function(data, cb)
@@ -848,12 +870,11 @@ RegisterNUICallback('DeleteContact', function(data, cb)
     for k, v in pairs(PhoneData.Contacts) do
         if v.name == Name and v.number == Number then
             table.remove(PhoneData.Contacts, k)
-            --if PhoneData.isOpen then
                 SendNUIMessage({
                     action = "PhoneNotification",
                     PhoneNotify = {
                         title = "Phone",
-                        text = "You deleted contact!",
+                        text = "Contact deleted!",
                         icon = "fa fa-phone-alt",
                         color = "#04b543",
                         timeout = 1500,
@@ -921,7 +942,7 @@ end)
 
 RegisterNUICallback('SetAlertWaypoint', function(data)
     local coords = data.alert.coords
-    DenaliFW.Functions.Notify('GPS Location set: '..data.alert.title)
+    DenaliFW.Functions.Notify('GPS set: '..data.alert.title)
     SetNewWaypoint(coords.x, coords.y)
 end)
 
@@ -1028,7 +1049,7 @@ RegisterNUICallback('RaceDistanceCheck', function(data, cb)
             end
             cb(true)
         else
-            DenaliFW.Functions.Notify('You\'re too far away from the race. GPS has been set to the race.', 'error', 5000)
+            DenaliFW.Functions.Notify('You\'re too far away from the race. GPS set.', 'error', 5000)
             SetNewWaypoint(checkpointcoords.x, checkpointcoords.y)
             cb(false)
         end
@@ -1063,7 +1084,7 @@ end)
 
 RegisterNUICallback('SetHouseLocation', function(data, cb)
     SetNewWaypoint(data.HouseData.HouseData.coords.enter.x, data.HouseData.HouseData.coords.enter.y)
-    DenaliFW.Functions.Notify("GPS has been set to " .. data.HouseData.HouseData.adress .. "!", "success")
+    DenaliFW.Functions.Notify("GPS set to " .. data.HouseData.HouseData.adress .. "!", "success")
 end)
 
 RegisterNUICallback('RemoveKeyholder', function(data)
@@ -1092,7 +1113,7 @@ RegisterNUICallback('SetGPSLocation', function(data, cb)
     local ped = PlayerPedId()
 
     SetNewWaypoint(data.coords.x, data.coords.y)
-    DenaliFW.Functions.Notify('GPS has been set!', 'success')
+    DenaliFW.Functions.Notify('GPS set!', 'success')
 end)
 
 RegisterNUICallback('SetApartmentLocation', function(data, cb)
@@ -1100,7 +1121,7 @@ RegisterNUICallback('SetApartmentLocation', function(data, cb)
     local TypeData = Apartments.Locations[ApartmentData.type]
 
     SetNewWaypoint(TypeData.coords.enter.x, TypeData.coords.enter.y)
-    DenaliFW.Functions.Notify('GPS has been set!', 'success')
+    DenaliFW.Functions.Notify('GPS set!', 'success')
 end)
 
 RegisterNUICallback('GetCurrentLawyers', function(data, cb)
@@ -1348,52 +1369,42 @@ RegisterNUICallback("TakePhoto", function(data,cb)
     CellCamActivate(true, true)
     takePhoto = true
     while takePhoto do
-        if IsControlJustPressed(1, 27) then -- Toogle Mode
+        if IsControlJustPressed(1, 27) then
             frontCam = not frontCam
             CellFrontCamActivate(frontCam)
-        elseif IsControlJustPressed(1, 177) then -- CANCEL
+        elseif IsControlJustPressed(1, 177) then
             DestroyMobilePhone()
             CellCamActivate(false, false)
             cb(json.encode({ url = nil }))
+            OpenPhone()
             takePhoto = false
             break
-        elseif IsControlJustPressed(1, 176) then -- TAKE.. PIC
+        elseif IsControlJustPressed(1, 176) then
             DenaliFW.Functions.TriggerCallback("denalifw-phone:server:GetWebhook",function(hook)
-                if hook then
-                    exports['screenshot-basic']:requestScreenshotUpload(tostring(hook), "files[]", function(data)
-                        local image = json.decode(data)
-                        DestroyMobilePhone()
-                        CellCamActivate(false, false)
-                        TriggerServerEvent('denalifw-phone:server:addImageToGallery', image.attachments[1].proxy_url)
-                        Wait(400)
-                        TriggerServerEvent('denalifw-phone:server:getImageFromGallery')
-                        cb(json.encode(image.attachments[1].proxy_url))
-                    end)
-                else
-                    return
-                end
+                DenaliFW.Functions.Notify('Touching up photo...', 'primary')
+                exports['screenshot-basic']:requestScreenshotUpload(tostring(hook), "files[]", function(data)
+                    local image = json.decode(data)
+                    DestroyMobilePhone()
+                    CellCamActivate(false, false)
+                    TriggerServerEvent('denalifw-phone:server:addImageToGallery', image.attachments[1].proxy_url)
+                    Wait(400)
+                    TriggerServerEvent('denalifw-phone:server:getImageFromGallery')
+                    cb(json.encode(image.attachments[1].proxy_url))
+                    DenaliFW.Functions.Notify('Photo ssaved!', 'success')
+                    OpenPhone()
+                end)
             end)
+
             takePhoto = false
         end
-        HideHudComponentThisFrame(7)
-        HideHudComponentThisFrame(8)
-        HideHudComponentThisFrame(9)
-        HideHudComponentThisFrame(6)
-        HideHudComponentThisFrame(19)
-        HideHudAndRadarThisFrame()
-        EnableAllControlActions(0)
-        Wait(0)
-    end
-    Wait(1000)
-    OpenPhone()
-end)
-
-RegisterCommand('ping', function(source, args)
-    local PlayerData = DenaliFW.Functions.GetPlayerData()
-    if not args[1] then
-        DenaliFW.Functions.Notify("You need to input a Player ID", "error")
-    else
-        TriggerServerEvent('denalifw-phone:server:sendPing', args[1])
+          HideHudComponentThisFrame(7)
+          HideHudComponentThisFrame(8)
+          HideHudComponentThisFrame(9)
+          HideHudComponentThisFrame(6)
+          HideHudComponentThisFrame(19)
+          HideHudAndRadarThisFrame()
+          EnableAllControlActions(0)
+          Wait(0)
     end
 end)
 
@@ -1443,34 +1454,20 @@ end)
 
 RegisterNetEvent('denalifw-phone:client:TransferMoney', function(amount, newmoney)
     PhoneData.PlayerData.money.bank = newmoney
-    SendNUIMessage({ action = "PhoneNotification", PhoneNotify = { title = "QBank", text = "&#36;"..amount.." has been added to your account!", icon = "fas fa-university", color = "#8c7ae6", }, })
+    SendNUIMessage({ action = "PhoneNotification", PhoneNotify = { title = "Bank", text = "&#36;"..amount.." added to your account!", icon = "fas fa-university", color = "#8c7ae6", }, })
     SendNUIMessage({ action = "UpdateBank", NewBalance = PhoneData.PlayerData.money.bank })
 end)
-
--- RegisterNetEvent('denalifw-phone:client:UpdateTweetsDel', function(source, Tweets)
---     PhoneData.Tweets = Tweets
---     print(source)
---     print(PhoneData.PlayerData.source)
---     --local MyPlayerId = PhoneData.PlayerData.source
---     --GetPlayerServerId(PlayerPedId())
---     if source ~= MyPlayerId then
---         SendNUIMessage({
---             action = "UpdateTweets",
---             Tweets = PhoneData.Tweets
---         })
---     end
--- end)
 
 RegisterNetEvent('denalifw-phone:client:UpdateTweets', function(src, Tweets, NewTweetData, delete)
     PhoneData.Tweets = Tweets
     local MyPlayerId = PhoneData.PlayerData.source
-    if not delete then -- New Tweet
+    if not delete then 
         if src ~= MyPlayerId then
             SendNUIMessage({
                 action = "PhoneNotification",
                 PhoneNotify = {
-                    title = "New Tweet (@"..NewTweetData.firstName.." "..NewTweetData.lastName..")",
-                    text = NewTweetData.message,
+                    title = "New Tweet: (@"..NewTweetData.firstName.." "..NewTweetData.lastName..")",
+                    text = "A new tweet as been posted.",
                     icon = "fab fa-twitter",
                     color = "#1DA1F2",
                 },
@@ -1484,20 +1481,20 @@ RegisterNetEvent('denalifw-phone:client:UpdateTweets', function(src, Tweets, New
                 action = "PhoneNotification",
                 PhoneNotify = {
                     title = "Twitter",
-                    text = "The Tweet has been posted!",
+                    text = "Tweet posted!",
                     icon = "fab fa-twitter",
                     color = "#1DA1F2",
                     timeout = 1000,
                 },
             })
         end
-    else -- Deleting a tweet
+    else
         if src == MyPlayerId then
             SendNUIMessage({
                 action = "PhoneNotification",
                 PhoneNotify = {
                     title = "Twitter",
-                    text = "The Tweet has been deleted!",
+                    text = "Tweet deleted!",
                     icon = "fab fa-twitter",
                     color = "#1DA1F2",
                     timeout = 1000,
@@ -1558,7 +1555,7 @@ RegisterNetEvent('denalifw-phone:client:NewMailNotify', function(MailData)
         action = "PhoneNotification",
         PhoneNotify = {
             title = "Mail",
-            text = "You received a new mail from "..MailData.sender,
+            text = "New E-Mail from: "..MailData.sender,
             icon = "fas fa-envelope",
             color = "#ff002f",
             timeout = 1500,
@@ -1590,7 +1587,7 @@ RegisterNetEvent('denalifw-phone:client:UpdateAdverts', function(Adverts, LastAd
         action = "PhoneNotification",
         PhoneNotify = {
             title = "Advertisement",
-            text = "A new ad has been posted by "..LastAd,
+            text = "New ad posted: "..LastAd,
             icon = "fas fa-ad",
             color = "#ff8f1a",
             timeout = 2500,
@@ -1647,7 +1644,7 @@ RegisterNetEvent('denalifw-phone:client:CancelCall', function()
             action = "PhoneNotification",
             NotifyData = {
                 title = "Phone",
-                content = "The call has been ended",
+                content = "Call ended",
                 icon = "fas fa-phone",
                 timeout = 3500,
                 color = "#e84118",
@@ -1658,7 +1655,7 @@ RegisterNetEvent('denalifw-phone:client:CancelCall', function()
             action = "PhoneNotification",
             PhoneNotify = {
                 title = "Phone",
-                text = "The call has been ended",
+                text = "Call ended",
                 icon = "fas fa-phone",
                 color = "#e84118",
             },
@@ -1672,6 +1669,18 @@ RegisterNetEvent('denalifw-phone:client:CancelCall', function()
         SendNUIMessage({
             action = "CancelOutgoingCall",
         })
+    end
+end)
+
+RegisterNUICallback('phone-silent-button', function(data,cb)
+    if CallVolume == tonumber("0.2") then
+        CallVolume = 0
+        DenaliFW.Functions.Notify("Silent Mode On", "success")
+        cb(true)
+    else
+        CallVolume = 0.2
+        DenaliFW.Functions.Notify("Silent Mode Off", "error")
+        cb(false)
     end
 end)
 
@@ -1707,7 +1716,7 @@ RegisterNetEvent('denalifw-phone:client:GetCalled', function(CallerNumber, CallI
                     DenaliFW.Functions.TriggerCallback('denalifw-phone:server:HasPhone', function(HasPhone)
                         if HasPhone then
                             RepeatCount = RepeatCount + 1
-                            TriggerServerEvent("InteractSound_SV:PlayOnSource", "ringing", 0.2)
+                            TriggerServerEvent("InteractSound_SV:PlayOnSource", "ringing", CallVolume)
 
                             if not PhoneData.isOpen then
                                 SendNUIMessage({
@@ -1751,7 +1760,7 @@ RegisterNetEvent('denalifw-phone:client:UpdateMessages', function(ChatMessages, 
     local NumberKey = GetKeyByNumber(SenderNumber)
 
     if New then
-        PhoneData.Chats[#PhoneData.Chats+1] = {
+	    PhoneData.Chats[#PhoneData.Chats+1] = {
             name = IsNumberInContacts(SenderNumber),
             number = SenderNumber,
             messages = {},
@@ -1776,9 +1785,9 @@ RegisterNetEvent('denalifw-phone:client:UpdateMessages', function(ChatMessages, 
                 SendNUIMessage({
                     action = "PhoneNotification",
                     PhoneNotify = {
-                        title = "Whatsapp",
-                        text = "New message from "..IsNumberInContacts(SenderNumber).."!",
-                        icon = "fab fa-whatsapp",
+                        title = "Messages",
+                        text = "New message: "..IsNumberInContacts(SenderNumber),
+                        icon = "fas fa-comment",
                         color = "#25D366",
                         timeout = 1500,
                     },
@@ -1787,9 +1796,9 @@ RegisterNetEvent('denalifw-phone:client:UpdateMessages', function(ChatMessages, 
                 SendNUIMessage({
                     action = "PhoneNotification",
                     PhoneNotify = {
-                        title = "Whatsapp",
-                        text = "Messaged yourself",
-                        icon = "fab fa-whatsapp",
+                        title = "Messages",
+                        text = "Messaged yourself?",
+                        icon = "fas fa-comment",
                         color = "#25D366",
                         timeout = 4000,
                     },
@@ -1812,9 +1821,9 @@ RegisterNetEvent('denalifw-phone:client:UpdateMessages', function(ChatMessages, 
 	    SendNUIMessage({
 	        action = "PhoneNotification",
 	        PhoneNotify = {
-		    title = "Whatsapp",
-		    text = "New message from "..IsNumberInContacts(SenderNumber).."!",
-		    icon = "fab fa-whatsapp",
+		    title = "Messages",
+		    text = "New message: "..IsNumberInContacts(SenderNumber),
+		    icon = "fas fa-comment",
 		    color = "#25D366",
 		    timeout = 3500,
 	        },
@@ -1836,9 +1845,9 @@ RegisterNetEvent('denalifw-phone:client:UpdateMessages', function(ChatMessages, 
                 SendNUIMessage({
                     action = "PhoneNotification",
                     PhoneNotify = {
-                        title = "Whatsapp",
-                        text = "New message from "..IsNumberInContacts(SenderNumber).."!",
-                        icon = "fab fa-whatsapp",
+                        title = "Messages",
+                        text = "New message: "..IsNumberInContacts(SenderNumber),
+                        icon = "fas fa-comment",
                         color = "#25D366",
                         timeout = 1500,
                     },
@@ -1847,9 +1856,9 @@ RegisterNetEvent('denalifw-phone:client:UpdateMessages', function(ChatMessages, 
                 SendNUIMessage({
                     action = "PhoneNotification",
                     PhoneNotify = {
-                        title = "Whatsapp",
-                        text = "Messaged yourself",
-                        icon = "fab fa-whatsapp",
+                        title = "Messages",
+                        text = "Messaged yourself?",
+                        icon = "fas fa-comment",
                         color = "#25D366",
                         timeout = 4000,
                     },
@@ -1872,9 +1881,9 @@ RegisterNetEvent('denalifw-phone:client:UpdateMessages', function(ChatMessages, 
             SendNUIMessage({
                 action = "PhoneNotification",
                 PhoneNotify = {
-                    title = "Whatsapp",
-                    text = "New message from "..IsNumberInContacts(SenderNumber).."!",
-                    icon = "fab fa-whatsapp",
+                    title = "Messages",
+                    text = "New message: "..IsNumberInContacts(SenderNumber),
+                    icon = "fas fa-comment",
                     color = "#25D366",
                     timeout = 3500,
                 },
@@ -1895,7 +1904,7 @@ RegisterNetEvent('denalifw-phone:client:RemoveBankMoney', function(amount)
             action = "PhoneNotification",
             PhoneNotify = {
                 title = "Bank",
-                text = "$"..amount.." has been removed from your balance!",
+                text = "$"..amount.." removed from your balance!",
                 icon = "fas fa-university",
                 color = "#ff002f",
                 timeout = 3500,
@@ -1925,7 +1934,7 @@ RegisterNetEvent('denalifw-phone:client:AddTransaction', function(SenderData, Tr
             PhoneNotify = {
                 title = "Crypto",
                 text = Message,
-                icon = "fas fa-chart-pie",
+                icon = "fab fa-bitcoin",
                 color = "#04b543",
                 timeout = 1500,
             },
@@ -1944,7 +1953,7 @@ RegisterNetEvent('denalifw-phone:client:AddNewSuggestion', function(SuggestionDa
         action = "PhoneNotification",
         PhoneNotify = {
             title = "Phone",
-            text = "You have a new suggested contact!",
+            text = "New suggested contact!",
             icon = "fa fa-phone-alt",
             color = "#04b543",
             timeout = 1500,
@@ -2014,7 +2023,7 @@ RegisterNetEvent('denalifw-phone:client:AnswerCall', function()
             action = "PhoneNotification",
             PhoneNotify = {
                 title = "Phone",
-                text = "You don't have a incoming call...",
+                text = "You don't have an incoming call...",
                 icon = "fas fa-phone",
                 color = "#e84118",
             },
@@ -2050,7 +2059,7 @@ end)
 
 RegisterNetEvent('denalifw-phone:client:GetMentioned', function(TweetMessage, AppAlerts)
     Config.PhoneApplications["twitter"].Alerts = AppAlerts
-    SendNUIMessage({ action = "PhoneNotification", PhoneNotify = { title = "You have been mentioned in a Tweet!", text = TweetMessage.message, icon = "fab fa-twitter", color = "#1DA1F2", }, })
+    SendNUIMessage({ action = "PhoneNotification", PhoneNotify = { title = "New mention!", text = TweetMessage.message, icon = "fab fa-twitter", color = "#1DA1F2", }, })
     local TweetMessage = {firstName = TweetMessage.firstName, lastName = TweetMessage.lastName, message = escape_str(TweetMessage.message), time = TweetMessage.time, picture = TweetMessage.picture}
     PhoneData.MentionedTweets[#PhoneData.MentionedTweets+1] = TweetMessage
     SendNUIMessage({ action = "RefreshAppAlerts", AppData = Config.PhoneApplications })
@@ -2074,11 +2083,13 @@ RegisterNetEvent("denalifw-phone:client:CustomNotification", function(title, tex
     })
 end)
 
+
 -- Threads
 
 CreateThread(function()
     Wait(500)
     LoadPhone()
+    PublicPhone()
 end)
 
 CreateThread(function()
@@ -2109,3 +2120,275 @@ CreateThread(function()
         end
     end
 end)
+
+
+-- ping
+
+RegisterNUICallback('AcceptPingPlayer', function()
+    TriggerServerEvent('denalifw-pings:server:acceptping')
+    TriggerEvent("denalifw-phone:ping:client:UiUppers", false)
+end)
+
+RegisterNUICallback('rejectPingPlayer', function()
+    TriggerServerEvent('denalifw-pings:server:denyping')
+    TriggerEvent("denalifw-phone:ping:client:UiUppers", false)
+end)
+
+RegisterNUICallback('SendPingPlayer', function(data)
+    TriggerServerEvent('denalifw-pings:server:SendPing2', data.id)
+    
+end)
+
+local CurrentPings = {}
+
+RegisterNetEvent('denalifw-pings:client:DoPing', function(id)
+    TriggerServerEvent('denalifw-pings:server:SendPing', id)
+end)
+
+RegisterNetEvent('denalifw-pings:client:AcceptPing', function(PingData, SenderData)
+    local ped = PlayerPedId()
+    local pos = GetEntityCoords(ped)
+
+        TriggerServerEvent('denalifw-pings:server:SendLocation', PingData, SenderData)
+end)
+
+RegisterNetEvent('denalifw-pings:client:SendLocation', function(PingData, SenderData)
+    DenaliFW.Functions.Notify('Their location has been blipped on your map', 'success')
+
+    CurrentPings[PingData.sender] = AddBlipForCoord(PingData.coords.x, PingData.coords.y, PingData.coords.z)
+    SetBlipSprite(CurrentPings[PingData.sender], 280)
+    SetBlipDisplay(CurrentPings[PingData.sender], 4)
+    SetBlipScale(CurrentPings[PingData.sender], 1.1)
+    SetBlipAsShortRange(CurrentPings[PingData.sender], false)
+    SetBlipColour(CurrentPings[PingData.sender], 0)
+    BeginTextCommandSetBlipName("STRING")
+    AddTextComponentSubstringPlayerName("Friend")
+    EndTextCommandSetBlipName(CurrentPings[PingData.sender])
+
+    SetTimeout(5 * (60 * 1000), function()
+        DenaliFW.Functions.Notify('Ping '..PingData.sender..' has expired...', 'error')
+        RemoveBlip(CurrentPings[PingData.sender])
+        CurrentPings[PingData.sender] = nil
+        TriggerEvent("denalifw-phone:ping:client:UiUppers", false)
+    end)
+end)
+
+RegisterNetEvent('denalifw-phone:ping:client:UiUppers', function(toggle)
+    if toggle then
+        SendNUIMessage({
+            action = "acceptrejectBlock",
+        })
+        TriggerEvent("denalifw-hud:ping:client:ShowIcon", true)
+    else
+        SendNUIMessage({
+            action = "acceptrejectNone",
+        })
+        TriggerEvent("denalifw-hud:ping:client:ShowIcon", false)
+    end
+end)
+
+RegisterNUICallback('CasinoAddBet', function(data)
+    TriggerServerEvent('denalifw-phone:server:CasinoAddBet', data)
+end)
+
+RegisterNetEvent('denalifw-phone:client:addbetForAll', function(data)
+    SendNUIMessage({
+        action = "BetAddToApp",
+        datas = data,
+    })
+end)
+
+RegisterNUICallback('BettingAddToTable', function(data)
+    TriggerServerEvent('denalifw-phone:server:BettingAddToTable', data)
+end)
+
+RegisterNUICallback('CasinoDeleteTable', function(data)
+    TriggerServerEvent('denalifw-phone:server:DeleteAndClearTable')
+end)
+
+RegisterNUICallback('CheckHasBetTable', function(data, cb)
+    DenaliFW.Functions.TriggerCallback('denalifw-phone:server:CheckHasBetTable', function(HasTable)
+        cb(HasTable)
+    end)
+end)
+
+RegisterNUICallback('casino_status', function(data)
+    TriggerServerEvent('denalifw-phone:server:casino_status')
+end)
+
+RegisterNUICallback('CheckHasBetStatus', function(data, cb)
+    DenaliFW.Functions.TriggerCallback('denalifw-phone:server:CheckHasBetStatus', function(HasStatus)
+        cb(HasStatus)
+    end)
+end)
+
+RegisterNUICallback('WineridCasino', function(data)
+    TriggerServerEvent('denalifw-phone:server:WineridCasino', data)
+end)
+
+RegisterNUICallback('GetJobCentersJobs', function(data, cb)
+    cb(Config.JobCenter)
+end)
+
+RegisterNUICallback('CasinoPhoneJobCenter', function(data)
+    if data.action == 1 then
+        TriggerServerEvent('denalifw-phone:server:SetJobJobCenter', data)
+    elseif data.action == 2 then
+        SetNewWaypoint(data.x, data.y)
+        DenaliFW.Functions.Notify('GPS set', "success")
+    end
+end)
+
+RegisterNUICallback('employment_CreateJobGroup', function(data)
+    TriggerServerEvent('denalifw-phone:server:employment_CreateJobGroup', data)
+end)
+
+RegisterNetEvent('denalifw-phone:client:EveryoneGrupAddsForAll', function(data)
+    SendNUIMessage({
+        action = "GroupAddDIV",
+        datas = data,
+    })
+end)
+
+RegisterNUICallback('employment_DeleteGroup', function(data)
+    TriggerServerEvent('denalifw-phone:server:employment_DeleteGroup', data)
+end)
+
+RegisterNUICallback('GetGroupsApp', function(data, cb)
+    DenaliFW.Functions.TriggerCallback('denalifw-phone:server:GetGroupsApp', function(HasGroups)
+        cb(HasGroups)
+    end)
+end)
+
+RegisterNUICallback('employment_JoinTheGroup', function(data)
+    TriggerServerEvent('denalifw-phone:server:employment_JoinTheGroup', data)
+end)
+
+RegisterNUICallback('employment_leave_grouped', function(data)
+    TriggerServerEvent('denalifw-phone:server:employment_leave_grouped', data)
+end)
+
+RegisterNUICallback('employment_CheckPlayerNames', function(data, cb)
+    DenaliFW.Functions.TriggerCallback('denalifw-phone:server:employment_CheckPlayerNames', function(HasName)
+        cb(HasName)
+    end, data.id)
+end)
+
+RegisterNUICallback('SendBillForPlayer_debt', function(data)
+    TriggerServerEvent('denalifw-phone:server:SendBillForPlayer_debt', data)
+end)
+
+RegisterNUICallback('GetHasBills_debt', function(data, cb)
+    DenaliFW.Functions.TriggerCallback('denalifw-phone:server:GetHasBills_debt', function(Has)
+        cb(Has)
+    end)
+end)
+
+RegisterNUICallback('debit_AcceptBillForPay', function(data)
+    TriggerServerEvent('denalifw-phone:server:debit_AcceptBillForPay', data)
+end)
+
+RegisterNetEvent('denalifw-phone:RefreshPhoneForDebt', function()
+    SendNUIMessage({
+        action = "DebtRefresh",
+    })
+end)
+
+RegisterNUICallback('wenmo_givemoney_toID', function(data)
+    TriggerServerEvent('denalifw-phone:server:wenmo_givemoney_toID', data)
+end)
+
+RegisterNetEvent('hud:client:OnMoneyChange', function(type, amount, isMinus, reason)
+    if type == "bank" then
+        if isMinus then
+            SendNUIMessage({
+                action = "ChangeMoney_Wenmo",
+                Color = "#f5a15b",
+                Amount = "-$"..amount,
+                Reason = reason,
+            })
+        else
+            SendNUIMessage({
+                action = "ChangeMoney_Wenmo",
+                Color = "#8ee074",
+                Amount = "+$"..amount,
+                Reason = reason,
+            })
+        end
+    end
+end)
+
+RegisterNUICallback('documents_Save_Note_As', function(data)
+    TriggerServerEvent('denalifw-phone:server:documents_Save_Note_As', data)
+end)
+
+RegisterNUICallback('GetNote_for_Documents_app', function(data, cb)
+    DenaliFW.Functions.TriggerCallback('denalifw-phone:server:GetNote_for_Documents_app', function(Has)
+        cb(Has)
+    end)
+end)
+
+RegisterNetEvent('denalifw-phone:RefReshNotes_Free_Documents', function()
+    SendNUIMessage({
+        action = "DocumentRefresh",
+    })
+end)
+
+
+RegisterNUICallback('Send_lsbn_ToChat', function(data)
+    TriggerServerEvent('denalifw-phone:server:Send_lsbn_ToChat', data)
+end)
+
+RegisterNetEvent('denalifw-phone:LSBN-reafy-for-add', function(data, toggle, text)
+    if toggle then
+        SendNUIMessage({
+            action = "PhoneNotification",
+            PhoneNotify = {
+                title = "LSBN",
+                text = text,
+                icon = "fas fa-bullhorn",
+                color = "#d8e212",
+                timeout = 1000,
+            },
+        })
+    end
+
+    SendNUIMessage({
+        action = "AddNews",
+        data = data,
+    })
+end)
+
+RegisterNUICallback('GetLSBNchats', function(data)
+    TriggerServerEvent('denalifw-phone:server:GetLSBNchats', data)
+end)
+
+
+
+
+
+
+
+RegisterNetEvent('stx-phone:client:publocphoneopen',function()
+    SetNuiFocus(true, true)
+    SendNUIMessage({type = 'publicphoneopen'})
+end)
+
+RegisterNUICallback('publicphoneclose', function()
+    SetNuiFocus(false, false)
+end)
+
+RegisterNUICallback('openHelp', function()  
+    TriggerEvent('')
+end)
+
+local function GetGroupCSNs(Data)
+    local gData = {}
+    DenaliFW.Functions.TriggerCallback('denalifw-phone:server:GetGroupCSNs', function(HasGroup)
+        gData = HasGroup
+    end, Data)
+    Wait(100)
+    return gData
+end
+
+exports('GetGroupCSNs', GetGroupCSNs)

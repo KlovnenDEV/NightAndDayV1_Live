@@ -16,9 +16,10 @@ $(document).on('click', '.garage-vehicle', function(e){
     SetupDetails(VehData);
 });
 
+
 $(document).on('click', '#track-vehicle', function(e){
     e.preventDefault()
-    $.post("https://denalifw-phone/track-vehicle", JSON.stringify({
+    $.post("https://denalifw-phone/gps-vehicle-garage", JSON.stringify({
         veh: veh,
     }));
 });

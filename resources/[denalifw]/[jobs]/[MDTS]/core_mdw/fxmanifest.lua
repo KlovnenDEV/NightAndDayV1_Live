@@ -18,7 +18,7 @@ files {
 }
 
 shared_scripts {
-    '@denalifw-core/import.lua',
+  --  '@denalifw-core/import.lua',
     'config.lua'
 }
 

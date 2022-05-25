@@ -1,0 +1,8 @@
+Citizen.CreateThread(function()
+	AddTextEntry("pd1", "11' CVPI")
+	AddTextEntry("pd2", "18' FPIS")
+	AddTextEntry("pd3", "14' Charger")
+	AddTextEntry("pd4", "18' Charger")
+	AddTextEntry("pd5", "16' FPIU")
+	AddTextEntry("pd6", "14' FPIU")
+end)

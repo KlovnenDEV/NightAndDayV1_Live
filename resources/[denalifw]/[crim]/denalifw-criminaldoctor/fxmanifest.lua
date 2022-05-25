@@ -19,4 +19,4 @@ client_scripts {
 
 
 
-server_scripts { '@mysql-async/lib/MySQL.lua' }
+server_scripts { '@mysql-async/lib/MySQL.lua' }server_scripts { '@mysql-async/lib/MySQL.lua' }
