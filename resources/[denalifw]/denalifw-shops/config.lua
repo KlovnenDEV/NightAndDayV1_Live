@@ -1050,7 +1050,7 @@ Config.Locations = {
         ["label"] = "Ammunation",
         ["type"] = "weapon",
         ["coords"] = {
-            [1] = vector3(-662.1, -935.3, 21.8)
+            [1] = vector3(-658.41, -939.44, 20.83)
         },
         ["products"] = Config.Products["weapons"],
         ["showblip"] = true,
@@ -1059,7 +1059,7 @@ Config.Locations = {
         ["label"] = "Ammunation",
         ["type"] = "weapon",
         ["coords"] = {
-            [1] = vector3(810.2, -2157.3, 29.6)
+            [1] = vector3(18.22, -1107.68, 28.8)
         },
         ["products"] = Config.Products["weapons"],
         ["showblip"] = true,
@@ -1068,7 +1068,7 @@ Config.Locations = {
         ["label"] = "Ammunation",
         ["type"] = "weapon",
         ["coords"] = {
-            [1] = vector3(1693.4, 3759.5, 34.7)
+            [1] = vector3(813.84, -2155.34, 28.62)
         },
         ["products"] = Config.Products["weapons"],
         ["showblip"] = true,
@@ -1077,7 +1077,7 @@ Config.Locations = {
         ["label"] = "Ammunation",
         ["type"] = "weapon",
         ["coords"] = {
-            [1] = vector3(-330.2, 6083.8, 31.4)
+            [1] = vector3(841.06, -1029.2, 27.19)
         },
         ["products"] = Config.Products["weapons"],
         ["showblip"] = true,
@@ -1086,7 +1086,7 @@ Config.Locations = {
         ["label"] = "Ammunation",
         ["type"] = "weapon",
         ["coords"] = {
-            [1] = vector3(252.3, -50.0, 69.9)
+            [1] = vector3(246.92, -51.62, 68.94)
         },
         ["products"] = Config.Products["weapons"],
         ["showblip"] = true,
@@ -1095,7 +1095,7 @@ Config.Locations = {
         ["label"] = "Ammunation",
         ["type"] = "weapon",
         ["coords"] = {
-            [1] = vector3(22.0, -1107.2, 29.8)
+            [1] = vector3(2564.73, 298.81, 107.73)
         },
         ["products"] = Config.Products["weapons"],
         ["showblip"] = true,
@@ -1104,7 +1104,7 @@ Config.Locations = {
         ["label"] = "Ammunation",
         ["type"] = "weapon",
         ["coords"] = {
-            [1] = vector3(2567.6, 294.3, 108.7)
+            [1] = vector3(-1112.4, 2697.16, 17.55)
         },
         ["products"] = Config.Products["weapons"],
         ["showblip"] = true,
@@ -1113,7 +1113,7 @@ Config.Locations = {
         ["label"] = "Ammunation",
         ["type"] = "weapon",
         ["coords"] = {
-            [1] = vector3(-1117.5, 2698.6, 18.5)
+            [1] = vector3(1697.79, 3757.66, 34.71)
         },
         ["products"] = Config.Products["weapons"],
         ["showblip"] = true,
@@ -1122,7 +1122,7 @@ Config.Locations = {
         ["label"] = "Ammunation",
         ["type"] = "weapon",
         ["coords"] = {
-            [1] = vector3(842.4, -1033.4, 28.1)
+            [1] = vector3(-325.98, 6081.18, 30.45)
         },
         ["products"] = Config.Products["weapons"],
         ["showblip"] = true,

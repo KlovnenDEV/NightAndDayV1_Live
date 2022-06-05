@@ -1,238 +1,324 @@
 var selectedChar = null;
+var selectedCSN = null;
+var WelcomePercentage = "30vh"
+var CharDatas = [];
 qbMultiCharacters = {}
-$('.container').hide();
+var Loaded = false;
+var NChar = null;
+var CharacterMaxCreate = [];
+var NumberOffClear = null;
+var SelectedCharGender = null;
 
 $(document).ready(function (){
     window.addEventListener('message', function (event) {
-        var item = event.data;
+        var data = event.data;
 
-        if (item.action == "openUI") {
-            if (item.toggle == true) {
-                $('.container').fadeIn(250);
+        if (data.action == "ui") {
+			NChar = data.nChar;
+            if (data.toggle) {
+                RefreshExpertData()
+                $('.container').show();
+                $(".welcomescreen").fadeIn(150);
+                $(".SelectChar-NewMenu").fadeOut(150);
+                $(".NewbtnExpertMulti").fadeOut(150);
                 qbMultiCharacters.resetAll();
+
+                CharacterMaxCreate = [];
+                for (let i = 1; i <= NChar; i++) {
+                    CharacterMaxCreate[i] = false
+                }
+
+                var originalText = "Loading.";
+                var loadingProgress = 0;
+                var loadingDots = 0;
+                $("#loading-text").html(originalText);
+                var DotsInterval = setInterval(function() {
+                    $("#loading-text").append(".");
+                    loadingDots++;
+                    loadingProgress++;
+                    if (loadingProgress == 3) {
+                        originalText = "Loading.."
+                        $("#loading-text").html(originalText);
+                    }
+                    if (loadingProgress == 4) {
+                        originalText = "Loading..."
+                        $("#loading-text").html(originalText);
+                    }
+                    if (loadingProgress == 6) {
+                        originalText = "Loading...."
+                        $("#loading-text").html(originalText);
+                    }
+                    if(loadingDots == 4) {
+                        $("#loading-text").html(originalText);
+                        loadingDots = 0;
+                    }
+                }, 500);
+
+                setTimeout(function(){
+                    $.post('https://denalifw-multicharacter/setupCharacters');
+                    setTimeout(function(){
+                        clearInterval(DotsInterval);
+                        loadingProgress = 0;
+                        originalText = "Loading.....";
+                        $(".welcomescreen").fadeOut(150);
+                        $(".SelectChar-NewMenu").fadeIn(150);
+                        $(".NewbtnExpertMulti").fadeIn(150);
+                        $.post('https://denalifw-multicharacter/removeBlur');
+                    }, 2000);
+                }, 2000);
             } else {
                 $('.container').fadeOut(250);
                 qbMultiCharacters.resetAll();
             }
         }
 
-        if (item.action == "setupCharacters") {
-            setupCharacters(event.data.characters)
+         if (data.action == "SetupCharacterNUI") {
+            SetupCharNUI(event.data.left, event.data.top, event.data.cid, event.data.charinfo, event.data.Data)
         }
 
-        if (item.action == "setupCharInfo") {
-            setupCharInfo(event.data.chardata)
-        }
-    });
-
-    $('.continue-btn').click(function(e){
-        e.preventDefault();
-
-        qbMultiCharacters.fadeOutUp('.welcomescreen', undefined, 400);
-        qbMultiCharacters.fadeOutDown('.server-log', undefined, 400);
-        setTimeout(function(){
-            qbMultiCharacters.fadeInDown('.characters-list', '20%', 400);
-            qbMultiCharacters.fadeInDown('.character-info', '20%', 400);
-            $.post('http://denalifw-multicharacter/setupCharacters');
-        }, 400)
-    });
-
-    $('.disconnect-btn').click(function(e){
-        e.preventDefault();
-
-        $.post('http://denalifw-multicharacter/closeUI');
-        $.post('http://denalifw-multicharacter/disconnectButton');
     });
 
     $('.datepicker').datepicker();
 });
 
-function setupCharInfo(cData) {
-    if (cData == 'empty') {
-        $('.character-info-valid').html('<span id="no-char">The selected character slot is not in use.<br><br>So this character has no information yet.</span>');
-    } else {
-        var gender = "Man"
-        if (cData.charinfo.gender == 1) { gender = "Woman" }
-        $('.character-info-valid').html(
-        '<div class="character-info-box"><span id="info-label">Name: </span><span class="char-info-js">'+cData.charinfo.firstname+' '+cData.charinfo.lastname+'</span></div>' +
-        '<div class="character-info-box"><span id="info-label">Date of birth: </span><span class="char-info-js">'+cData.charinfo.birthdate+'</span></div>' +
-        '<div class="character-info-box"><span id="info-label">Gendar: </span><span class="char-info-js">'+gender+'</span></div>' +
-        '<div class="character-info-box"><span id="info-label">Nationality: </span><span class="char-info-js">'+cData.charinfo.nationality+'</span></div>' +
-        '<div class="character-info-box"><span id="info-label">Job: </span><span class="char-info-js">'+cData.job.label+'</span></div>' +
-        '<div class="character-info-box"><span id="info-label">Cash: </span><span class="char-info-js">&#36; '+cData.money.cash+'</span></div>' +
-        '<div class="character-info-box"><span id="info-label">Bank: </span><span class="char-info-js">&#36; '+cData.money.bank+'</span></div><br>' +
-        '<div class="character-info-box"><span id="info-label">Phone Number: </span><span class="char-info-js">'+cData.charinfo.phone+'</span></div>' +
-        '<div class="character-info-box"><span id="info-label">Account number: </span><span class="char-info-js">'+cData.charinfo.account+'</span></div>');
-    }
-}
-
-function setupCharacters(characters) {
-    $.each(characters, function(index, char){
-        $('#char-'+char.cid).html("");
-        $('#char-'+char.cid).data("citizenid", char.citizenid);
-        setTimeout(function(){
-            $('#char-'+char.cid).html('<span id="slot-name">'+char.charinfo.firstname+' '+char.charinfo.lastname+'<span id="cid">' + char.citizenid + '</span></span>');
-            $('#char-'+char.cid).data('cData', char)
-            $('#char-'+char.cid).data('cid', char.cid)
-        }, 100)
-    })
-}
-
-$(document).on('click', '#close-log', function(e){
+$('.continue-btn').click(function(e){
     e.preventDefault();
-    selectedLog = null;
-    $('.welcomescreen').css("filter", "none");
-    $('.server-log').css("filter", "none");
-    $('.server-log-info').fadeOut(250);
-    logOpen = false;
 });
 
-$(document).on('click', '.character', function(e) {
-    var cDataPed = $(this).data('cData');
+$('.disconnect-btn').click(function(e){
     e.preventDefault();
-    if (selectedChar === null) {
-        selectedChar = $(this);
-        if ((selectedChar).data('cid') == "") {
-            $(selectedChar).addClass("char-selected");
-            setupCharInfo('empty')
-            $("#play-text").html("Create character");
-            $("#play").css({"display":"block"});
-            $("#delete").css({"display":"none"});
-            $.post('http://denalifw-multicharacter/cDataPed', JSON.stringify({
-                cData: cDataPed
-            }));
-        } else {
-            $(selectedChar).addClass("char-selected");
-            setupCharInfo($(this).data('cData'))
-            $("#play-text").html("Play");
-            $("#delete-text").html("Delete character");
-            $("#play").css({"display":"block"});
-            $("#delete").css({"display":"block"});
-            $.post('http://denalifw-multicharacter/cDataPed', JSON.stringify({
-                cData: cDataPed
-            }));
-        }
-    } else {
-        $(selectedChar).removeClass("char-selected");
-        selectedChar = $(this);
-        if ((selectedChar).data('cid') == "") {
-            $(selectedChar).addClass("char-selected");
-            setupCharInfo('empty')
-            $("#play-text").html("Create character");
-            $("#play").css({"display":"block"});
-            $("#delete").css({"display":"none"});
-            $.post('http://denalifw-multicharacter/cDataPed', JSON.stringify({
-                cData: cDataPed
-            }));
-        } else {
-            $(selectedChar).addClass("char-selected");
-            setupCharInfo($(this).data('cData'))
-            $("#play-text").html("PLAY");
-            $("#delete-text").html("Delete character");
-            $("#play").css({"display":"block"});
-            $("#delete").css({"display":"block"});
-            $.post('http://denalifw-multicharacter/cDataPed', JSON.stringify({
-                cData: cDataPed
-            }));
-        }
-    }
+
+    $.post('https://denalifw-multicharacter/closeUI');
+    $.post('https://denalifw-multicharacter/disconnectButton');
 });
 
-$(document).on('click', '#create', function(e){
+
+function SetupCharNUI(left, top, cid, charinfo, Data) {
+    CharDatas[Data.citizenid] = Data
+    var namechar = charinfo.firstname+" "+charinfo.lastname
+    var AddOption = '<div id="char-'+cid+'" data-namechar="'+namechar+'" data-csn="'+Data.citizenid+'" data-cid="'+cid+'" style="left: '+left+'%; top: '+top+'%;" class="New-NUI-Style"></div>';
+    CharacterMaxCreate[cid] = true
+    $('.SelectChar-NUI-New').append(AddOption);
+    
+}
+
+$(document).on('click', '.New-NUI-Style', function(e){
     e.preventDefault();
-    $.post('http://denalifw-multicharacter/createNewCharacter', JSON.stringify({
-        firstname: $('#first_name').val(),
-        lastname: $('#last_name').val(),
-        nationality: $('#nationality').val(),
-        birthdate: $('#birthdate').val(),
-        gender: $('select[name=gender]').val(),
-        cid: $(selectedChar).attr('id').replace('char-', ''),
-    }));
-    $(".container").fadeOut(150);
-    $('.characters-list').css("filter", "none");
-    $('.character-info').css("filter", "none");
-    qbMultiCharacters.fadeOutDown('.character-register', '125%', 400);
-    refreshCharacters()
+    var cid = $(this).data('cid');
+    var name = $(this).data('namechar');
+    var csn = $(this).data('csn');
+
+    selectedChar = cid
+    selectedCSN = csn
+
+    $(".SelectChar-DeleteChar").css({"background":"#dd143d"});
+    $(".SelectChar-SpawnChar").css({"background":"#71f045"});
+    $(".SelectChar-header").html(name);
+})
+
+var entityMap = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+    '/': '&#x2F;',
+    '': '&#x60;',
+    '=': '&#x3D;'
+};
+
+function escapeHtml(string) {
+    return String(string).replace(/[&<>"'=/]/g, function (s) {
+        return entityMap[s];
+    });
+}
+function hasWhiteSpace(s) {
+    return /\s/g.test(s);
+  }
+
+
+$(document).on('click', '#CreateCharExpert', function (e) {
+    e.preventDefault();
+    var AccessCreate = false
+    NumberOffClear = null
+    for (const [k, v] of Object.entries(CharacterMaxCreate)) {
+        if(v == false){
+            NumberOffClear = k
+            AccessCreate = true
+        }
+    }
+
+    if(AccessCreate){
+        $(".Expert-NewCharacterRegister").fadeIn(150);
+    }else{
+        console.log("You have reached the maximum character")
+    }
+});
+$(document).on('click', '.RegisterRed', function (e) {
+    e.preventDefault();
+    $(".Expert-NewCharacterRegister").fadeOut(150);
+});
+  
+$(document).on('click', '.RegisterGreen', function (e) {
+    e.preventDefault();
+
+    var success = true
+
+    let firstname = $("#firstname").val();
+    let lastname = $("#lastname").val();
+    let nationality = $("#nationality").val();
+    let birthdate = escapeHtml($('#born').val())
+    let gender = SelectedCharGender
+    let cid = NumberOffClear
+    const regTest = new RegExp(profList.join('|'), 'i');
+
+    if (!firstname || !lastname || !nationality || !birthdate || hasWhiteSpace(firstname) || hasWhiteSpace(lastname)|| hasWhiteSpace(nationality) ){
+        console.log("FIELDS REQUIRED")
+        success = false
+        return false;
+    }
+
+    if(regTest.test(firstname) || regTest.test(lastname)){
+        console.log("ERROR: You used a derogatory/vulgar term. Please try again!")
+        success = false
+        return false;
+    }
+
+    if(gender == null){
+        console.log("ERROR: Select a Gender !")
+        success = false
+        return false;
+    }
+
+    if(success){
+        $.post('https://denalifw-multicharacter/createNewCharacter', JSON.stringify({
+            firstname: firstname,
+            lastname: lastname,
+            nationality: nationality,
+            birthdate: birthdate,
+            gender: gender,
+            cid: cid,
+        }));
+        $(".Expert-NewCharacterRegister").fadeOut(150);
+        $(".container").fadeOut(150);
+        $('.characters-list').css("filter", "none");
+        qbMultiCharacters.fadeOutDown('.character-register', '125%', 400);
+        refreshCharacters()    
+    }
+
+});
+
+$(document).on('click', '.Expert-Register-ImageStyle', function(e){
+    SelectedCharGender = null
+    var genders = $(this).data('gender');
+    if(genders == "man"){
+        SelectedCharGender = "Male"
+        $('#Expert-man').attr('src','https://cdn.discordapp.com/attachments/720222153483616277/979362931479281674/male2.png');
+        $('#Expert-woman').attr('src','https://cdn.discordapp.com/attachments/877595408325574656/878254563063369818/female.png');
+    }else{
+        SelectedCharGender = "Female"
+        $('#Expert-woman').attr('src','https://cdn.discordapp.com/attachments/720222153483616277/979362930908876820/female2.png');
+        $('#Expert-man').attr('src','https://cdn.discordapp.com/attachments/877595408325574656/878254579622502471/male.png');
+    }
 });
 
 $(document).on('click', '#accept-delete', function(e){
-    $.post('http://denalifw-multicharacter/removeCharacter', JSON.stringify({
-        citizenid: $(selectedChar).data("citizenid"),
+    $.post('https://denalifw-multicharacter/removeCharacter', JSON.stringify({
+        citizenid: selectedCSN
     }));
     $('.character-delete').fadeOut(150);
+    $('.BlackScreenForNotAbuse').fadeOut(150);
     $('.characters-block').css("filter", "none");
-    refreshCharacters()
+    refreshCharacters();
+});
+
+$(document).on('click', '#cancel-delete', function(e){
+    e.preventDefault();
+    $('.characters-block').css("filter", "none");
+    $('.character-delete').fadeOut(150);
+    $('.BlackScreenForNotAbuse').fadeOut(150);
 });
 
 function refreshCharacters() {
-    $('.characters-list').html('<div class="character" id="char-1" data-cid=""><span id="slot-name">Empty Slot<span id="cid"></span></span></div><div class="character" id="char-2" data-cid=""><span id="slot-name">Empty Slot<span id="cid"></span></span></div><div class="character" id="char-3" data-cid=""><span id="slot-name">Empty Slot<span id="cid"></span></span></div><div class="character" id="char-4" data-cid=""><span id="slot-name">Empty Slot<span id="cid"></span></span></div><div class="character" id="char-5" data-cid=""><span id="slot-name">Empty Slot<span id="cid"></span></span></div><div class="character-btn" id="play"><p id="play-text">Select a character</p></div><div class="character-btn" id="delete"><p id="delete-text">Select a character</p></div>')
     setTimeout(function(){
         $(selectedChar).removeClass("char-selected");
         selectedChar = null;
-        $.post('http://denalifw-multicharacter/setupCharacters');
+        $.post('https://denalifw-multicharacter/setupCharacters');
         $("#delete").css({"display":"none"});
         $("#play").css({"display":"none"});
         qbMultiCharacters.resetAll();
     }, 100)
 }
 
-$("#close-reg").click(function (e) {
-    e.preventDefault();
-    $('.characters-list').css("filter", "none")
-    $('.character-info').css("filter", "none")
-    qbMultiCharacters.fadeOutDown('.character-register', '125%', 400);
-})
+function RefreshExpertData() {
+    $(".SelectChar-NUI-New").html("");
+    CharDatas = [];
+    // CharacterMaxCreate = [];
+    $(".SelectChar-DeleteChar").css({"background":"#373737"});
+    $(".SelectChar-SpawnChar").css({"background":"#373737"});
+    $(".SelectChar-header").html("Select a Character");
+    $('.BlackScreenForNotAbuse').fadeOut(150);
+    $('#Expert-woman').attr('src','https://cdn.discordapp.com/attachments/877595408325574656/878254563063369818/female.png');
+    $('#Expert-man').attr('src','https://cdn.discordapp.com/attachments/877595408325574656/878254579622502471/male.png');
 
-$("#close-del").click(function (e) {
-    e.preventDefault();
-    $('.characters-block').css("filter", "none");
-    $('.character-delete').fadeOut(150);
-})
-
-$(document).on('click', '#play', function(e) {
-    e.preventDefault();
-    var charData = $(selectedChar).data('cid');
-
-    if (selectedChar !== null) {
-        if (charData !== "") {
-            $.post('http://denalifw-multicharacter/selectCharacter', JSON.stringify({
-                cData: $(selectedChar).data('cData')
-            }));
-            qbMultiCharacters.fadeInDown('.welcomescreen', '15%', 400);
-            qbMultiCharacters.fadeInDown('.server-log', '25%', 400);
-            setTimeout(function(){
-                qbMultiCharacters.fadeOutDown('.characters-list', "-40%", 400);
-                qbMultiCharacters.fadeOutDown('.character-info', "-40%", 400);
-            }, 300);
-            qbMultiCharacters.resetAll();
-        } else {
-            $('.characters-list').css("filter", "blur(2px)")
-            $('.character-info').css("filter", "blur(2px)")
-            qbMultiCharacters.fadeInDown('.character-register', '25%', 400);
-        }
-    }
-});
-
-$(document).on('click', '#delete', function(e) {
-    e.preventDefault();
-    var charData = $(selectedChar).data('cid');
-
-    if (selectedChar !== null) {
-        if (charData !== "") {
-            $('.characters-block').css("filter", "blur(2px)")
-            $('.character-delete').fadeIn(250);
-        }
-    }
-});
-
-qbMultiCharacters.fadeOutUp = function(element, time) {
-    $(element).css({"display":"block"}).animate({top: "-80.5%",}, time, function(){
-        $(element).css({"display":"none"});
-    });
+    $("#firstname").val("");
+    $("#lastname").val("");
+    $("#nationality").val("");
 }
 
+// $("#close-reg").click(function (e) {
+//     e.preventDefault();
+//     qbMultiCharacters.fadeOutDown('.character-register', '125%', 400);
+// })
+
+// $("#close-del").click(function (e) {
+//     e.preventDefault();
+//     $('.characters-block').css("filter", "none");
+//     $('.character-delete').fadeOut(150);
+//     $('.BlackScreenForNotAbuse').fadeOut(150);
+// })
+
+
+
+$(document).on('click', '.SelectChar-SpawnChar', function(e) {
+    e.preventDefault();
+
+    if (selectedChar !== null) {
+        $.post('https://denalifw-multicharacter/selectCharacter', JSON.stringify({
+            cData: CharDatas[selectedCSN]
+        }));
+        setTimeout(function(){
+            qbMultiCharacters.resetAll();
+        }, 1500);
+    }
+});
+
+$(document).on('click', '#RefreshExpert', function(e) {
+    e.preventDefault();
+    refreshCharacters()
+    RefreshExpertData()
+});
+
+$(document).on('click', '#HelpExpert', function(e) {
+    e.preventDefault();
+    $('.expertHelpMenu').fadeIn(150);
+});
+$(document).on('click', '.expertHelpMenu', function(e) {
+    e.preventDefault();
+    $('.expertHelpMenu').fadeOut(150);
+});
+
+$(document).on('click', '.SelectChar-DeleteChar', function(e) {
+    e.preventDefault();
+
+    if (selectedChar !== null) {
+        $('.characters-block').css("filter", "blur(2px)")
+        $('.character-delete').fadeIn(250);
+        $('.BlackScreenForNotAbuse').fadeIn(150);
+    }
+});
+
 qbMultiCharacters.fadeOutDown = function(element, percent, time) {
-    console.log(percent)
     if (percent !== undefined) {
         $(element).css({"display":"block"}).animate({top: percent,}, time, function(){
             $(element).css({"display":"none"});
@@ -244,17 +330,8 @@ qbMultiCharacters.fadeOutDown = function(element, percent, time) {
     }
 }
 
-qbMultiCharacters.fadeInDown = function(element, percent, time) {
-    $(element).css({"display":"block"}).animate({top: percent,}, time);
-}
-
 qbMultiCharacters.resetAll = function() {
-    $('.characters-list').hide();
-    $('.characters-list').css("top", "-40");
-    $('.character-info').hide();
-    $('.character-info').css("top", "-40");
-    $('.welcomescreen').show();
-    $('.welcomescreen').css("top", "15%");
+    $('.welcomescreen').css("top", WelcomePercentage);
     $('.server-log').show();
     $('.server-log').css("top", "25%");
 }

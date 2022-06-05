@@ -935,7 +935,7 @@ blockevents = true,
 -- Ammunations
 {   ----vesspuci
 	model = 's_m_y_ammucity_01',
-	coords = vector4(-661.98, -933.57, 20.80, 181.76),
+	coords = vector4(-658.41, -939.44, 20.83, 90.21),
 	gender = 'male',
 	freeze = true,
 	invincible = true,
@@ -944,7 +944,7 @@ blockevents = true,
 -- Legion Square
 {
 	model = 's_m_y_ammucity_01',
-	coords = vector4(22.59, -1105.55, 28.80, 159.83),
+	coords = vector4(18.22, -1107.68, 28.8, 158.32),
 	gender = 'male',
 	freeze = true,
 	invincible = true,
@@ -953,7 +953,7 @@ blockevents = true,
 -- Popular Street
 {
 	model = 's_m_y_ammucity_01',
-	coords = vector4(810.21, -2159.02, 28.60, 1.43),
+	coords = vector4(813.84, -2155.34, 28.62, 5.76),
 	gender = 'male',
 	freeze = true,
 	invincible = true,
@@ -962,7 +962,7 @@ blockevents = true,
 -- Vespucci Boulevard
 {
 	model = 's_m_y_ammucity_01',
-	coords = vector4(842.42, -1035.31, 27.20, 358.67),
+	coords = vector4(841.06, -1029.2, 27.19, 274.37),
 	gender = 'male',
 	freeze = true,
 	invincible = true,
@@ -971,7 +971,7 @@ blockevents = true,
 -- Vinewood Hills
 {
 	model = 's_m_y_ammucity_01',
-	coords = vector4(253.87, -50.58, 68.95, 67.39),
+	coords = vector4(246.92, -51.62, 68.94, 343.65),
 	gender = 'male',
 	freeze = true,
 	invincible = true,
@@ -980,7 +980,7 @@ blockevents = true,
 -- Palomino Freeway
 {
 	model = 's_m_y_ammucity_01',
-	coords = vector4(2567.97, 292.64, 107.80, 358.18),
+	coords = vector4(2564.73, 298.81, 107.73, 262.42),
 	gender = 'male',
 	freeze = true,
 	invincible = true,
@@ -989,7 +989,7 @@ blockevents = true,
 -- Route 68
 {
 	model = 's_m_y_ammucity_01',
-	coords = vector4(-1118.98, 2699.77, 17.60, 223.39),
+	coords = vector4(-1112.4, 2697.16, 17.55, 129.87),
 	gender = 'male',
 	freeze = true,
 	invincible = true,
@@ -998,7 +998,7 @@ blockevents = true,
 -- Sandy Shores
 {
 	model = 's_m_y_ammucity_01',
-	coords = vector4(1692.21, 3760.91, 33.70, 229.39),
+	coords = vector4(1697.79, 3757.66, 34.71, 141.46),
 	gender = 'male',
 	freeze = true,
 	invincible = true,
@@ -1007,7 +1007,7 @@ blockevents = true,
 -- Paleto
 {
 	model = 's_m_y_ammucity_01',
-	coords = vector4(-331.61, 6084.92, 30.55, 226.57),
+	coords = vector4(-325.98, 6081.18, 30.45, 130.71),
 	gender = 'male',
 	freeze = true,
 	invincible = true,
