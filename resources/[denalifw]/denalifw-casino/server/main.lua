@@ -12,7 +12,7 @@ RegisterNetEvent('denalifw-casino:server:sell', function()
         for k, v in pairs(Player.PlayerData.items) do
             if Player.PlayerData.items[k] ~= nil then
                 if ItemList[Player.PlayerData.items[k].name] ~= nil then
-                    price = price + (ItemList[Player.PlayerData.items[k].name] * Player.PlayerData.items[k].amount)
+                    price = ItemList[Player.PlayerData.items[k].name] * Player.PlayerData.items[k].amount
                     Player.Functions.RemoveItem(Player.PlayerData.items[k].name, Player.PlayerData.items[k].amount, k)
 
         Player.Functions.AddMoney("cash", price, "sold-casino-chips")

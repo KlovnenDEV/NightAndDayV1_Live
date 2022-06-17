@@ -1,7 +1,8 @@
 Config = {}
 
 Config.AuthorizedIds = {
-    "insertcitizenidhere",
+    "MHA82933",
+    "SFN33075",
 }
 
 Config.Locations = {

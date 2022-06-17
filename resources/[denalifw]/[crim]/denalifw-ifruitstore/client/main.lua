@@ -56,7 +56,6 @@ function GrabItem(spot)
             end
             -- if Config.SmallBanks[closestBank]["alarm"] then
                 TriggerServerEvent("denalifw-ifruitstore:server:callCops", streetLabel, pos)
-                exports['denalifw-dispatch']:StoreRobbery()
                 copsCalled = true
             -- end
         end

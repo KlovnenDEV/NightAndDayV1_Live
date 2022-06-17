@@ -166,7 +166,6 @@ CreateThread(function()
                         if not firstAlarm then
                             if validWeapon() then
                                 TriggerServerEvent('police:server:policeAlert', 'Suspicious Activity')
-                                exports['denalifw-dispatch']:VangelicoRobbery()
                                 firstAlarm = true
                             end
                         end

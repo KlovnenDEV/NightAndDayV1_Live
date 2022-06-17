@@ -88,7 +88,6 @@ CreateThread(function()
                                         if street2 ~= nil then
                                             streetLabel = streetLabel .. " " .. street2
                                         end
-                                        exports['denalifw-dispatch']:StoreRobbery(camId)
                                         TriggerServerEvent("denalifw-storerobbery:server:callCops", "safe", currentSafe, streetLabel, pos)
                                         copsCalled = true
                                     end

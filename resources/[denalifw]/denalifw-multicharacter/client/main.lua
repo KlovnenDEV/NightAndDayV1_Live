@@ -1,9 +1,6 @@
 local cam = nil
 local charPed = nil
 local DenaliFW = exports['denalifw-core']:GetCoreObject()
-local vehicle = nil
-local vehicleBack = nil
-local NewPeds = {}
 
 -- Main Thread
 
@@ -26,7 +23,7 @@ local function skyCam(bool)
         SetTimecycleModifier('hud_def_blur')
         SetTimecycleModifierStrength(1.0)
         FreezeEntityPosition(PlayerPedId(), false)
-        cam = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", Config.CamCoords.x, Config.CamCoords.y, Config.CamCoords.z, -8.0 ,0.0, Config.CamCoords.w, 70.00, false, 0)
+        cam = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", Config.CamCoords.x, Config.CamCoords.y, Config.CamCoords.z, 0.0 ,0.0, Config.CamCoords.w, 60.00, false, 0)
         SetCamActive(cam, true)
         RenderScriptCams(true, false, 1, true, true)
     else
@@ -38,79 +35,19 @@ local function skyCam(bool)
     end
 end
 
-local function deleteTrain()
-	if vehicle ~= nil then
-		DeleteEntity(vehicle)
-		DeleteEntity(vehicleBack)
-        vehicle = nil
-        vehicleBack = nil
-	end
-end
-
-local function Lerp(a, b, t)
-	return a + (b - a) * t
-end
-
-local function VecLerp(x1, y1, z1, x2, y2, z2, l, clamp)
-    if clamp then
-        if l < 0.0 then l = 0.0 end
-        if l > 1.0 then l = 1.0 end
-    end
-    local x = Lerp(x1, x2, l)
-    local y = Lerp(y1, y2, l)
-    local z = Lerp(z1, z2, l)
-    return vector3(x, y, z)
-end
-
-local function spawnTrain()
-    deleteTrain()
-	local tempmodel = GetHashKey("metrotrain")
-	RequestModel(tempmodel)
-	while not HasModelLoaded(tempmodel) do
-		RequestModel(tempmodel)
-		Wait(0)
-	end
-    local coords = vector3(Config.TrainCoord.Start[1], Config.TrainCoord.Start[2], Config.TrainCoord.Start[3])
-    vehicle = CreateVehicle(tempmodel, coords, Config.TrainCoord.Heading, false, false)
-    FreezeEntityPosition(vehicle, true)
-
-    local coords = GetOffsetFromEntityInWorldCoords(vehicle, 0.0, -11.0, 0.0)
-
-    vehicleBack = CreateVehicle(tempmodel, coords, 158.0, false, false)
-    FreezeEntityPosition(vehicleBack, true)
-    AttachEntityToEntity(vehicleBack , vehicle , 51 , 0.0, -11.0, 0.0, 180.0, 180.0, 0.0, false, false, false, false, 0, true)
-
-    CreateThread(function()
-        local coords2 = vector3(Config.TrainCoord.Stop[1], Config.TrainCoord.Stop[2], Config.TrainCoord.Stop[3])
-	    for i=1,100 do
-	    	local setpos = VecLerp(coords[1],coords[2],coords[3], coords2[1],coords2[2],coords2[3], i/100, true)
-	    	SetEntityCoords(vehicle,setpos)
-	  		Wait(15)
-	    end
-	end)
-end
-
 local function openCharMenu(bool)
-    DenaliFW.Functions.TriggerCallback("denalifw-multicharacter:server:GetNumberOfCharacters", function(result)
-        SetNuiFocus(bool, bool)
-        SendNUIMessage({
-            action = "ui",
-            toggle = bool,
-            nChar = result,
-        })
-        skyCam(bool)
-    end)
+    SetNuiFocus(bool, bool)
+    SendNUIMessage({
+        action = "ui",
+        toggle = bool,
+    })
+    skyCam(bool)
 end
 
 -- Events
 
 RegisterNetEvent('denalifw-multicharacter:client:closeNUIdefault', function() -- This event is only for no starting apartments
     DeleteEntity(charPed)
-    for k, v in pairs(NewPeds) do
-        SetEntityAsMissionEntity(v[1], true, true)
-        DeleteEntity(v[1])
-    end
-    NewPeds = {}
     SetNuiFocus(false, false)
     DoScreenFadeOut(500)
     Wait(2000)
@@ -130,11 +67,6 @@ end)
 
 RegisterNetEvent('denalifw-multicharacter:client:closeNUI', function()
     DeleteEntity(charPed)
-    for k, v in pairs(NewPeds) do
-        SetEntityAsMissionEntity(v[1], true, true)
-        DeleteEntity(v[1])
-    end
-    NewPeds = {}
     SetNuiFocus(false, false)
 end)
 
@@ -152,7 +84,6 @@ RegisterNetEvent('denalifw-multicharacter:client:chooseChar', function()
     Wait(1500)
     ShutdownLoadingScreen()
     ShutdownLoadingScreenNui()
-    TriggerEvent("loading:disableLoading")
     openCharMenu(true)
 end)
 
@@ -165,70 +96,88 @@ end)
 RegisterNUICallback('disconnectButton', function()
     SetEntityAsMissionEntity(charPed, true, true)
     DeleteEntity(charPed)
-    for k, v in pairs(NewPeds) do
-        SetEntityAsMissionEntity(v[1], true, true)
-        DeleteEntity(v[1])
-    end
-    NewPeds = {}
     TriggerServerEvent('denalifw-multicharacter:server:disconnect')
 end)
 
 RegisterNUICallback('selectCharacter', function(data)
     local cData = data.cData
-    deleteTrain()
     DoScreenFadeOut(10)
     TriggerServerEvent('denalifw-multicharacter:server:loadUserData', cData)
     openCharMenu(false)
     SetEntityAsMissionEntity(charPed, true, true)
     DeleteEntity(charPed)
-    for k, v in pairs(NewPeds) do
-        SetEntityAsMissionEntity(v[1], true, true)
-        DeleteEntity(v[1])
-    end
-    NewPeds = {}
 end)
 
-
-RegisterNUICallback('setupCharacters', function()
-    for k, v in pairs(NewPeds) do
-        SetEntityAsMissionEntity(v[1], true, true)
-        DeleteEntity(v[1])
-    end
-    NewPeds = {}
-    DenaliFW.Functions.TriggerCallback("denalifw-multicharacter:server:SetupNewCharacter", function(result)
-        for k, v in pairs(result) do 
-            local model = v[1]
+RegisterNUICallback('cDataPed', function(data)
+    local cData = data.cData  
+    SetEntityAsMissionEntity(charPed, true, true)
+    DeleteEntity(charPed)
+    if cData ~= nil then
+        DenaliFW.Functions.TriggerCallback('denalifw-multicharacter:server:getSkin', function(model, data)
+            model = model ~= nil and tonumber(model) or false
             if model ~= nil then
                 CreateThread(function()
                     RequestModel(model)
                     while not HasModelLoaded(model) do
                         Wait(0)
                     end
-                    local onScreen, xxx, yyy = GetHudScreenPositionFromWorldPosition(Config.PedCords[k][1], Config.PedCords[k][2], Config.PedCords[k][3])
-                    SendNUIMessage({
-                        action = "SetupCharacterNUI",
-                        left = xxx*100,
-                        top = yyy*70,
-                        cid = v[3],
-                        charinfo = v[4],
-                        Data = v[5],
-                    })
-                    charPed = CreatePed(2, model, Config.PedCords[k][1], Config.PedCords[k][2], Config.PedCords[k][3], Config.PedCords[k][4], false, true)
+                    charPed = CreatePed(2, model, Config.PedCoords.x, Config.PedCoords.y, Config.PedCoords.z - 0.98, Config.PedCoords.w, false, true)
                     SetPedComponentVariation(charPed, 0, 0, 0, 2)
                     FreezeEntityPosition(charPed, false)
                     SetEntityInvincible(charPed, true)
                     PlaceObjectOnGroundProperly(charPed)
                     SetBlockingOfNonTemporaryEvents(charPed, true)
-                    local data = json.decode(v[2])
-                    --TriggerEvent('denalifw-clothing:client:loadPlayerClothing', data, charPed)
-                    exports['fivem-appearance']:setPedAppearance(charPed, data)
-                    NewPeds[k] = {charPed}
+                    data = json.decode(data)
+                    exports['fivem-appearance']:setPedAppearance(charPed, data, true)
+                end)
+            else
+                CreateThread(function()
+                    local randommodels = {
+                        "mp_m_freemode_01",
+                        "mp_f_freemode_01",
+                    }
+                    local model = GetHashKey(randommodels[math.random(1, #randommodels)])
+                    RequestModel(model)
+                    while not HasModelLoaded(model) do
+                        Wait(0)
+                    end
+                    charPed = CreatePed(2, model, Config.PedCoords.x, Config.PedCoords.y, Config.PedCoords.z - 0.98, Config.PedCoords.w, false, true)
+                    SetPedComponentVariation(charPed, 0, 0, 0, 2)
+                    FreezeEntityPosition(charPed, false)
+                    SetEntityInvincible(charPed, true)
+                    PlaceObjectOnGroundProperly(charPed)
+                    SetBlockingOfNonTemporaryEvents(charPed, true)
                 end)
             end
-            Wait(20)
-        end
+        end, cData.citizenid)
+    else
+        CreateThread(function()
+            local randommodels = {
+                "mp_m_freemode_01",
+                "mp_f_freemode_01",
+            }
+            local model = GetHashKey(randommodels[math.random(1, #randommodels)])
+            RequestModel(model)
+            while not HasModelLoaded(model) do
+                Wait(0)
+            end
+            charPed = CreatePed(2, model, Config.PedCoords.x, Config.PedCoords.y, Config.PedCoords.z - 0.98, Config.PedCoords.w, false, true)
+            SetPedComponentVariation(charPed, 0, 0, 0, 2)
+            FreezeEntityPosition(charPed, false)
+            SetEntityInvincible(charPed, true)
+            PlaceObjectOnGroundProperly(charPed)
+            SetBlockingOfNonTemporaryEvents(charPed, true)
+        end)
+    end
+end)
+
+RegisterNUICallback('setupCharacters', function()
+    DenaliFW.Functions.TriggerCallback("denalifw-multicharacter:server:setupCharacters", function(result)
+        SendNUIMessage({
+            action = "setupCharacters",
+            characters = result
+        })
     end)
-    spawnTrain()
 end)
 
 RegisterNUICallback('removeBlur', function()

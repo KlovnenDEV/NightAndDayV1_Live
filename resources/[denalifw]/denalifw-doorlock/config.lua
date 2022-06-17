@@ -1,39 +1,53 @@
 QB = {}
 
 QB.Doors = {
-	--- door1 for pacific opened with security card B
+	--- door1 for pacific opened with security card B  DOBE VAULT
 	{
-		objName = 'hei_v_ilev_bk_gate2_pris',
-		objCoords  = vector3(261.83, 221.39, 106.41),
-		textCoords = vector3(261.83, 221.39, 106.41),
+		objName = 'v_ilev_bk_vaultdoor',
+		objCoords  = vector3(234.9857, 228.0696, 97.72185),
+		textCoords = vector3(234.9857, 228.0696, 97.72185),
 		authorizedJobs = { 'police' },
-		objYaw = -110.0,
+		objYaw = 70.000213623047,
 		locking = false,
 		locked = true,
 		pickable = false,
 		distance = 1.5,
 		size = 2
 	},
-	--door2 for pacific opened with thermite right near the vault door
+	--door2 for pacific opened with thermite right near the vault door   DONE
 	{
-		objName = 'hei_v_ilev_bk_safegate_pris',
-		objCoords  = vector3(252.98, 220.65, 101.8),
-		textCoords = vector3(252.98, 220.65, 101.8),
+		objName = 'gabz_sm_pb_door_08',
+		objCoords  = vector3(272.6422, 219.8987, 97.31798),
+		textCoords = vector3(272.6422, 219.8987, 97.31798),
 		authorizedJobs = { 'police' },
-		objYaw = 160.0,
+		objYaw = 340.00024414062,
 		locking = false,
 		locked = true,
 		pickable = false,
 		distance = 1.5,
 		size = 2
 	},
-	-- door3 for pacific opened with thermite after passing the door near vault
+	-- door3 for pacific opened with thermite LEFT vault  DOBE
 	{
-		objName = 'hei_v_ilev_bk_safegate_pris',
-		objCoords  = vector3(261.68, 215.62, 101.81),
-		textCoords = vector3(261.68, 215.62, 101.81),
+		objName = 'gabz_sm_pb_door_08',
+		objCoords  = vector3(244.558, 216.8973, 97.31798),
+		textCoords = vector3(244.558, 216.8973, 97.31798),
 		authorizedJobs = { 'police' },
-		objYaw = -110.0,
+		objYaw = 340.00024414062,
+		locking = false,
+		locked = true,
+		pickable = false,
+		distance = 1.5,
+		size = 2
+	},
+
+	--PASIFIC RIGHT VALT DONE
+	{
+		objName = 'gabz_sm_pb_door_08',
+		objCoords  = vector3(250.5642, 233.3994, 97.31798),
+		textCoords = vector3(250.5642, 233.3994, 97.31798),
+		authorizedJobs = { 'police' },
+		objYaw = 340.00024414062,
 		locking = false,
 		locked = true,
 		pickable = false,
@@ -55,10 +69,10 @@ QB.Doors = {
 	},
 	-- Paleto Door 2 opened with thermite
 	{
-		objName = 'v_ilev_cbankvaulgate02',
-		objCoords  = vector3(-106.26, 6476.01, 31.98),
-		textCoords = vector3(-105.5, 6475.08, 31.99),
-		objYaw = -45.0,
+		objName = 'gabz_sm_pb_door_08',
+		objCoords  = vector3(270.1032, 212.9229, 97.31798),
+		textCoords = vector3(270.1032, 212.9229, 97.31798),
+		objYaw = 340.00024414062,
 		authorizedJobs = { 'police' },
 		locking = false,
 		locked = true,
@@ -68,11 +82,11 @@ QB.Doors = {
 	},
 	-- First Pacific Door opened with lockpick
 	{
-		objName = 'hei_v_ilev_bk_gate_pris',			
-		objCoords  = vector3(257.41, 220.25, 106.4),
-		textCoords = vector3(257.41, 220.25, 106.4),
+		objName = 'gabz_sm_pb_door_04',			
+		objCoords  = vector3(256.6068, 229.6896, 106.3702),
+		textCoords = vector3(256.6068, 229.6896, 106.3702),
 		authorizedJobs = { 'police' },
-		objYaw = -20.0,
+		objYaw = 70.000221252441,
 		locking = false,
 		locked = true,
 		pickable = true,
@@ -81,11 +95,11 @@ QB.Doors = {
 	},
 	-- Second Pacific Door opened with lockpick
 	{
-		objName = 'v_ilev_bk_door',
-		objCoords  = vector3(265.19, 217.84, 110.28),
-		textCoords = vector3(265.19, 217.84, 110.28),
+		objName = 'gabz_sm_pb_door_04',
+		objCoords  = vector3(251.5199, 215.7132, 106.3702),
+		textCoords = vector3(251.5199, 215.7132, 106.3702),
 		authorizedJobs = { 'police' },
-		objYaw = -20.0,
+		objYaw = 250.00028991699,
 		locking = false,
 		locked = true,
 		pickable = true,

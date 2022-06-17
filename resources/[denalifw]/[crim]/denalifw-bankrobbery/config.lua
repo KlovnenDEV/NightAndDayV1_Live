@@ -2,9 +2,9 @@ Config = Config or {}
 
 Config.ItemTiers = 1
 
-Config.MinimumPaletoPolice = 0
+Config.MinimumPaletoPolice = 4
 Config.MinimumPacificPolice = 0
-Config.MinimumFleecaPolice = 0
+Config.MinimumFleecaPolice = 3
 Config.MinimumThermitePolice = 0
 
 Config.HitsNeeded = 13 -- The amount of powerstation needed to be hit to cause a blackout
@@ -502,23 +502,23 @@ Config.BigBanks = {
     ["pacific"] = {
         ["label"] = "Pacific Standard",
         ["coords"] = {
-            [1] = vector3(261.95, 223.11, 106.28),
-            [2] = vector3(253.25, 228.44, 101.68)
+            [1] = vector3(255.89, 229.02, 106.28),
+            [2] = vector3(251.59, 216.33, 106.28)
         },
         ["alarm"] = true,
         ["object"] = 961976194,
         ["heading"] = {
-            closed = 160.00001,
-            open = 70.00001
+            closed = 70.000213623047,
+            open = 160.00001
         },
         ["thermite"] = {
             [1] = {
-                ["coords"] = vector3(252.55, 221.15, 101.68),
+                ["coords"] = vector3(270.1032, 212.9229, 97.31798),
                 ["isOpened"] = false,
                 ["doorId"] = 2
             },
             [2] = {
-                ["coords"] = vector3(261.15, 215.21, 101.68),
+                ["coords"] = vector3(272.6422, 219.8987, 97.31798),
                 ["isOpened"] = false,
                 ["doorId"] = 3
             }

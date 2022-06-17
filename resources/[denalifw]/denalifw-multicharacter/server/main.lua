@@ -134,68 +134,25 @@ DenaliFW.Functions.CreateCallback("denalifw-multicharacter:server:GetServerLogs"
     end)
 end)
 
-DenaliFW.Functions.CreateCallback("denalifw-multicharacter:server:GetNumberOfCharacters", function(source, cb)
-    local license = DenaliFW.Functions.GetIdentifier(source, 'license')
-    local numOfChars = 0
-
-    if next(Config.PlayersNumberOfCharacters) then
-        for i, v in pairs(Config.PlayersNumberOfCharacters) do
-            if v.license == license then
-                numOfChars = v.numberOfChars
-                break
-            else 
-                numOfChars = Config.DefaultNumberOfCharacters
-            end
-        end
-    else
-        numOfChars = Config.DefaultNumberOfCharacters
-    end
-    cb(numOfChars)
-end)
-
--- DenaliFW.Functions.CreateCallback("denalifw-multicharacter:server:setupCharacters", function(source, cb)
---     local license = DenaliFW.Functions.GetIdentifier(source, 'license')
---     local plyChars = {}
---     MySQL.Async.fetchAll('SELECT * FROM players WHERE license = ?', {license}, function(result)
---         for i = 1, (#result), 1 do
---             result[i].charinfo = json.decode(result[i].charinfo)
---             result[i].money = json.decode(result[i].money)
---             result[i].job = json.decode(result[i].job)
---             plyChars[#plyChars+1] = result[i]
---         end
---         cb(plyChars)
---     end)
--- end)
-
--- DenaliFW.Functions.CreateCallback("denalifw-multicharacter:server:getSkin", function(source, cb, cid)
---     local result = MySQL.Sync.fetchAll('SELECT * FROM playerskins WHERE citizenid = ? AND active = ?', {cid, 1})
---     if result[1] ~= nil then
---         cb(result[1].model, result[1].skin)
---     else
---         cb(nil)
---     end
--- end)
-
-DenaliFW.Functions.CreateCallback("denalifw-multicharacter:server:getSkin", function(source, cb, cid)
-    local result = MySQL.query.await('SELECT * FROM players WHERE citizenid = ?', {cid})
-    local PlayerData = result[1]
-    PlayerData.model = json.decode(PlayerData.skin)
-    if PlayerData.skin ~= nil then
-        cb(PlayerData.skin, PlayerData.model.model)
-    else
-        cb(nil)
-    end
-end)
-
-DenaliFW.Functions.CreateCallback("denalifw-multicharacter:server:SetupNewCharacter", function(source, cb)
+DenaliFW.Functions.CreateCallback("denalifw-multicharacter:server:setupCharacters", function(source, cb)
     local license = DenaliFW.Functions.GetIdentifier(source, 'license')
     local plyChars = {}
     MySQL.Async.fetchAll('SELECT * FROM players WHERE license = ?', {license}, function(result)
-        for k, v in pairs(result) do
-            local result = MySQL.Sync.fetchAll('SELECT * FROM playerskins WHERE citizenid = ? AND active = ?', {v.citizenid, 1})
-            plyChars[k] = {result[1].model, result[1].skin, v.cid, json.decode(v.charinfo), v}
+        for i = 1, (#result), 1 do
+            result[i].charinfo = json.decode(result[i].charinfo)
+            result[i].money = json.decode(result[i].money)
+            result[i].job = json.decode(result[i].job)
+            plyChars[#plyChars+1] = result[i]
         end
-        Wait(400)
         cb(plyChars)
     end)
+end)
+
+DenaliFW.Functions.CreateCallback("denalifw-multicharacter:server:getSkin", function(source, cb, cid)
+    local result = MySQL.Sync.fetchAll('SELECT * FROM playerskins WHERE citizenid = ? AND active = ?', {cid, 1})
+    if result[1] ~= nil then
+        cb(result[1].model, result[1].skin)
+    else
+        cb(nil)
+    end
 end)

@@ -379,7 +379,7 @@ AddEventHandler("case-whitewidowjob:client:WhiteWidowPay:player", function(playe
         local biller = DenaliFW.Functions.GetPlayer(source)
         local billed = DenaliFW.Functions.GetPlayer(tonumber(playerId))
         local amount = tonumber(amount)
-        if biller.PlayerData.job.name == 'whitewidow' then
+        if biller.PlayerData.job.name == '' then
             if billed ~= nil then
                 if biller.PlayerData.citizenid ~= billed.PlayerData.citizenid then
                     if amount and amount > 0 then

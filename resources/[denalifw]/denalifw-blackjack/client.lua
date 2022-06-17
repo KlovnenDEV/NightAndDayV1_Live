@@ -1253,7 +1253,7 @@ CreateThread(function()
 		local tploc_exit = elevator_roof_location
 		local dist = #(pos - vector3(tploc_enter.x, tploc_enter.y, tploc_enter.z))
 		if dist < 10 then
-			sleep = 7
+			sleep = 5
 			DrawMarker(2, tploc_enter.x, tploc_enter.y, tploc_enter.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.2, 0.1, 255, 255, 255, 155, 0, 0, 0, 1, 0, 0, 0)
 			if dist < 1 then
 				DrawText3Ds(tploc_enter.x, tploc_enter.y, tploc_enter.z + 0.15, '~g~E~w~ - Use the elevator')
@@ -1268,7 +1268,7 @@ CreateThread(function()
 		local tploc_exit = elevator_entrance_location
 		local dist = #(pos - vector3(tploc_enter.x, tploc_enter.y, tploc_enter.z))
 		if dist < 10 then
-			sleep = 7
+			sleep = 5
 			DrawMarker(2, tploc_enter.x, tploc_enter.y, tploc_enter.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.2, 0.1, 255, 255, 255, 155, 0, 0, 0, 1, 0, 0, 0)
 			if dist < 1 then
 				DrawText3Ds(tploc_enter.x, tploc_enter.y, tploc_enter.z + 0.15, '~g~E~w~ - Use the elevator')

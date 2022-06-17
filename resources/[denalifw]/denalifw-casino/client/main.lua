@@ -20,12 +20,12 @@ CreateThread(function()
         local PlayerPos = GetEntityCoords(PlayerPed)
 
             local dist = #(PlayerPos - vector3(949.85, 35.39, 71.84))
-            if dist < 0 then
+            if dist < 10 then
                 InRange = true
-                --DrawMarker(2, 949.85, 35.39, 71.84, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.2, 0.1, 255, 0, 0, 155, 0, 0, 0, 1, 0, 0, 0)
+                DrawMarker(2, 949.85, 35.39, 71.84, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.2, 0.1, 255, 0, 0, 155, 0, 0, 0, 1, 0, 0, 0)
                 if dist < 1 then
 
-                    DrawText3Ds(949.85, 35.39, 71.84, '~g~E~w~ - Sell chips')
+                    DrawText3Ds(949.85, 35.39, 71.84 + 0.15, '~g~E~w~ - Sell chips')
                     if IsControlJustPressed(0, 38) then
                         TriggerServerEvent('denalifw-casino:server:sell')
                     end

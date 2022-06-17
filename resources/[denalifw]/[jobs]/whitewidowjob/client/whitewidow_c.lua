@@ -22,7 +22,7 @@ AddEventHandler('DenaliFW:Client:OnPlayerLoaded', function()
     DenaliFW.Functions.GetPlayerData(function(PlayerData)
         PlayerJob = PlayerData.job
         if PlayerData.job.onduty then
-            if PlayerData.job.name == "whitewidow" then
+            if PlayerData.job.name == "" then
                 TriggerServerEvent("DenaliFW:ToggleDuty")
             end
         end
@@ -41,7 +41,7 @@ exports['denalifw-target']:AddBoxZone("whitewidowduty", Config.WhiteWidowDuty, 1
             event = "case-whitewidowjob:client:WhiteWidowDutyMenu",
             icon = "fas fa-clock", 
             label = "Clock In/Out",
-			job = "whitewidow",
+			job = "",
         },
     },
     distance = 1.0
@@ -96,7 +96,7 @@ exports['denalifw-target']:AddBoxZone("whitewidowstorage", Config.WhiteWidowStor
                 event = "case-whitewidowjob:client:WhiteWidowStorage",
                 icon = "fas fa-box",
                 label = "Storage",
-                job = "whitewidow",
+                job = "",
             },
         },
         distance = 1.5
@@ -124,7 +124,7 @@ exports['denalifw-target']:AddBoxZone("whitewidowpay", Config.WhiteWidowPay, 1.0
             parms = "1",
             icon = "fas fa-credit-card",
             label = "Charge Customer",
-            job = "whitewidow",
+            job = "",
         },
     },
     distance = 1.0
@@ -143,7 +143,7 @@ exports['denalifw-target']:AddBoxZone("whitewidowpay2", Config.WhiteWidowPay2, 1
             parms = "1",
             icon = "fas fa-credit-card",
             label = "Charge Customer",
-            job = "whitewidow",
+            job = "",
         },
     },
     distance = 1.0
@@ -162,7 +162,7 @@ exports['denalifw-target']:AddBoxZone("whitewidowpay3", Config.WhiteWidowPay3, 1
             parms = "1",
             icon = "fas fa-credit-card",
             label = "Charge Customer",
-            job = "whitewidow",
+            job = "",
         },
     },
     distance = 1.0
@@ -205,7 +205,7 @@ exports['denalifw-target']:AddBoxZone("whitewidowshop", Config.WhiteWidowShop, 1
             event = "inventory:client:OpenWhiteWidowShop",
             icon = "fas fa-box", 
             label = "Open Store",
-			job = "whitewidow",
+			job = "",
         },
     },
     distance = 1.0
@@ -232,7 +232,7 @@ exports['denalifw-target']:AddBoxZone("whitewidowtrim", Config.WhiteWidowTrim, 1
             event = "case-whitewidow:client:TrimmingMenu",
             icon = "fas fa-cannabis", 
             label = "Trim CBD Weed",
-			job = "whitewidow",
+			job = "",
         },
     },
     distance = 1.0
@@ -303,7 +303,7 @@ exports['denalifw-target']:AddBoxZone("whitewidowjoints", Config.WhiteWidowJoint
             event = "case-whitewidow:client:RollJoints",
             icon = "fas fa-cannabis", 
             label = "Roll Joints",
-			job = "whitewidow",
+			job = "",
         },
     },
     distance = 1.0
@@ -416,10 +416,10 @@ end)
 -- Targeting for skunk plants
 exports['denalifw-target']:AddBoxZone("skunkplants", Config.WhiteWidowWeed1, 1.0, 40.0, {
     name="skunkplants",
-    heading= 249.81,
-    debugPoly=false,
-    minZ=49.664,
-    maxZ=51.664
+    heading= 177.66,
+    debugPoly=true,
+    minZ=-38.10,
+    maxZ=-40.664
     }, {
     options = {
         {
@@ -428,15 +428,15 @@ exports['denalifw-target']:AddBoxZone("skunkplants", Config.WhiteWidowWeed1, 1.0
             label = "Harvest CBD Skunk",
         },
     },
-    distance = 1.5
+    distance = 2.0
 })
 -- Targeting for og-kush plants
 exports['denalifw-target']:AddBoxZone("ogplants", Config.WhiteWidowWeed2, 1.0, 40.0, {
     name="ogplants",
-    heading= 68.70,
+    heading= 177.66,
     debugPoly=false,
-    minZ=49.664,
-    maxZ=50.664
+    minZ=-38.10,
+    maxZ=-40.664
     }, {
     options = {
         {
@@ -450,10 +450,10 @@ exports['denalifw-target']:AddBoxZone("ogplants", Config.WhiteWidowWeed2, 1.0, 4
 -- Targeting for white-widow plants
 exports['denalifw-target']:AddBoxZone("whitewidowplants", Config.WhiteWidowWeed3, 1.0, 50.0, {
     name="whitewidowplants",
-    heading= 71.90,
+    heading= 177.66,
     debugPoly=false,
-    minZ=49.664,
-    maxZ=50.664
+    minZ=-38.10,
+    maxZ=-40.664
     }, {
     options = {
         {

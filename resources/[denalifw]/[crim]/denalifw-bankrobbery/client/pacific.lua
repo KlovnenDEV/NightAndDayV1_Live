@@ -113,7 +113,6 @@ RegisterNetEvent('electronickit:UseElectronickit', function()
                                                 streetLabel = streetLabel .. " " .. street2
                                             end
                                             if Config.BigBanks["pacific"]["alarm"] then
-                                                exports['denalifw-dispatch']:PacificBankRobbery()
                                                 TriggerServerEvent("denalifw-bankrobbery:server:callCops", "pacific", 0, streetLabel, pos)
                                                 copsCalled = true
                                             end

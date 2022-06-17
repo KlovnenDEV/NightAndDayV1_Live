@@ -115,6 +115,88 @@ Config.Products = {
             slot = 14,
         },
     },
+    ["uwu"] = {
+        [1] = {
+            name = "uwububbleteablueberry",
+            price = 6,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 1,
+        },
+        [2] = {
+            name = "uwububbletearose",
+            price = 6,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 2,
+        },
+        [3] = {
+            name = "uwububbleteamint",
+            price = 6,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 3,
+        },
+        [4] = {
+            name = "uwucupcake",
+            price = 6,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 4,
+        },
+        [5] = {
+            name = "uwuvanillasandy",
+            price = 8,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 5,
+        },
+        [6] = {
+            name = "uwuchocsandy",
+            price = 8,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 6,
+        },
+        [7] = {
+            name = "uwupancake",
+            price = 12,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 7,
+        },
+        [8] = {
+            name = "uwusushi",
+            price = 10,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 8,
+        },
+        [9] = {
+            name = "uwumisosoup",
+            price = 15,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 9,
+        },
+        [10] = {
+            name = "uwubudhabowl",
+            price = 12,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 10,
+        },
+    },
     ["farm"] = {
         [1] = {
             name = "fruitCrate",
@@ -265,7 +347,7 @@ Config.Products = {
             slot = 5,
         },
         [6] = {
-            name = "weapon_snowball",
+            name = "armor",
             price = 500,
             amount = 50,
             info = {},
@@ -289,7 +371,7 @@ Config.Products = {
             slot = 8,
         },
         [9] = {
-            name = "firework1",
+            name = "emptycowbucket",
             price = 50,
             amount = 50,
             info = {},
@@ -297,7 +379,7 @@ Config.Products = {
             slot = 9,
         },
         [10] = {
-            name = "firework2",
+            name = "gasmask",
             price = 50,
             amount = 50,
             info = {},
@@ -305,7 +387,7 @@ Config.Products = {
             slot = 10,
         },
         [11] = {
-            name = "firework3",
+            name = "cutter",
             price = 50,
             amount = 50,
             info = {},
@@ -313,7 +395,7 @@ Config.Products = {
             slot = 11,
         },
         [12] = {
-            name = "firework4",
+            name = "bag",
             price = 50,
             amount = 50,
             info = {},
@@ -321,7 +403,7 @@ Config.Products = {
             slot = 12,
         },
         [13] = {
-            name = "fitbit",
+            name = "detector",
             price = 400,
             amount = 150,
             info = {},
@@ -471,7 +553,7 @@ Config.Products = {
             slot = 3,
         },
         [4] = {
-            name = "detector",
+            name = "metaldetector",
             price = 1000,
             amount = 100,
             info = {},
@@ -703,6 +785,14 @@ Config.Products = {
                 type = 'item',
                 slot = 1,
             },
+            [8] = {
+                name = 'electronickit',
+                price = 5000,
+                amount = 1,
+                info = {},
+                type = 'item',
+                slot = 1,
+            },
         },
 }
 
@@ -717,16 +807,16 @@ Config.Locations = {
         ["products"] = Config.Products["coffeeplace"],
         ["showblip"] = true,
     },
-    --[["farmstore"] = {
+    ["farmstore"] = {
         ["label"] = "Farm Store",
         ["type"] = "normal",
         ["coords"] = {
             [1] = vector3(2564.52, 4680.09, 34.08),
-            --[2] = vector3(25.7, -1344.99, 29.49)
+            [2] = vector3(25.7, -1344.99, 29.49)
         },
         ["products"] = Config.Products["farm"],
         ["showblip"] = true,
-    },]]
+    },
     ["split-side"] = {
         ["label"] = "Split-Side",
         ["type"] = "normal",

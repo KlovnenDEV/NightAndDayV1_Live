@@ -55,7 +55,7 @@ Config.BoxZones = {
         options = {
             {
                 type = "client",
-                event = "qb-policejob:ToggleDuty",
+                event = "denalifw-policejob:ToggleDuty",
                 icon = "fas fa-sign-in-alt",
                 label = "Sign In",
                 job = "police",
@@ -541,6 +541,20 @@ distance = 2.5,
 	},
 	distance = 2.5,
 	},
+	["uwu"] = {
+		models = {
+			"A_C_Cat_01"
+		},
+		options = {
+			{
+				type = "client",
+				event = "denalifw-shops:marketshop",
+				icon = "fas fa-shopping-basket",
+				label = "Open Shop",
+			},
+		},
+		distance = 4.0
+	},
 	
 }
 
@@ -591,6 +605,8 @@ Config.GlobalPedOptions = {
 		distance = 2.5,
 		}
 	   },
+	   
+	  
 	  
 }
 

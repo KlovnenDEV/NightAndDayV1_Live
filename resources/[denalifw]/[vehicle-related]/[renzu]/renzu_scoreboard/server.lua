@@ -1,7 +1,7 @@
 local DenaliFW = exports['denalifw-core']:GetCoreObject()
 local players = {}
 local playernames = {}
-local GuildID = 883427745877606420 -- : -- change this to your GuildID
+local GuildID = 1000000000 -- : -- change this to your GuildID
 local DiscToken = ".XssX9w." -- change this to your own discord token
 local FormattedToken = "Bot " .. DiscToken
 local pings = {}

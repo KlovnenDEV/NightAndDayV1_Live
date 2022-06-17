@@ -575,18 +575,7 @@ Config.MenuItems = {
                         }
                     }
                 }
-            }, 
-            ["realestate"] = {
-                {
-                    id = 'housemenu',
-                    title = 'List of houses',
-                    icon = 'laptop-house',
-                    type = 'client',
-                    event = 'denalifw-realestate:client:OpenHouseListMenu',
-                    shouldClose = true
-                }
-            },
-            {
+            }, {
                 id = 'clothesmenu',
                 title = 'Clothing',
                 icon = 'tshirt',
@@ -720,14 +709,6 @@ Config.MenuItems = {
         title = 'Vehicle',
         icon = 'car',
         items = {
-            {
-                id = 'harness',
-                title = 'Toggle Harness',
-                icon = 'vest',
-                type = 'client',
-                event = 'seatbelt:client:UseHarness',
-                shouldClose = true
-            },
                         {
                             id = 'vehiclemenu',
                             title = 'Car Control',

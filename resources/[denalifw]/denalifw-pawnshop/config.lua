@@ -39,26 +39,6 @@ Config.PawnItems = {
     [8] = {
         item = "laptop",
         price = math.random(50,100)
-    },
-    [9] = {
-        item = "tv",
-        price = math.random(50,100)
-    },
-    [10] = {
-        item = "art",
-        price = math.random(50,100)
-    },
-    [11] = {
-        item = "microwave",
-        price = math.random(50,100)
-    },
-    [12] = {
-        item = "telescope",
-        price = math.random(50,100)
-    },
-    [13] = {
-        item = "coffeemaker",
-        price = math.random(50,100)
     }
 }
 

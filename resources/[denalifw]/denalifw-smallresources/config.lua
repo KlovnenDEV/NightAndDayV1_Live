@@ -30,7 +30,16 @@ ConsumeablesEat = {
     ["cooked_bacon"] = math.random(35, 50),
     ["cooked_sausage"] = math.random(35, 50),
     ["cooked_pork"] = math.random(35, 50),
-    ["cooked_ham"] = math.random(35, 50),  
+    ["cooked_ham"] = math.random(35, 50),
+    -- UwU
+    ["uwupancake"] = math.random(25, 34),
+    ["uwubudhabowl"] = math.random(50, 60),
+    ["uwusushi"] = math.random(45, 50),
+    ["uwucupcake"] = math.random(40, 45),
+    ["uwuvanillasandy"] = math.random(50, 65),
+    ["uwuchocsandy"] = math.random(50, 65),
+
+      
     --Drinks
     ["sandwich"] = math.random(35, 54),
     ["tosti"] = math.random(40, 50),
@@ -41,6 +50,11 @@ ConsumeablesEat = {
     ["water_bottle"] = math.random(35, 54),
     ["kurkakola"] = math.random(35, 54),
     ["snikkel_candy"] = math.random(40, 50),
+    -- UwU
+    ["uwububbleteablueberry"] = math.random(55, 60),
+    ["uwububbletearose"] = math.random(55, 60),
+    ["uwububbleteamint"] = math.random(55, 60),
+    ["uwumisosoup"] = math.random(80, 90),
  
     ["sandwichx"] = math.random(35, 54),	
     ["burrito"] = math.random(35, 54),
@@ -156,6 +170,34 @@ ConsumeablesAlcohol = {
     ["tequilagold"] = math.random(20, 40),
     ["vodka"] = math.random(20, 40),
     ["vodkacocktail"] = math.random(20, 40),
+}
+
+ConsumeablesEatSuperDonut = {
+    ["superdonut"] = math.random(5, 30),
+}
+
+ConsumeablesSlushy = {
+    ["redslushy"] = math.random(15, 25),
+    ["orangeslushy"] = math.random(15, 25),
+    ["blueslushy"] = math.random(15, 25),
+    ["yellowslushy"] = math.random(15, 25),
+    ["greenslushy"] = math.random(15, 25),
+    ["rainbowslushy"] = math.random(15, 25),
+}
+
+ConsumeablesEatIceCream = {
+    ["vanillaicecream"] = math.random(12, 20),
+    ["chocolateicecream"] = math.random(12, 20),
+    ["minticecream"] = math.random(15, 24),
+    ["cookiesandcreamicecream"] = math.random(18, 26),
+}
+
+ConsumeablesEatGumBall = {
+    ["bubblegum_gumball"] = math.random(6, 8),
+    ["blueberry_gumball"] = math.random(6, 8),
+    ["banana_gumball"] = math.random(6, 8),
+    ["mint_gumball"] = math.random(6, 8),
+    ["cherry_gumball"] = math.random(6, 8),
 }
 
 Config.BlacklistedScenarios = {
@@ -294,6 +336,18 @@ Config.Teleports = {
         },
         [2] = {
             coords = vector4(1138.19, -3199.1, -39.67, 17.64),
+            ["AllowVehicle"] = false,
+            drawText = 'Exit'
+        },
+    },
+    [9] = {
+        [1] = {
+            coords = vector4(65.33, 6662.69, 31.79, 147.23),
+            ["AllowVehicle"] = false,
+            drawText = 'Enter'
+        },
+        [2] = {
+            coords = vector4(1066.38, -3183.51, -39.16, 93.15),
             ["AllowVehicle"] = false,
             drawText = 'Exit'
         },

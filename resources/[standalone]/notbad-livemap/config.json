@@ -1,6 +1,6 @@
 {
-    "mapHTMLPath" : "C:/Users/Administrator/Desktop/Main_Server/NightAndDayV1_Live/resources/[standalone]/notbad-livemap/web/map.html",
-    "socketIOPath" : "C:/Users/Administrator/Desktop/Main_Server/NightAndDayV1_Live/resources/[standalone]/notbad-livemap/web/socket.io.js",
-    "IP" : "80.208.228.72",
+    "mapHTMLPath" : "C:/Users/Administrator/Desktop/NightAndDayV1_Live/resources/[standalone]/notbad-livemap/web/map.html",
+    "socketIOPath" : "C:/Users/Administrator/Desktop/NightAndDayV1_Live/resources/[standalone]/notbad-livemap/web/socket.io.js",
+    "IP" : "51.68.220.193",
     "port" : 3000
 }

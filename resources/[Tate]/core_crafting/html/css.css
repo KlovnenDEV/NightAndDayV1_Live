@@ -14,7 +14,7 @@
 }
 
 #u136 {
-	background-color: #ff8000;
+	background-color: #2F6AFF;
 	opacity: 0.76;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=76)";
 	filter: alpha(opacity=76);
@@ -114,7 +114,7 @@
 }
 
 #u392 {
-	background-color: #ff8000;
+	background-color: #2F6AFF;
 	border-radius: 10px;
 }
 
@@ -262,10 +262,10 @@
 #u565-4,
 #u577-4,
 #u589-4 {
-	background-color: #ff8000;
+	background-color: #2F6AFF;
 	border-radius: 6px;
 	line-height: 19px;
-	font-size: 14px;
+	font-size: 16px;
 	text-align: center;
 	color: #FFFFFF;
 	font-weight: bold;
@@ -424,7 +424,7 @@ body {
 }
 
 a:link {
-	color: #ff8000;
+	color: #0000FF;
 	text-decoration: underline;
 }
 
@@ -434,7 +434,7 @@ a:visited {
 }
 
 a:hover {
-	color: #ff8000;
+	color: #0000FF;
 	text-decoration: underline;
 }
 
@@ -867,7 +867,7 @@ span.actAsPara {
 
 .version.index {
 	color: #000005;
-	background-color: #ff8000;
+	background-color: #CE8A64;
 }
 
 #muse_css_mq {
@@ -912,7 +912,7 @@ html {
 /* Handle */
 
  ::-webkit-scrollbar-thumb {
-	background: #ff8000;
+	background: #2469ff;
 	border-radius: 10px;
 }
 
@@ -920,7 +920,7 @@ html {
 /* Handle on hover */
 
  ::-webkit-scrollbar-thumb:hover {
-	background: #ff8000;
+	background: #2469ff;
 	border-radius: 10px;
 }
 
@@ -939,7 +939,7 @@ html {
 
 #ingredient-text {
 	color: white;
-	left: 70px;
+	left: 100px;
 	font-weight: 700;
 	position: absolute;
 	font-size: 20px;
@@ -947,11 +947,11 @@ html {
 }
 
 #ingredient-x {
-	color: #ff8000;
+	color: #2b95ff;
 	font-weight: 700;
 	position: absolute;
 	font-size: 20px;
-	left: 5px;
+	left: 38px;
 	margin-top: 8px;
 }
 
@@ -987,8 +987,7 @@ html {
 	background-size: cover;
 	width: 30px;
 	position: absolute;
-	height: 30px;
-	left: 35px;
+	height: 40px;
 }
 
 .ingredient {
@@ -1493,7 +1492,7 @@ html {
 }
 
 #pu386 {
-	z-index: 25;
+	z-index: 22;
 	left: 44vw;
 	width: 294px;
 	height: 381px;
@@ -1545,7 +1544,7 @@ button:hover {
 	position: absolute;
 	bottom: 15px;
 	right: 15px;
-	background-color: #ff8000;
+	background-color: #2F6AFF;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	padding-left: 10px;
@@ -1823,15 +1822,4 @@ button:hover {
 body {
 	position: relative;
 	min-width: 320px;
-}
-
-#back {
-	position: absolute;
-	color: white;
-	transform-origin: center;
-	font-size: 20px;
-        text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-        margin-top: 10px;
-        transition: transform .2s ease-in-out;
-	margin-right: 50px;
 }

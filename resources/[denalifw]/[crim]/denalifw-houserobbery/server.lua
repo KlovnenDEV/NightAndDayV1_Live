@@ -15,7 +15,7 @@ AddEventHandler('houseRobberies:giveMoney', function()
  local cash = math.random(100, 300)
  xPlayer.Functions.AddItem('bands', cash)
  xPlayer.Functions.AddItem('cryptostick', 1)
- PerformHttpRequest('', function(err, text, headers) end, 'POST', json.encode({username = "House Robberies Log", content = "__**" .. GetPlayerName(source) .. "**__ Got Money: **" .. cash .. "** **.** "}), { ['Content-Type'] = 'application/json' })
+ --PerformHttpRequest('', function(err, text, headers) end, 'POST', json.encode({username = "House Robberies Log", content = "__**" .. GetPlayerName(source) .. "**__ Got Money: **" .. cash .. "** **.** "}), { ['Content-Type'] = 'application/json' })
  TriggerClientEvent('DenaliFW:Notify', source, 'You got a Crypto Stick and You found $'..cash)
 end)
 
@@ -32,12 +32,12 @@ AddEventHandler('houseRobberies:searchItem', function()
    if tonumber(item.id) == 0 and not gotID[item.id] then
     gotID[item.id] = true
     xPlayer.Functions.AddItem('bands', item.quantity)
-    PerformHttpRequest('https://discord.com/api/webhooks/963468401756471356/7o4eJ2GVdH6RXarH_CATCm-h3qgMlqIHwWXMID8e7HfrXU_GodyRX_Vnt3qKbnNX3W5J', function(err, text, headers) end, 'POST', json.encode({username = "House Robberies Log", content = "__**" .. GetPlayerName(source) .. "**__ Found: **" .. item.isWeapon .. "** **.** "}), { ['Content-Type'] = 'application/json' })
+    --PerformHttpRequest('https://discord.com/api/webhooks/766818449112039425/0d7eLlGHSmIa5fcV3EYQW1BJPgN2PvUcjoN9JBm6PsDV-StK-Ph-DlbkavS4g0kmMJf4', function(err, text, headers) end, 'POST', json.encode({username = "House Robberies Log", content = "__**" .. GetPlayerName(source) .. "**__ Found: **" .. item.isWeapon .. "** **.** "}), { ['Content-Type'] = 'application/json' })
     TriggerClientEvent('DenaliFW:Notify', source, 'You found $'..item.quantity)
    elseif not gotID[item.id] then
     gotID[item.id] = true
     xPlayer.Functions.AddItem(item.id, item.quantity)
-    PerformHttpRequest('https://discord.com/api/webhooks/963468401756471356/7o4eJ2GVdH6RXarH_CATCm-h3qgMlqIHwWXMID8e7HfrXU_GodyRX_Vnt3qKbnNX3W5J', function(err, text, headers) end, 'POST', json.encode({username = "House Robberies Log", content = "__**" .. GetPlayerName(source) .. "**__ Found: **" .. item.id .. "** **.** "}), { ['Content-Type'] = 'application/json' })
+    ---PerformHttpRequest('https://discord.com/api/webhooks/766818449112039425/0d7eLlGHSmIa5fcV3EYQW1BJPgN2PvUcjoN9JBm6PsDV-StK-Ph-DlbkavS4g0kmMJf4', function(err, text, headers) end, 'POST', json.encode({username = "House Robberies Log", content = "__**" .. GetPlayerName(source) .. "**__ Found: **" .. item.id .. "** **.** "}), { ['Content-Type'] = 'application/json' })
     TriggerClientEvent('DenaliFW:Notify', source, 'Item Added!')
     TriggerClientEvent('inventory:client:ItemBox', source, DenaliFW.Shared.Items[item.id], item.quantity, 'add')
    end

@@ -112,6 +112,78 @@ DenaliFW.Functions.CreateUseableItem("dinner4", function(source, item)
     end
 end)
 
+--uWu Cafe--
+DenaliFW.Functions.CreateUseableItem("uwububbleteablueberry", function(source, item)
+    local src = source
+    local Player = DenaliFW.Functions.GetPlayer(src)
+    if Player.Functions.RemoveItem(item.name, 1, item.slot) then
+        TriggerClientEvent("consumables:client:uwububbleteablueberry", source, item.name)
+    end
+end)
+DenaliFW.Functions.CreateUseableItem("uwububbletearose", function(source, item)
+    local src = source
+    local Player = DenaliFW.Functions.GetPlayer(src)
+    if Player.Functions.RemoveItem(item.name, 1, item.slot) then
+        TriggerClientEvent("consumables:client:uwububbleteablueberry", source, item.name)
+    end
+end)
+DenaliFW.Functions.CreateUseableItem("uwububbleteamint", function(source, item)
+    local src = source
+    local Player = DenaliFW.Functions.GetPlayer(src)
+    if Player.Functions.RemoveItem(item.name, 1, item.slot) then
+        TriggerClientEvent("consumables:client:uwububbleteablueberry", source, item.name)
+    end
+end)
+DenaliFW.Functions.CreateUseableItem("uwupancake", function(source, item)
+    local src = source
+    local Player = DenaliFW.Functions.GetPlayer(src)
+    if Player.Functions.RemoveItem(item.name, 1, item.slot) then
+        TriggerClientEvent("consumables:client:EatPancakes", source, item.name)
+    end
+end)
+DenaliFW.Functions.CreateUseableItem("uwucupcake", function(source, item)
+    local src = source
+    local Player = DenaliFW.Functions.GetPlayer(src)
+    if Player.Functions.RemoveItem(item.name, 1, item.slot) then
+        TriggerClientEvent("consumables:client:EatDonut", source, item.name)
+    end
+end)
+DenaliFW.Functions.CreateUseableItem("uwuvanillasandy", function(source, item)
+    local src = source
+    local Player = DenaliFW.Functions.GetPlayer(src)
+    if Player.Functions.RemoveItem(item.name, 1, item.slot) then
+        TriggerClientEvent("consumables:client:uwuvanillasandy", source, item.name)
+    end
+end)
+DenaliFW.Functions.CreateUseableItem("uwuchocsandy", function(source, item)
+    local src = source
+    local Player = DenaliFW.Functions.GetPlayer(src)
+    if Player.Functions.RemoveItem(item.name, 1, item.slot) then
+        TriggerClientEvent("consumables:client:uwuchocsandy", source, item.name)
+    end
+end)
+DenaliFW.Functions.CreateUseableItem("uwubudhabowl", function(source, item)
+    local src = source
+    local Player = DenaliFW.Functions.GetPlayer(src)
+    if Player.Functions.RemoveItem(item.name, 1, item.slot) then
+        TriggerClientEvent("consumables:client:uwubudhabowl", source, item.name)
+    end
+end)
+DenaliFW.Functions.CreateUseableItem("uwusushi", function(source, item)
+    local src = source
+    local Player = DenaliFW.Functions.GetPlayer(src)
+    if Player.Functions.RemoveItem(item.name, 1, item.slot) then
+        TriggerClientEvent("consumables:client:EatPancakes", source, item.name)
+    end
+end)
+DenaliFW.Functions.CreateUseableItem("uwumisosoup", function(source, item)
+    local src = source
+    local Player = DenaliFW.Functions.GetPlayer(src)
+    if Player.Functions.RemoveItem(item.name, 1, item.slot) then
+        TriggerClientEvent("consumables:client:uwumisosoup", source, item.name)
+    end
+end)
+
 ----------- / Drink
 
 DenaliFW.Functions.CreateUseableItem("water_bottle", function(source, item)
@@ -137,6 +209,8 @@ DenaliFW.Functions.CreateUseableItem("kurkakola", function(source, item)
         TriggerClientEvent("consumables:client:Drink", src, item.name)
     end
 end)
+
+
 
 ----------- / Drug
 

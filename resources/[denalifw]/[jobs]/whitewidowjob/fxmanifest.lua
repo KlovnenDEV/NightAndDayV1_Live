@@ -5,7 +5,6 @@ author 'copyright my ass'
 
 shared_scripts {
     'config.lua',
-    '@qb-core/import.lua'
 }
 
 client_scripts{

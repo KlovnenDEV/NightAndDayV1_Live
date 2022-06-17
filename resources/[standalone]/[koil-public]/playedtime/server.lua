@@ -49,7 +49,7 @@ function dropPlayer(source)
         local timeAllFormatted = SecondsToClock(timeAll)
 
         local message = '`'..name..'` ['..identifier..']\n Session time: `'..timeFormatted..'`\n'..'Total time: `'..timeAllFormatted..'`'
-        sendToDiscord('Player left NADRP', message)
+        sendToDiscord('Player left PUB', message)
         MySQL.Async.execute('UPDATE playtime SET time = @time WHERE identifier = @identifier',
             {['time'] = timeAll, ['identifier'] = identifier},
             function(affectedRows)

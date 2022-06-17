@@ -227,6 +227,31 @@ QBShared.Jobs = {
 		},
 	},
 },
+["uwu"] = {
+	label = "uWu Cafe",
+	defaultDuty = true,
+	offDutyPay = false,
+	grades = {
+		['0'] = {
+			name = "Barista",
+			payment = 18
+		},
+		['1'] = {
+			name = "Chef",
+			payment = 21
+		},
+		['2'] = {
+			name = "Manager",
+			payment = 33,
+			isboss = true
+		},
+		['3'] = {
+			name = "Owner",
+			payment = 33,
+			isboss = true
+		},
+	},
+},
 ["food"] = { 
 	label = "Los Santos Foodshop",
 	grades = {

@@ -9,6 +9,7 @@ var job;
 var hidecraft;
 var grade;
 var categories;
+var ItemName;
 
 function closeMenu() {
   $.post('https://core_crafting/close', JSON.stringify({}));
@@ -23,19 +24,15 @@ function closeMenu() {
 
 }
 
-
 function openCategory() {
-
-  $("#main_container").html('');	
 
   var first = '';
 
 
   var base = '<div class="" id="page"><!-- group -->' +
     '   <div class="clearfix grpelem scale-up-center" id="pu104-4"><!-- column -->' +
-    '	<div class="clearfix colelem " onclick="closeMenu()" id="back"><i class="fas fa-chevron-circle-left fa-lg"></i></div>' +
     '    <div class="clearfix colelem" id="u104-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu104-4"><!-- content -->' +
-    '     <p> СГЛОБЯВАНЕ</p>' +
+    '     <p>WORKBENCH</p>' +
     '    </div>' +
     '    <div class="clearfix colelem" id="u139-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu104-4"><!-- content -->' +
 
@@ -105,7 +102,7 @@ function openCategory() {
         '     <div class="clearfix grpelem" id="u225-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
         '      <p>' + value1.Label + '</p>' +
         '     </div>' +
-        '     <div class="museBGSize grpelem" id="u264" style="background: url(img/' + value1.Image + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
+        '     <div class="museBGSize grpelem" id="u264" style="background: url(nui://denalifw-inventory/html/images/' + value1.Image + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
         '    </div>';
     }
 
@@ -129,7 +126,7 @@ function openCategory() {
   });
 
 
-  $("#u139-4").text(level + ' НИВО');
+  $("#u139-4").text(level + ' LEVEL');
   setProgress((rawlevel % 100));
 
 
@@ -145,9 +142,8 @@ function openCrafting(t) {
 
   var base = '<div class="" id="page"><!-- group -->' +
     '   <div class="clearfix grpelem scale-up-center" id="pu104-4"><!-- column -->' +
-    '	<div class="clearfix colelem " onclick="openCategory()" id="back"><i class="fas fa-chevron-circle-left fa-lg"></i></div>' +
     '    <div class="clearfix colelem" id="u104-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu104-4"><!-- content -->' +
-    '     <p> СГЛОБЯВАНЕ</p>' +
+    '     <p>WORKBENCH</p>' +
     '    </div>' +
     '    <div class="clearfix colelem" id="u139-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu104-4"><!-- content -->' +
 
@@ -173,14 +169,14 @@ function openCrafting(t) {
           second = second + '    <div class="clearfix colelem recipe" onclick="inspect(this)" data-item="' + key + '" style="opacity: 0.5;" id="pu212"><!-- group -->' +
             '     <div class="gradient grpelem" id="u212" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
             '     <div class="clearfix grpelem" id="u225-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
-            '      <p>' + String(names[key]).toUpperCase() + '</p>' +
+            '      <p>' + String(value.ItemName).toUpperCase() + '</p>' +
             '     </div>' +
-            '     <div class="museBGSize grpelem" id="u264" style="background: url(img/' + key + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
+            '     <div class="museBGSize grpelem" id="u264" style="background: url(nui://denalifw-inventory/html/images/' + key + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
             '     <div class="rounded-corners clearfix grpelem" id="u270-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
             '      <p>' + timeString + '</p>' +
             '     </div>' +
             '     <div class="rounded-corners clearfix grpelem" id="u413-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
-            '      <p>' + value.Level + ' НИВО</p>' +
+            '      <p>' + value.Level + ' LVL</p>' +
             '     </div>' +
             '     <div class="rounded-corners clearfix grpelem" id="u417-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
             '      <p> X' + value.Amount + '</p>' +
@@ -197,14 +193,14 @@ function openCrafting(t) {
             second = second + '    <div class="clearfix colelem recipe" data-item="' + key + '" onclick="inspect(this)" style="opacity: 0.5;" id="pu212"><!-- group -->' +
               '     <div class="gradient grpelem" id="u212" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
               '     <div class="clearfix grpelem" id="u225-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
-              '      <p>' + String(names[key]).toUpperCase() + '</p>' +
+              '      <p>' + String(value.ItemName).toUpperCase() + '</p>' +
               '     </div>' +
-              '     <div class="museBGSize grpelem" id="u264" style="background: url(img/' + key + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
+              '     <div class="museBGSize grpelem" id="u264" style="background: url(nui://denalifw-inventory/html/images/' + key + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
               '     <div class="rounded-corners clearfix grpelem" id="u270-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
               '      <p>' + timeString + '</p>' +
               '     </div>' +
               '     <div class="rounded-corners clearfix grpelem" id="u413-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
-              '      <p>' + value.Level + ' НИВО</p>' +
+              '      <p>' + value.Level + ' LVL</p>' +
               '     </div>' +
               '     <div class="rounded-corners clearfix grpelem" id="u417-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
               '      <p> X' + value.Amount + '</p>' +
@@ -219,14 +215,14 @@ function openCrafting(t) {
               first = first + '    <div class="clearfix colelem recipe" data-item="' + key + '" onclick="inspect(this)" id="pu212"><!-- group -->' +
                 '     <div class="gradient grpelem" id="u212" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
                 '     <div class="clearfix grpelem" id="u225-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
-                '      <p>' + String(names[key]).toUpperCase() + '</p>' +
+                '      <p>' + String(value.ItemName).toUpperCase() + '</p>' +
                 '     </div>' +
-                '     <div class="museBGSize grpelem" id="u264" style="background: url(img/' + key + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
+                '     <div class="museBGSize grpelem" id="u264" style="background: url(nui://denalifw-inventory/html/images/' + key + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
                 '     <div class="rounded-corners clearfix grpelem" id="u270-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
                 '      <p>' + timeString + '</p>' +
                 '     </div>' +
                 '     <div class="rounded-corners clearfix grpelem" id="u413-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
-                '      <p>' + value.Level + ' НИВО</p>' +
+                '      <p>' + value.Level + ' LVL</p>' +
                 '     </div>' +
                 '     <div class="rounded-corners clearfix grpelem" id="u417-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
                 '      <p> X' + value.Amount + '</p>' +
@@ -238,14 +234,14 @@ function openCrafting(t) {
                 second = second + '    <div class="clearfix colelem recipe" data-item="' + key + '" onclick="inspect(this)" style="opacity: 0.5;" id="pu212"><!-- group -->' +
                   '     <div class="gradient grpelem" id="u212" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
                   '     <div class="clearfix grpelem" id="u225-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
-                  '      <p>' + String(names[key]).toUpperCase() + '</p>' +
+                  '      <p>' + String(value.ItemName).toUpperCase() + '</p>' +
                   '     </div>' +
-                  '     <div class="museBGSize grpelem" id="u264" style="background: url(img/' + key + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
+                  '     <div class="museBGSize grpelem" id="u264" style="background: url(nui://denalifw-inventory/html/images/' + key + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
                   '     <div class="rounded-corners clearfix grpelem" id="u270-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
                   '      <p>' + timeString + '</p>' +
                   '     </div>' +
                   '     <div class="rounded-corners clearfix grpelem" id="u413-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
-                  '      <p>' + value.Level + ' НИВО</p>' +
+                  '      <p>' + value.Level + ' LVL</p>' +
                   '     </div>' +
                   '     <div class="rounded-corners clearfix grpelem" id="u417-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
                   '      <p> X' + value.Amount + '</p>' +
@@ -259,14 +255,14 @@ function openCrafting(t) {
               second = second + '    <div class="clearfix colelem recipe" data-item="' + key + '" onclick="inspect(this)" style="opacity: 0.5;" id="pu212"><!-- group -->' +
                 '     <div class="gradient grpelem" id="u212" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
                 '     <div class="clearfix grpelem" id="u225-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
-                '      <p>' + String(names[key]).toUpperCase() + '</p>' +
+                '      <p>' + String(value.ItemName).toUpperCase() + '</p>' +
                 '     </div>' +
-                '     <div class="museBGSize grpelem" id="u264" style="background: url(img/' + key + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
+                '     <div class="museBGSize grpelem" id="u264" style="background: url(nui://denalifw-inventory/html/images/' + key + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
                 '     <div class="rounded-corners clearfix grpelem" id="u270-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
                 '      <p>' + timeString + '</p>' +
                 '     </div>' +
                 '     <div class="rounded-corners clearfix grpelem" id="u413-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
-                '      <p>' + value.Level + ' НИВО</p>' +
+                '      <p>' + value.Level + ' LVL</p>' +
                 '     </div>' +
                 '     <div class="rounded-corners clearfix grpelem" id="u417-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
                 '      <p> X' + value.Amount + '</p>' +
@@ -298,7 +294,7 @@ function openCrafting(t) {
     playClickSound();
   });
 
-  $("#u139-4").text(level + ' НИВО');
+  $("#u139-4").text(level + ' LEVEL');
   setProgress((rawlevel % 100));
 
 
@@ -335,9 +331,9 @@ function addToQueue(item, time, id) {
     var base = '    <div class="slide-left queue" id="' + id + '"><!-- group -->' +
       '     <div class="gradient grpelem" id="u544" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu544"><!-- simple frame --></div>' +
       '     <div class="clearfix grpelem" id="u545-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu544"><!-- content -->' +
-      '      <p>' + String(names[item]).toUpperCase() + '</p>' +
+      '      <p>' + String(item).toUpperCase() + '</p>' +
       '     </div>' +
-      '     <div class="museBGSize grpelem" style="background: url(img/' + item + '.png) no-repeat center; background-size: 120%; " id="u546" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu544"><!-- simple frame --></div>' +
+      '     <div class="museBGSize grpelem" style="background: url(nui://denalifw-inventory/html/images/' + item + '.png) no-repeat center; background-size: 120%; " id="u546" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu544"><!-- simple frame --></div>' +
       '     <div class="rounded-corners clearfix grpelem" id="u547-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu544"><!-- content -->' +
       '      <p id="u547-2">' + timeString + '</p>' +
       '     </div>' +
@@ -387,26 +383,26 @@ function inspect(t) {
 
     var base = '   <div class="slide-bottom " id="pu386"><!-- group -->' +
       '    <div class="gradient grpelem" id="u386" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu386"><!-- simple frame --></div>' +
-      '    <div class="museBGSize grpelem" id="u389" style="background: url(img/' + t.dataset.item + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu386"><!-- simple frame --></div>' +
+      '    <div class="museBGSize grpelem" id="u389" style="background: url(nui://denalifw-inventory/html/images/' + t.dataset.item + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu386"><!-- simple frame --></div>' +
 
       '     <button class="ripple" id="u407-4" data-item="' + t.dataset.item + '" onclick="craft(this)" data-sizePolicy="fixed" data-pintopage="page_fixedCenter"><!-- content -->' +
-      '      <p>СГЛОБИ</p>' +
+      '      <p>CRAFT</p>' +
       '     </button>' +
 
       '    <div class="clearfix grpelem" id="u457-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu386"><!-- content -->' +
-      '     <p>' + String(names[t.dataset.item]).toUpperCase() + '</p>' +
+      '     <p>' + item.ItemName.toUpperCase() + '</p>' + 
       '    </div>' +
       '    <div class="rounded-corners clearfix grpelem" id="u535-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu386"><!-- content -->' +
       '     <p>' + timeString + '</p>' +
       '    </div>' +
       '    <div class="rounded-corners clearfix grpelem" id="u538-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu386"><!-- content -->' +
-      '     <p>' + item.Level + ' НИВО</p>' +
+      '     <p>' + item.Level + ' LVL</p>' +
       '    </div>' +
       '    <div class="rounded-corners clearfix grpelem" id="u523-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu386"><!-- content -->' +
       '     <p>X' + item.Amount + '</p>' +
       '    </div>' +
       '    <div class="clearfix grpelem" id="u541-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu386"><!-- content -->' +
-      '     <p>НУЖНИ МАТЕРИАЛИ</p>' +
+      '     <p>INGREDIENTS</p>' +
       '    </div>' +
 
       '<div id="ingredients">';
@@ -419,15 +415,15 @@ function inspect(t) {
 
       if (inventory[key] >= value) {
         first = first + '<div class="ingredient" id="' + key + '">' +
-          '<div id="ingredient-text">' + names[key] + '</div>' +
+          '<div id="ingredient-text">' + [key]  + '</div>' +
           '<div id="ingredient-x">' + value + 'X</div>' +
-          '<div id="ingredient-logo" style="background: url(img/' + key + '.png) no-repeat center; background-size: 120%; "></div>' +
+          '<div id="ingredient-logo" style="background: url(nui://denalifw-inventory/html/images/' + key + '.png) no-repeat center; background-size: 120%; "></div>' +
           '</div>';
       } else {
         second = second + '<div class="ingredient" id="' + key + '" style="opacity:0.5;">' +
-          '<div id="ingredient-text">' + names[key] + '</div>' +
+          '<div id="ingredient-text">' + [key] + '</div>' +
           '<div id="ingredient-x">' + value + 'X</div>' +
-          '<div id="ingredient-logo" style="background: url(img/' + key + '.png) no-repeat center; background-size: 120%; "></div>' +
+          '<div id="ingredient-logo" style="background: url(nui://denalifw-inventory/html/images/' + key + '.png) no-repeat center; background-size: 120%; "></div>' +
           '</div>';
       }
 

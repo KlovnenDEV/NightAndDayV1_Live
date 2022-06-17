@@ -181,7 +181,7 @@ end
 function AddArmor()
     local a = 15
     while a > 0 do
-        Wait(math.random(100, 200))
+        Wait(math.random(750, 1150))
         a = a - 1
         AddArmourToPed(PlayerPedId(), 1)
     end
@@ -202,6 +202,194 @@ function AddHealth()
     end
     healing = false
 end
+
+RegisterNetEvent('consumables:client:slushy', function(itemName)
+    TriggerEvent('animations:client:EmoteCommandStart', {"cup"})
+    QBCore.Functions.Progressbar("drink_something", "Drinking Slushy...", 3500, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+        disableMouse = false,
+        disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        ClearPedTasks(PlayerPedId())
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        AddArmor(3)
+        TriggerServerEvent("QBCore:Server:SetMetaData", "thirst", QBCore.Functions.GetPlayerData().metadata["thirst"] + ConsumeablesSlushy[itemName])
+        TriggerServerEvent('hud:server:RelieveStress', math.random(2, 4))
+    end)
+end)
+
+local function RunFast()
+    local startStamina = 3
+
+    SetRunSprintMultiplierForPlayer(PlayerId(), 1.2)
+    while startStamina > 0 do
+        Wait(1000)
+        startStamina = startStamina - 1
+        --RestorePlayerStamina(PlayerId(), 1.0)
+    end
+    startStamina = 0
+    SetRunSprintMultiplierForPlayer(PlayerId(), 1.0)
+end
+
+RegisterNetEvent('consumables:client:EatSuperDonut', function(itemName)
+    TriggerEvent('animations:client:EmoteCommandStart', {"donut"})
+    QBCore.Functions.Progressbar("eat_something", "Eating..", 5000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+		disableMouse = false,
+		disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        ClearPedTasks(PlayerPedId())
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        RunFast()
+        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEatSuperDonut[itemName])
+        TriggerServerEvent('hud:server:RelieveStress', math.random(2, 8))
+    end)
+end)
+
+local function BrainFreeze()
+    local startStamina = 3
+    ShakeGameplayCam('SMALL_EXPLOSION_SHAKE', 0.15)
+    SetRunSprintMultiplierForPlayer(PlayerId(), 1.5)
+    while startStamina > 0 do
+        Wait(2500)
+        ShakeGameplayCam('SMALL_EXPLOSION_SHAKE', 0.18)
+        startStamina = startStamina - 1
+        --RestorePlayerStamina(PlayerId(), 1.0)
+    end
+    startStamina = 0
+    ShakeGameplayCam('SMALL_EXPLOSION_SHAKE', 0.15)
+    SetRunSprintMultiplierForPlayer(PlayerId(), 1.0)
+end
+
+RegisterNetEvent('consumables:client:EatIceCream', function(itemName)
+    TriggerEvent('animations:client:EmoteCommandStart', {"bowl"})
+    QBCore.Functions.Progressbar("eat_icecream", "Eating...", 5000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+		disableMouse = false,
+		disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        ClearPedTasks(PlayerPedId())
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        BrainFreeze()
+        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEatIceCream[itemName])
+        TriggerServerEvent('hud:server:GainStress', math.random(2, 5))
+    end)
+end)
+
+local function GumBall()
+    local startStamina = 3
+    SetRunSprintMultiplierForPlayer(PlayerId(), 1.2)
+    while startStamina > 0 do
+        Wait(500)
+        startStamina = startStamina - 1
+    end
+    startStamina = 0
+    SetRunSprintMultiplierForPlayer(PlayerId(), 1.0)
+end
+
+RegisterNetEvent('consumables:client:EatGumBall', function(itemName)
+    TriggerEvent('animations:client:EmoteCommandStart', {"eat"})
+    QBCore.Functions.Progressbar("eat_gumball", "Eating...", 5000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+		disableMouse = false,
+		disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        ClearPedTasks(PlayerPedId())
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        GumBall()
+        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEatGumBall[itemName])
+    end)
+end)
+
+--uWu Cafe
+RegisterNetEvent("consumables:client:uwububbleteablueberry", function(itemName)
+    TriggerEvent('animations:client:EmoteCommandStart', {"bubbletea"})
+    action = true
+    DenaliFW.Functions.Progressbar("drink_something", "Popping some Bubble Tea..", 10000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+        disableMouse = false,
+        disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        TriggerEvent("inventory:client:ItemBox", DenaliFW.Shared.Items[itemName], "remove")
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        DeleteObject(prop)
+        TriggerServerEvent("DenaliFW:Server:SetMetaData", "thirst", DenaliFW.Functions.GetPlayerData().metadata["thirst"] + ConsumeablesDrink[itemName])
+        action = false
+    end)
+end)
+RegisterNetEvent("consumables:client:uwumisosoup", function(itemName)
+    TriggerEvent('animations:client:EmoteCommandStart', {"misosoup"})
+    action = true
+    DenaliFW.Functions.Progressbar("drink_something", "Supping some Soup..", 10000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+        disableMouse = false,
+        disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        TriggerEvent("inventory:client:ItemBox", DenaliFW.Shared.Items[itemName], "remove")
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        DeleteObject(prop)
+        TriggerServerEvent("DenaliFW:Server:SetMetaData", "thirst", DenaliFW.Functions.GetPlayerData().metadata["thirst"] + ConsumeablesDrink[itemName])
+        action = false
+    end)
+end)
+RegisterNetEvent("consumables:client:uwubudhabowl", function(itemName)
+    TriggerEvent('animations:client:EmoteCommandStart', {"budhabowl"})
+    action = true
+    DenaliFW.Functions.Progressbar("eat_something", "Banging a bowl of goodness..", 10000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+        disableMouse = false,
+        disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        TriggerEvent("inventory:client:ItemBox", DenaliFW.Shared.Items[itemName], "remove")
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        DeleteObject(prop)
+        TriggerServerEvent("DenaliFW:Server:SetMetaData", "hunger", DenaliFW.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
+        action = false
+    end)
+end)
+RegisterNetEvent("consumables:client:uwuvanillasandy", function(itemName)
+    TriggerEvent('animations:client:EmoteCommandStart', {"uwusandy"})
+    action = true
+    DenaliFW.Functions.Progressbar("eat_something", "uWu Icecream Mmm..", 10000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+        disableMouse = false,
+        disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        TriggerEvent("inventory:client:ItemBox", DenaliFW.Shared.Items[itemName], "remove")
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        DeleteObject(prop)
+        TriggerServerEvent("DenaliFW:Server:SetMetaData", "hunger", DenaliFW.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
+        action = false
+    end)
+end)
+RegisterNetEvent("consumables:client:uwuchocsandy", function(itemName)
+    TriggerEvent('animations:client:EmoteCommandStart', {"uwusandy"})
+    action = true
+    DenaliFW.Functions.Progressbar("eat_something", "uWu Icecream Mmm..", 10000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+        disableMouse = false,
+        disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        TriggerEvent("inventory:client:ItemBox", DenaliFW.Shared.Items[itemName], "remove")
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        DeleteObject(prop)
+        TriggerServerEvent("DenaliFW:Server:SetMetaData", "hunger", DenaliFW.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
+        action = false
+    end)
+end)
 
 -- Events
 

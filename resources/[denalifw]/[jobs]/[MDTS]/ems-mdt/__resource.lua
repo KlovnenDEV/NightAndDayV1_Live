@@ -17,4 +17,3 @@ server_scripts {
 }
 
 client_script "cl_mdt.lua"
-server_scripts { '@mysql-async/lib/MySQL.lua' }

@@ -13,4 +13,4 @@ files {
 	'html/*'
 }
 
-lua54 'yes'server_scripts { '@mysql-async/lib/MySQL.lua' }
+lua54 'yes'

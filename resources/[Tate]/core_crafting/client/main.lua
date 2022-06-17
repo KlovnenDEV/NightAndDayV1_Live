@@ -1,10 +1,20 @@
-DenaliFW = nil
+local DenaliFW = exports['denalifw-core']:GetCoreObject()
+local Keys = {
+	['ESC'] = 322, ['F1'] = 288, ['F2'] = 289, ['F3'] = 170, ['F5'] = 166, ['F6'] = 167, ['F7'] = 168, ['F8'] = 169, ['F9'] = 56, ['F10'] = 57,
+	['~'] = 243, ['1'] = 157, ['2'] = 158, ['3'] = 160, ['4'] = 164, ['5'] = 165, ['6'] = 159, ['7'] = 161, ['8'] = 162, ['9'] = 163, ['-'] = 84, ['='] = 83, ['BACKSPACE'] = 177,
+	['TAB'] = 37, ['Q'] = 44, ['W'] = 32, ['E'] = 38, ['R'] = 45, ['T'] = 245, ['Y'] = 246, ['U'] = 303, ['P'] = 199, ['['] = 39, [']'] = 40, ['ENTER'] = 18,
+	['CAPS'] = 137, ['A'] = 34, ['S'] = 8, ['D'] = 9, ['F'] = 23, ['G'] = 47, ['H'] = 74, ['K'] = 311, ['L'] = 182,
+	['LEFTSHIFT'] = 21, ['Z'] = 20, ['X'] = 73, ['C'] = 26, ['V'] = 0, ['B'] = 29, ['N'] = 249, ['M'] = 244, [','] = 82, ['.'] = 81,
+	['LEFTCTRL'] = 36, ['LEFTALT'] = 19, ['SPACE'] = 22, ['RIGHTCTRL'] = 70,
+	['HOME'] = 213, ['PAGEUP'] = 10, ['PAGEDOWN'] = 11, ['DELETE'] = 178,
+	['LEFT'] = 174, ['RIGHT'] = 175, ['TOP'] = 27, ['DOWN'] = 173,
+}
+
+
 local labels = {}
 local craftingQueue = {}
 local job = ""
 local grade = 0
-
-local DenaliFW = exports['denalifw-core']:GetCoreObject()
 
 
         while DenaliFW.Functions.GetPlayerData().job == nil do
@@ -14,9 +24,7 @@ local DenaliFW = exports['denalifw-core']:GetCoreObject()
         job = DenaliFW.Functions.GetPlayerData().job.name
         grade = DenaliFW.Functions.GetPlayerData().job.grade
 
-        for k, v in pairs(DenaliFW.Shared.Items) do
-            labels[k] = v.label
-        end
+        DenaliFW.Functions.TriggerCallback("core_crafting:getItemNames", function(info) labels = info end)
 
         for _, v in ipairs(Config.Workbenches) do
             if v.blip then
@@ -32,17 +40,14 @@ local DenaliFW = exports['denalifw-core']:GetCoreObject()
                 EndTextCommandSetBlipName(blip)
             end
         end
-    end
-)
+    
 
-RegisterNetEvent("DenaliFW:Client:OnJobUpdate")
-AddEventHandler(
-    "DenaliFW:Client:OnJobUpdate",
-    function(j)
-        job = j.name
-        grade = j.grade
-    end
-)
+
+RegisterNetEvent('DenaliFW:Client:OnJobUpdate')
+AddEventHandler('DenaliFW:Client:OnJobUpdate', function(JobInfo)
+        job = JobInfo.name
+        grade = JobInfo.grade
+end)
 
 function isNearWorkbench()
     local ped = PlayerPedId()
@@ -67,6 +72,7 @@ Citizen.CreateThread(
     function()
         while true do
             Citizen.Wait(1000)
+
             if craftingQueue[1] ~= nil then
                 if not Config.CraftingStopWithDistance or (Config.CraftingStopWithDistance and isNearWorkbench()) then
                     craftingQueue[1].time = craftingQueue[1].time - 1
@@ -87,93 +93,78 @@ Citizen.CreateThread(
                 end
             end
         end
-    end
-)
+end)
 
 function openWorkbench(val)
-    local inv = {}
-    local recipes = {}
-    SetNuiFocus(true, true)
-    TriggerScreenblurFadeIn(1000)
-    local player = DenaliFW.Functions.GetPlayerData()
-    local xp = player.metadata['craftingrep']
-    for _, v in ipairs(player.items) do
-        inv[v.name] = v.amount
-    end
-
-    if #val.recipes > 0 then
-        for _, g in ipairs(val.recipes) do
-            recipes[g] = Config.Recipes[g]
+    DenaliFW.Functions.TriggerCallback("core_crafting:getXP", function(xp)
+			print(xp)
+            SetNuiFocus(true, true)
+            TriggerScreenblurFadeIn(1000)
+            local inv = {}
+            for _, v in ipairs(DenaliFW.Functions.GetPlayerData().inventory) do
+                inv[v.name] = v.count
+            end
+			
+            local recipes = {}
+            if #val.recipes > 0 then
+                for _, g in ipairs(val.recipes) do
+                    recipes[g] = Config.Recipes[g]
+                end
+            else
+                recipes = Config.Recipes
+            end
+			
+            SendNUIMessage(
+                {
+                    type = "open",
+                    recipes = recipes,
+                    names = labels,
+                    level = xp,
+                    inventory = inv,
+                    job = job,
+                    grade = grade,
+					ingredient = Config.Ingredients,
+                    hidecraft = Config.HideWhenCantCraft,
+                    categories = Config[val.Categories]
+                }
+            )
+			
         end
-    else
-        recipes = Config.Recipes
-    end
-
-    SendNUIMessage ({
-        type = "open",
-        recipes = recipes,
-        names = labels,
-        level = xp,
-        inventory = inv,
-        job = job,
-        grade = grade,
-        hidecraft = Config.HideWhenCantCraft,
-        categories = Config.Categories
-    })
+    )
 end
 
---[[Citizen.CreateThread(function()
-        while true do
-            Citizen.Wait(1)
-            local ped = PlayerPedId()
-            local coords = GetEntityCoords(ped)
-            for _, v in ipairs(Config.Workbenches) do
-                local dst = #(coords - v.coords)
-                if dst < 20 then
-                    DrawText3D(v.coords[1], v.coords[2], v.coords[3] - 0.8, '~o~Работна маса~w~')
-                end
-                if dst < 2 then
-                    if IsControlJustReleased(0, 38) then
-                        local open = false
-                        for _, g in ipairs(v.jobs) do
-                            if g == job then
-                                open = true
-                            end
-                        end
+Citizen.CreateThread( function()
+	while true do
+		Citizen.Wait(1)
 
-                        if open or #v.jobs == 0 then
-                            openWorkbench(v)
-                        else
-                            DenaliFW.Functions.Notify('Не си оторизиран да правиш това', 'error')
-                        end
-                    end
-                end
-            end
-        end
-    end)]]
+		local ped = PlayerPedId()
+		local coords = GetEntityCoords(ped)
 
-RegisterNetEvent("open:workbench")
-AddEventHandler("open:workbench", function()
-    for _, v in ipairs(Config.Workbenches) do
-        local open = false
-        for _, g in ipairs(v.jobs) do
-            if g == job then
-                open = true
-            end
-        end
+		for _, v in ipairs(Config.Workbenches) do
+			local dst = #(coords - v.coords)
+			if dst < 3 then
+				DrawText3D(v.coords[1], v.coords[2], v.coords[3] - 0.8, Config.Text["workbench_hologram"])
+			end
+			if dst < 2 then
+				if IsControlJustReleased(0, Keys["E"]) then
+					local open = false
+					if DenaliFW.Functions.GetPlayerData().job.name == v.jobs then
+						open = true
+					end
 
-        if open or #v.jobs == 0 then
-            openWorkbench(v)
-        else
-            DenaliFW.Functions.Notify('Не си оторизиран да правиш това', 'error')
-        end
-    end
+					if open or #v.jobs == 0 then
+						openWorkbench(v)
+					else	
+						SendTextMessage(Config.Text["wrong_job"])
+					end
+				end
+			end
+		end
+	end
 end)
 
 RegisterNetEvent("core_crafting:craftStart")
-AddEventHandler(
-    "core_crafting:craftStart",
-    function(item, count)
+AddEventHandler("core_crafting:craftStart", function(item, count)
         local id = math.random(000, 999)
         table.insert(craftingQueue, {time = Config.Recipes[item].Time, item = item, count = 1, id = id})
 
@@ -192,24 +183,22 @@ AddEventHandler(
                 id = id
             }
         )
-    end
-)
+end)
 
-RegisterNUICallback(
-    "close",
-    function(data)
+RegisterNetEvent("core_crafting:sendMessage")
+AddEventHandler("core_crafting:sendMessage", function(msg)
+        SendTextMessage(msg)
+end)
+
+RegisterNUICallback("close", function(data)
         TriggerScreenblurFadeOut(1000)
         SetNuiFocus(false, false)
-    end
-)
+end)
 
-RegisterNUICallback(
-    "craft",
-    function(data)
+RegisterNUICallback("craft", function(data)
         local item = data["item"]
         TriggerServerEvent("core_crafting:craft", item, false)
-    end
-)
+end)
 
 function DrawText3D(x, y, z, text)
     local onScreen, _x, _y = World3dToScreen2d(x, y, z)

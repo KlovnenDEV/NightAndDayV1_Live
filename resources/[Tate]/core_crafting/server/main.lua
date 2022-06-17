@@ -1,63 +1,100 @@
 local DenaliFW = exports['denalifw-core']:GetCoreObject()
 
--- Main Event
+function setCraftingLevel(citizenid, level)
+    exports.oxmysql:execute('UPDATE players SET crafting_level = @xp WHERE citizenid = @citizenid',{["@xp"] = level, ["@citizenid"] = identifier}, function() end)
+end
 
-RegisterServerEvent("core_crafting:craft")
-AddEventHandler("core_crafting:craft", function(item, retrying)
-    local src = source
-    craft(src, item, retrying)
+function giveCraftingLevel(citizenid, level)
+   exports.oxmysql:execute('UPDATE players SET crafting_level = crafting_level + "'..level..'" WHERE citizenid = "'..citizenid..'"', function() end)
+end
+
+RegisterServerEvent("core_crafting:setExperiance")
+AddEventHandler("core_crafting:setExperiance", function(citizenid, xp)
+        setCraftingLevel(citizenid, xp)
 end)
 
-RegisterServerEvent("core_crafting:itemCrafted")
-AddEventHandler("core_crafting:itemCrafted", function(item, count)
-    local src = source
+RegisterServerEvent("core_crafting:giveExperiance")
+AddEventHandler("core_crafting:giveExperiance", function(citizenid, xp)
+        giveCraftingLevel(citizenid, xp)
+end)
+
+function craft(src, item, retrying)
     local Player = DenaliFW.Functions.GetPlayer(src)
+    local cancraft = true
 
-    if Config.Recipes[item].SuccessRate > math.random(0, Config.Recipes[item].SuccessRate) then
-        if Config.Recipes[item].isGun then
-            Player.Functions.AddItem(item, 1)
-            TriggerClientEvent('turbo-inventory:client:ItemBox', src, DenaliFW.Shared.Items[item], "add")
-        else
-            Player.Functions.AddItem(item, count)
-            TriggerClientEvent('turbo-inventory:client:ItemBox', src, DenaliFW.Shared.Items[item], "add")
+    local count = Config.Recipes[item].amount
+
+    if not retrying then
+        for k, v in pairs(Config.Recipes[item].Ingredients) do
+		
+            if Player.Functions.GetItemByName(k) == nil or Player.Functions.GetItemByName(k).amount < v then
+				cancraft = false
+			end
+			
         end
-        TriggerClientEvent('DenaliFW:Notify', src, 'Успешно сглобяване', 'success')
-        Player.Functions.SetMetaData("craftingrep", Player.PlayerData.metadata["craftingrep"]+(Config.ExperiancePerCraft))
-    else
-        TriggerClientEvent('DenaliFW:Notify', src, 'Провали сглобяването!', 'error')
-    end
-end)
-
--- Main Function
-
-function craft(src, item)
-    local xPlayer = DenaliFW.Functions.GetPlayer(src)
-    local cancraft = false
-    local total = 0
-    local count = 0
-    local reward = Config.Recipes[item].count
-    
-    for k, v in pairs(Config.Recipes[item].Ingredients) do
-        total = total + 1
-        local mat = xPlayer.Functions.GetItemByName(k)
-        if mat ~= nil and mat.amount >= v then
-            count = count + 1
-        end
-    end
-    if total == count then
-        cancraft = true
-    else
-        TriggerClientEvent('DenaliFW:Notify', src, 'Нямаш достатъчно материали', "error")
     end
 
     if cancraft then
-        for k, v in pairs(Config.Recipes[item].Ingredients) do
-            if not Config.PermanentItems[k] then
-                print(k)
-                xPlayer.Functions.RemoveItem(k, v)
-                TriggerClientEvent('turbo-inventory:client:ItemBox', src, DenaliFW.Shared.Items[k], "remove")
-            end
-        end
-        TriggerClientEvent("core_crafting:craftStart", src, item, reward)
-    end
+		for k, v in pairs(Config.Recipes[item].Ingredients) do
+			Player.Functions.RemoveItem(k, v)
+		end
+
+		TriggerClientEvent("core_crafting:craftStart", src, item, count)
+	else
+		TriggerClientEvent("core_crafting:sendMessage", src, Config.Text["not_enough_ingredients"])
+	end
 end
+
+RegisterServerEvent("core_crafting:itemCrafted")
+AddEventHandler("core_crafting:itemCrafted", function(item, count)
+        local src = source
+        local Player = DenaliFW.Functions.GetPlayer(src)
+		local citizenid = Player.PlayerData.citizenid
+
+        if Config.Recipes[item].SuccessRate > math.random(0, Config.Recipes[item].SuccessRate) then
+					Player.Functions.AddItem(item, count)
+					Citizen.Wait(500)
+                    TriggerClientEvent("core_crafting:sendMessage", src, Config.Text["item_crafted"])
+                    giveCraftingLevel(citizenid, Config.ExperiancePerCraft)
+        else
+            TriggerClientEvent("core_crafting:sendMessage", src, Config.Text["crafting_failed"])
+        end
+end)
+
+RegisterServerEvent("core_crafting:craft")
+AddEventHandler("core_crafting:craft", function(item, retrying)
+        local src = source
+        craft(src, item, retrying)
+end)
+
+DenaliFW.Functions.CreateCallback("core_crafting:getXP",function(source, cb)
+        local Player = DenaliFW.Functions.GetPlayer(source)
+		local identifier = Player.PlayerData.citizenid
+		
+		exports.oxmysql:fetch('SELECT crafting_level FROM players WHERE citizenid = @citizenid', {['@citizenid'] = identifier}, function(result)
+			json.decode(result[1].charinfo)
+			
+			if result[1] ~= nil then
+				cb(json.decode(result[1].crafting_level))
+			else
+				cb(nil)
+		end
+	end)
+end)
+
+--[[DenaliFW.Functions.CreateCallback("core_crafting:getItemNames", function(source, cb)
+        local names = {}
+
+        exports.oxmysql:fetch(
+            "SELECT * FROM items WHERE 1",
+            {},
+            function(info)
+                for _, v in ipairs(info) do
+                    --names[v.name] = v.label
+					names[v.name] = DenaliFW.Shared.Items[v.name:lower()]
+                end
+
+                cb(names)
+            end
+        )
+end)]]

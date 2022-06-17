@@ -1,12 +1,12 @@
 local blips = {
     -- chimical
     --{title="LSC", colour=38, id=488, x=-305.4, y=-120.66, z=39.01},
-    --{title="Bennys", colour=38, id=488, x=-205.98, y=-1333.9, z=34.89},
+    {title="Bennys", colour=38, id=488, x=-205.98, y=-1333.9, z=34.89},
     --{title="Route-68", colour=38, id=488, x=1187.85, y=2645.35, z=37.36},
     {title="House robbery", colour=38, id=488, x=1510.11, y=6326.3, z=24.61},
     {title="City Hall", colour=0, id=419, x=-534.33, y=-222.14, z=37.65},
     {title="Court House", colour=0, id=419, x=237.24, y=-406.66, z=47.92},
-    {title="Split-Sides Comedy Club", colour=38, id=362, x=-447.07, y=267.64, z= 83.02},
+    --{title="Split-Sides Comedy Club", colour=38, id=362, x=-447.07, y=267.64, z= 83.02},
     {title="Weed Mission", colour=25, id=496, x=114.11, y=-1961.07, z= 21.33},
     --{title="AutoCare", colour=5, id=431, x = 500.03, y = -522.89, z = 24.88},
     --Oxy Runs 563.76,2753.27
@@ -22,12 +22,12 @@ local blips = {
     --{title="Hydrochloric Acid Depot", id=361, x = 1373.8, y = 3624.767, z = 34.885, colour = 7},
     --{title="Court House", id=58, x = -544.9, y = -204.83, z = 38.12, colour = 5},
     --{title="Fire Department", id=635, x = -645.79, y = -110.84, z = 37.9, colour = 1},
-    --{title="Fishing Spot", id=317, x = -2991.0, y = 2600.0, z = 0.0, colour = 3},
+    {title="Fishing Spot", id=317, x = -2991.0, y = 2600.0, z = 0.0, colour = 3},
     --{title="Forklift Job", id=478, x = 147.83, y = -3100.76, z = 5.9, colour = 28},
    -- {title="Forklift Job", id=478, x = 151.64, y = -3211.649, z = 5.9, colour = 28},
     {title="Pet Shop", id=267, x = 563.63, y = 2752.71, z = 43.87, colour = 38},
 
-   vector3(563.63, 2752.71, 43.87)
+   --vector3(563.63, 2752.71, 43.87)
 }
 
 Citizen.CreateThread(function()

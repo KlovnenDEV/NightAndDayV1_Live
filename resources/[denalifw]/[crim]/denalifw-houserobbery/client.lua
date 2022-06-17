@@ -258,7 +258,6 @@ Citizen.CreateThread(function()
       if not isAgro then
        agroNPC()
       -- TriggerServerEvent('houserob', exports['cd_dispatch']:GetPlayerInfo())
-      exports['denalifw-dispatch']:HouseRobbery()
 
       end
      end

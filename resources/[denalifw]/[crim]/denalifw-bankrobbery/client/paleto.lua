@@ -117,7 +117,6 @@ RegisterNetEvent('denalifw-bankrobbery:UseBankcardA', function()
                                     streetLabel = streetLabel .. " " .. street2
                                 end
                                 if Config.BigBanks["paleto"]["alarm"] then
-                                    exports['denalifw-dispatch']:PaletoBankRobbery()
                                     TriggerServerEvent("denalifw-bankrobbery:server:callCops", "paleto", 0, streetLabel, pos)
                                     copsCalled = true
                                 end
